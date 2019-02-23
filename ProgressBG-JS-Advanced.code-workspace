@@ -1,0 +1,58 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/home/nemsys/projects/courses/ProgressBG/SSJS"
+		},
+		{
+			"path": "/home/nemsys/projects/courses/ProgressBG/JSforST"
+		},
+		{
+			"path": "/home/nemsys/projects/courses/ProgressBG/JS2"
+		}
+	],
+	"settings": {
+		"spellright.language": [],
+		"spellright.documentTypes": [
+			"markdown",
+			"latex",
+			"plaintext",
+			"python"
+		],
+		"spellright.ignoreRegExps": [
+			"/<head>.*<\\/head>/mg",
+		],
+		"editor.renderLineHighlight": "all",
+		"workbench.colorTheme": "Solarized Light",
+		"workbench.colorCustomizations": {
+			"[Solarized Light]": {
+
+			}
+		},
+		"bracket-pair-colorizer-2.colors": [
+			"#da707d",
+			"Orchid",
+			"#8e70da"
+		],
+		"bracket-pair-colorizer-2.rulerPosition": "Right",
+		"bracket-pair-colorizer-2.showBracketsInGutter": true,
+		"bracket-pair-colorizer-2.showVerticalScopeLine": true,
+		"bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+		"liveServer.settings.multiRootWorkspaceName": "ProgressBG-JS-Advanced_React",
+		"htmlhint.options": {
+			"tagname-lowercase": true,
+			"attr-lowercase": true,
+			"attr-value-double-quotes": true,
+			"doctype-first": true,
+			"tag-pair": true,
+			"spec-char-escape": false,
+			"id-unique": true,
+			"src-not-empty": true,
+			"attr-no-duplication": true,
+			"title-require": true
+		},
+		"editor.tabSize": 2,
+	}
+}
