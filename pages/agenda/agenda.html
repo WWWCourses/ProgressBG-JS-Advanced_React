@@ -31,16 +31,19 @@
 				<section id="Introduction" data-hours="0.5" data-wip>
 					<h3>Introduction & Overview</h3>
 					<ol class="sub_themes">
-						<li>About the course and on-line resources being used.</li>
+						<li>About the course</li>
+						<li>What you'll learn</li>
+						<li>Course github repos (slides and labs)</li>
 					</ol>
 				</section>
 				<section id="JS_Overview" data-hours="3.5" data-wip>
-					<h3>JavaScript Overview</h3>
+					<h3>JavaScript (and DOM) Overview</h3>
 					<ol class="sub_themes">
-						<li>Historical overview in 20 minutes (or how the history repeats itself)</li>
-						<li>JavaScript standards: ES5, ES6 and ES.Next?</li>
+						<li>Historical overview in 10 minutes (or how the history repeats itself)</li>
+						<li>JavaScript standards: ES5, ES6, ...ES2018 and ES.Next?</li>
 						<li>The difference between JavaScript and other OOP languages</li>
 						<li>JavaScript data types: "is everything an object"?</li>
+						<li>DOM - overview, elements, events</li>
 					</ol>
 				</section>
 			</article>
@@ -52,8 +55,6 @@
 						<li>Defining Functions
 							<ol>
 								<li>Function Declaration vs. Function Expression vs. Function Constructor</li>
-								<li>The Arrow function syntax</li>
-								<li>Default parameter values</li>
 							</ol>
 						</li>
 						<li>Scope</li>
@@ -66,14 +67,7 @@
 								<li>Recursion with expressions</li>
 							</ol>
 						</li>
-					</ol>
-				</section>
-				<section id="newES6syntax" data-hours="6" data-wip>
-					<h3>The Spread and Rest </h3>
-					<ol class="sub_themes">
-						<li>The spread operator</li>
-						<li>The rest parameter</li>
-						<li>De-structuring assignments</li>
+						<li>Functional-based programming with JavaScript</li>
 					</ol>
 				</section>
 				<section id="OOPinJS" data-hours="4" data-wip>
@@ -85,9 +79,10 @@
 							<ol>
 								<li>Object Literal (object initializer)</li>
 								<li>Constructor Function</li>
+								<li>The Object.create() method</li>
 							</ol>
 						</li>
-						<li>Object properties (including ES2015 syntax)</li>
+						<li>Object properties (including ES6 syntax)</li>
 					</ol>
 				</section>
 				<section id="thisContext" data-hours="4" data-wip>
@@ -100,7 +95,7 @@
 						<li>"this" in call(), apply() and bind() methods</li>
 					</ol>
 				</section>
-				<section id="prototypalInheritance" data-hours="4" data-wip>
+				<section id="prototypalInheritance" data-hours="6" data-wip>
 					<h3>OOP - Inheritance in JavaScript</h3>
 					<ol class="sub_themes">
 						<li>Classical (class-based) Inheritance vs. Prototypal Inheritance</li>
@@ -115,25 +110,24 @@
 						<li>The <em>Function</em> object</li>
 						<li>The <em>Function prototype</em> object</li>
 						<li>The <em>arguments</em> object</li>
+						<li>bind(), apply(), and call() methods</li>
 					</ol>
 				</section>
-				<section id="Promises and Asynchronous Programming" data-hours="4" data-wip>
-					<h3>Promises and Asynchronous Programming</h3>
+				<section id="newES6syntax" data-hours="8" data-wip>
+					<h3>Other ES6 Features </h3>
 					<ol class="sub_themes">
-						<li>Asynchrony in JavaScript</li>
-						<li>Callback-oriented programming?</li>
-						<li>JS Promises</li>
-						<li>Async/Await</li>
-					</ol>
-				</section>
-
-				<section id="RegEx" data-hours="8" data-wip>
-					<h3>Regular Expressions in JavaScript</h3>
-					<ol class="sub_themes">
-						<li>Regular Expressions basis</li>
-						<li>Regex Syntax</li>
-						<li>Create RegExp in JavaScript</li>
-						<li>Use RegExp in JavaScript</li>
+						<li>Template literals</li>
+						<li>New string methods</li>
+						<li>The Arrow function syntax</li>
+						<li>Default parameter values</li>
+						<li>The <code>spread</code> operator</li>
+						<li>Rest parameters</li>
+						<li>Destructuring</li>
+						<li>New object literal features</li>
+						<li>Object.assign() method</li>
+						<li>The Class Syntax</li>
+						<li>The <code>for-of</code> loop</li>
+						<li>New data structures (Maps, Sets, Typed Arrays)</li>
 					</ol>
 				</section>
 				<section id="Exceptions" data-hours="4" data-wip>
@@ -149,6 +143,27 @@
 						<li>Custom exceptions</li>
 					</ol>
 				</section>
+				<section id="Promises and Asynchronous Programming" data-hours="4" data-wip>
+					<h3>Promises and Asynchronous Programming</h3>
+					<ol class="sub_themes">
+						<li>Asynchrony in JavaScript</li>
+						<li>Callback-oriented programming?</li>
+						<li>JS Promises</li>
+						<li>Async/Await</li>
+					</ol>
+				</section>
+				<section id="RegEx" data-hours="8" data-wip>
+					<h3>Regular Expressions in JavaScript</h3>
+					<ol class="sub_themes">
+						<li>Regular Expressions basis</li>
+						<li>Regex Syntax</li>
+						<li>Create RegExp in JavaScript</li>
+						<li>Use RegExp in JavaScript</li>
+					</ol>
+				</section>
+			</article>
+
+			<article><h1>Design Patterns and Best Practices</h1>
 				<section id="javaScriptGoodPractices" data-hours="2" data-wip>
 					<h3>Concise review of JavaScript Good Practices</h3>
 					<ol class="sub_themes">
@@ -164,23 +179,16 @@
 						<li>Strict mode</li>
 					</ol>
 				</section>
-			</article>
-
-			<article><h1>JavaScript Patterns</h1>
 				<section id="CreationalPatterns" data-hours="2" data-wip>
 					<h3>Design Patterns Overview. Creational Patterns.</h3>
 					<ol class="sub_themes">
 						<li>What are design patterns?</li>
-						<li>Object Literal Pattern</li>
 						<li>the Constructor Pattern</li>
 						<li>The Factory Pattern</li>
-						<li>Object prototype</li>
-						<li>The Object.create() method</li>
-						<li>Let's got deep - what's in a object?</li>
-						<li></li>
+						<li>The Singleton Pattern</li>
+						<li>The Module Pattern</li>
 					</ol>
 				</section>
-
 				<section id="membersPatterns" data-hours="2" data-wip>
 					<h3>Member patterns</h3>
 					<ol class="sub_themes">
@@ -210,12 +218,11 @@
 					</ol>
 				</section> -->
 
-				<section id="StructuralPatterns" data-hours="8" data-wip>
+				<section id="StructuralPatterns" data-hours="6" data-wip>
 					<h3>Structural Patterns</h3>
 					<ol class="sub_themes">
 						<li>Mixins</li>
 						<li>Decorator</li>
-						<li>Facade</li>
 						<li>Iterator</li>
 						<li>Observer</li>
 					</ol>
@@ -253,13 +260,16 @@
 				</section>
 			</article>
 
-			<article><h1>Web Services and AJAX</h1>
+			<article><h1>Web Services, AJAX and SPA</h1>
 				<section id="WebServicesIntro" data-hours="2" data-wip>
-					<h3>WebServices Intro</h3>
-					<h3>XML vs JSON</h3>
-					<h3>JSON syntax and tooling</h3>
+					<h3>WebServices</h3>
+					<ol>
+						<li>Overview</li>
+						<li>XML vs JSON</li>
+						<li>JSON syntax and tooling</li>
+					</ol>
 				</section>
-				<section id="AJAX" data-hours="4" data-wip>
+				<section id="AJAX" data-hours="2" data-wip>
 					<h3>AJAX: consuming Remote Data with JavaScript</h3>
 					<ol class="sub_themes">
 						<li>XMLHttpRequest object
@@ -267,12 +277,11 @@
 								<li>A historical overview</li>
 								<li>Creating Pure JS HTTP request through XMLHttpRequest</li>
 								<li>Demo with jQuery Ajax</li>
+								<li>Demo with promises</li>
 								<li>The callback hell</li>
-								<li>The modern way - Fetch API</li>
 							</ol>
 						</li>
-
-
+						<li>The modern way - Fetch API</li>
 					</ol>
 				</section>
 				<!-- <section id="Backend_Services"><h3>Backend Services<span class="hours">4</span></h3>
@@ -297,10 +306,6 @@
 
 					</ol>
 				</section>
-
-			</article>
-
-			<article><h1>SPA and react.js</h1>
 				<section id="singlePageApplicationsAndPatterns" data-hours="2" data-wip>
 					<h3>Single-Page Applications and Patterns</h3>
 					<ol class="sub_themes">
@@ -314,6 +319,10 @@
 						<li>An overview of the "big three" for SPA: Vue, React and Angular</li>
 					</ol>
 				</section>
+			</article>
+
+			<article><h1>react.js</h1>
+
 				<section id="ReactIntro" data-hours="2" data-wip>
 				  <h3>Introduction to React</h3>
 				  <ol>
@@ -321,13 +330,8 @@
 				  	<li>Setup the environment. Tooling.</li>
 				  	<li>Write your first react app</li>
 				  	<li>Get familiar with create-react-app cli</li>
-				  </ol>
-				</section>
-				<section id="Thinking in Components" data-hours="1" data-wip>
-				  <h3>Thinking in Components</h3>
-				  <ol>
-				    <li>Design notes on the DemoApp we're going to build.</li>
-				    <li>Splitting our DemoApp on Components</li>
+				  	<li>Design notes on the DemoApp we're going to build.</li>
+				  	<li>Splitting our DemoApp on Components</li>
 				  </ol>
 				</section>
 				<section id="JSX" data-hours="1" data-wip>
@@ -337,6 +341,7 @@
 				    <li>Embed Expressions in JSX (and JSX into JSX)</li>
 				    <li>Define Attributes with JSX</li>
 				    <li>JSX transpilitaion</li>
+				    <li>Hands on DemmoApp</li>
 				  </ol>
 				</section>
 				<section id="react_elements" data-hours="2" data-wip>
@@ -346,24 +351,54 @@
 				    <li>React Elements vs DOM Elements</li>
 				    <li>React Virtual DOM</li>
 				    <li>How React updates the DOM Elements</li>
+				    <li>Hands on DemmoApp</li>
 				  </ol>
 				</section>
 				<section id="React Components and Props" data-hours="4" data-wip>
 				  <h3>React Components and Props</h3>
 				  <ol>
-				    <li>__item__</li>
+				  	<li>Function and Class Components</li>
+				  	<li>How a component is rendered?</li>
+				  	<li>Components composition</li>
+				    <li>Props and props types</li>
+				    <li>Hands on DemmoApp</li>
 				  </ol>
 				</section>
 				<section id="State and Lifecycle in a React component" data-hours="2" data-wip>
 				  <h3>State and Lifecycle in a React component</h3>
 				  <ol>
-				    <li>__item__</li>
+				    <li>State in react.js</li>
+				    <li>Components Lifecycle</li>
+				    <li>Hands on DemmoApp</li>
 				  </ol>
 				</section>
-				<section id="Events handling in React" data-hours="2" data-wip>
+				<section id="Events handling in React" data-hours="4" data-wip>
 				  <h3>Events handling in React</h3>
 				  <ol>
-				  	<li></li>
+				  	<li>DOM Events and Event Bubbling</li>
+				  	<li>The Event Loop</li>
+				  	<li>React Event Handlers</li>
+				  	<li>Async Event Handlers</li>
+				  	<li>Hands on DemmoApp</li>
+				  </ol>
+				</section>
+				<section id="lists" data-hours="2" data-wip>
+				  <h3>Lists in react</h3>
+				  <ol>
+				    <li>Arrays and lists of elements</li>
+				    <li>Basic List Component</li>
+				    <li>Keys</li>
+				    <li>Embedding map() in JSX</li>
+				    <li>Hands on DemmoApp</li>
+				  </ol>
+				</section>
+				<section id="Forms and Authentication" data-hours="2" data-wip>
+				  <h3>Forms and Authentication</h3>
+				  <ol>
+				    <li>Forms management in React</li>
+				    <li>Token-based Authentication (JWT)</li>
+				    <li>Authorization, public and private pages</li>
+				    <li>Hands on DemmoApp</li>
 				  </ol>
 				</section>
 				<section id="State Managment" data-hours="4" data-wip>
@@ -372,15 +407,28 @@
 				    <li>Manage the state outside of React</li>
 				    <li>Get familiar with Flux</li>
 				    <li>Level up with Redux</li>
+				    <li>Hands on DemmoApp</li>
+				  </ol>
+				</section>
+				<section id="projectsDiscussion" data-hours="1" data-wip>
+				  <h3>Course projects discussion</h3>
+				  <ol>
+				    <!-- <li>__item__</li> -->
+				  </ol>
+				</section>
+				<section id="optionalTopics" data-hours="0" data-wip>
+				  <h3>optionalTopics</h3>
+				  <ol>
+				    <li>react-router</li>
 				  </ol>
 				</section>
 			</article>
 
-			<!-- <article><h1>Appendix</h1>
+			<article><h1>Appendix</h1>
 				<section id="onlineFreeResources" data-hours="0" data-wip>
-					<h3><a class="title" href="pages/readings/UsefulResources.html">Online free resources</a></h3>
+					<h3>Online free resources</h3>
 				</section>
-			</article> -->
+			</article>
 		</div>
 		<div class="stats">
 			<div id="total_hours"></div>
