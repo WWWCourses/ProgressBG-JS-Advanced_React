@@ -15,7 +15,6 @@
         /*box-shadow: 4px 4px 10px rgba(0,0,0,0.8);*/
         overflow: hidden;
     }
-
     footer{
         /*position: absolute;
         left: 0; right: 0; bottom: 0;*/
@@ -37,6 +36,13 @@
         height: 10px;
     }
 
+    .syllabus .toggleButtons{
+      display: none;
+    }
+
+    ol.sub_themes{
+        list-style-type: disc;
+    }
     .iep_syllabus_title{
         display: none;
     }
