@@ -82,7 +82,7 @@ function attachEvents(){
 function setThemeURL(){
     // wrap H3 text into link, with href == section.id path
         // <h3 data-wip>__themeTitle__</h3> =>
-        // <h3><a title="slides" href="/ProgressBG-VMware-Python-Slides/pages/themes/__themeTitle__/__themeTitle__.html">__themeTitle__</a></h3>
+        // <h3><a title="slides" href="/ProgressBG-JS-Advanced_React/pages/themes/__themeTitle__/__themeTitle__.html">__themeTitle__</a></h3>
 
     for (let i = 0, len = themes.length; i < len ; i++){
         // do not set link for elements in WIP mode:
@@ -99,7 +99,7 @@ function setThemeURL(){
         // create link node:
         let aNode = document.createElement('a');
         aNode.setAttribute("title", "slides");
-        aNode.href = `/ProgressBG-VMware-Python-Slides/pages/themes/${themeTitle}/${themeTitle}.html`;
+        aNode.href = `/ProgressBG-JS-Advanced_React/pages/themes/${themeTitle}/${themeTitle}.html`;
         aNode.innerHTML = h3_content;
 
         // append it into h3 node
