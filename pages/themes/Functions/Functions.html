@@ -140,7 +140,7 @@
         <pre><code rel="JS">
             function add(x,y){
                 return x+y
-            }
+            };
         </code></pre>
         <dl class="fa">
             <dt>Semicolons are note required after function declaration!</dt>
@@ -155,13 +155,14 @@
         <dl class="fa">
             <dt>function name can be omitted in function expressions to create anonymous functions</dt>
             <dt>a function expression can be immediately invoked (as IIFE)</dt>
+            <dt>Usually (depending on context), semicolons are required after function expression as with any expression. A best (and safer) practice is to put the semicolons after function expression.</dt>
         </dl>
     </section>
     <section><h3>Function expression</h3>
         <pre><code rel="JS">
             var f = function add(x,y){
                 return x+y
-            }
+            };
 
             console.log("f(2,3):", f(2,3));     // f(2,3):5
             console.log("add(2,3):", add(2,3)); // ReferenceError: add is not defined
@@ -219,7 +220,7 @@
 <section><h2>Immediately-invoked function expressions (IIFE)</h2>
     <section>
         <h3><abbr>IIFE</abbr><dfn id="IIFE"><span>Immediately</span><span>Invoked</span><span>Function</span><span>Expression</span></dfn></h3>
-        <p>When a function will be used only once, we do not need to define it first. It's more efficient to invoke it as an anonymous function</p>
+        <p>When a function will be used only once (usually - to create a local scope), we do not need to define it first. It's more efficient to invoke it as an anonymous function</p>
     </section>
     <section>
         <pre><code rel="JS">
