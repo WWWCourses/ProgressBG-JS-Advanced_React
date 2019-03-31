@@ -64,13 +64,12 @@
 	</div>
 </section>
 
-
 <section><h2>Classical (class-based) Inheritance vs. Prototypal Inheritance</h2>
 	<section><h3>Classical  (class-based) Inheritance</h3>
 		<p class="note">Classes inherits from classes!</p>
-		<a href="images/class-basedInheritance.png"><img src="images/class-basedInheritance.png"></a>
+		<a href="images/class-basedInheritance.png"><img src="images/class-basedInheritance.png" style="height: 60vh;"></a>
 	</section>
-	<section><h3>Classical  (class-based) Inheritance</h3>
+	<section><h3>Classical (class-based) Inheritance</h3>
 		<dl class="fa">
 			<dt>The inheritance is based on copies! I.e. when a child class inherits its parents members, they are actually <span class="note">copied</span> to the child class.</dt>
 			<dt>The Cons?</dt>
@@ -87,10 +86,61 @@
 	</section>
 	<section><h3>Prototypal Inheritance</h3>
 		<dl class="fa">
-			<dt>The inheritance is based on <span class="note"> a prototype chain</span>! As a result, each child will be able to access by reference its prototype.</dt>
+			<dt>The inheritance is based on <span class="note"> a prototype chain</span>! As a result, each child will be able to <span class="note">access by reference</span> its prototype.</dt>
 			<dt>Pros?</dt>
 			<dd>Changing prototype definitions dynamically!</dd>
 		</dl>
+	</section>
+</section>
+
+<section><h2>Let's got deep - what's in a object?</h2>
+	<section><h3>at Object Literal</h3>
+		<pre><code rel="JS" class="js">
+			var car = {};
+		</code></pre>
+		<img src="images/objectCreationInternals.png">
+	</section>
+	<section style="font-size: .8em;"><h3>at  Constructor (what  does it do?)</h3>
+		<pre><code rel="JS" class="js">
+			var Car = function(){};
+			var ford = new Car();
+			var BMV = new Car();
+		</code></pre>
+		<a href="images/whatNewDo.png"><img src="images/whatNewDo.png" style="height: 55vh;"></a>
+	</section>
+	<section style="font-size: .8em"><h3>at  Factory</h3>
+		<pre><code rel="JS" class="js">
+			var carFactory = function(){ return {} }
+			var ford = carFactory();
+			var BMV = carFactory();
+		</code></pre>
+		<a href="images/whatFactoryDo.png"><img src="images/whatFactoryDo.png" style="height: 55vh;"></a>
+	</section>
+	<section><h3>Factory vs Constructor</h3>
+		<pre><code rel="JS" class="js">
+			function CarConstructor(){};
+
+			CarConstructor.prototype.sayHello=function(){
+				console.log(`Hello from CarConstructor.prototype`);
+			}
+			// creating objects with Constructor will set the "__proto__" to the Constructor.prototype
+			var constructedCar = new CarConstructor();
+
+			constructedCar.sayHello();
+			//Hello from CarConstructor.prototype
+
+			function CarFactory(){
+				return {}
+			};
+			CarFactory.prototype.sayHello=function(){
+				console.log(`Hello from CarFactory.prototype`);
+			}
+			// creating objects with factory will NOT set the "__proto__" to the Factory.prototype
+			var fabricatedCar = CarFactory();
+
+			fabricatedCar.sayHello();
+			//TypeError: fabricatedCar.sayHello is not a function
+		</code></pre>
 	</section>
 </section>
 
@@ -147,7 +197,7 @@
 		<dt>This is known as the <span class="note">prototype chain!</span></dt>
 	</dl>
 	</section>
-	<section><h3>Prototypal Inheritance of Object Literals using '__proto__'  - example</h3>
+	<section style="font-size: .6em;"><h3>Prototypal Inheritance of Object Literals using '__proto__'  - example</h3>
 		<pre style="width: 100%"><code rel="JS" class="js">
 			// create 'car' object
 			var car = {
@@ -181,6 +231,8 @@
 			ford.drive();
 			theFordOfPesho.drive();
 		</code></pre>
+	</section>
+	<section><h3 style="font-size: .8em;">Prototypal Inheritance of Object Literals using '__proto__' - notes</h3>
 		<dl class="fa">
 			<dt>Be careful when using <code>__proto__</code></dt>
 			<dd><a class="advanced" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Prototype_mutation">Prototype_mutation on MDN</a></dd>
@@ -189,9 +241,8 @@
 	</section>
 	<section><h3>Prototypal Inheritance of Object Literals using '__proto__'  - diagram</h3>
 		<a href="images/prototypalInheritanceOfObjectLiteralsUsingDunderProto.png"><img src="images/prototypalInheritanceOfObjectLiteralsUsingDunderProto.png"></a>
-
 	</section>
-	<section><h3>Prototypal Inheritance of Object Literals using Object.create() - example</h3>
+	<section style="font-size: .8em;"><h3>Prototypal Inheritance of Object Literals using Object.create() - example</h3>
 		<pre><code rel="JS" class="js">
 			// create 'car' object
 			var car = {
@@ -221,11 +272,11 @@
 			theFordOfPesho.drive();
 		</code></pre>
 	</section>
-	<section><h3>Prototypal Inheritance of Object Literals using Object.create() - diagram</h3>
-		<a href="images/prototypalInheritanceOfObjectLiteralsUsingObjectCreate.png"><img src="images/prototypalInheritanceOfObjectLiteralsUsingObjectCreate.png"></a>
+	<section style="font-size: .7em;"><h3>Prototypal Inheritance of Object Literals using Object.create() - diagram</h3>
+		<a href="images/prototypalInheritanceOfObjectLiteralsUsingObjectCreate.png"><img src="images/prototypalInheritanceOfObjectLiteralsUsingObjectCreate.png" style="height: 55vh;"></a>
 		<dl class="fa">
 			<dt>Yes, the diagram is identical with the one with '<code>__proto__</code>'</dt>
-			<dt>It's better and safe to use <code>Object.create() </code> aproach, instead of '<code>__proto__</code>'</dt>
+			<dt class="note">It's better and safe to use <code>Object.create() </code> aproach, instead of '<code>__proto__</code>'</dt>
 		</dl>
 	</section>
 	<section><h3>Prototypal Inheritance of constructed objects</h3>
@@ -263,6 +314,13 @@
 		<dt>Live Demo</dt>
 		<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Classes @MDN</a></dt>
 	</dl>
+</section>
+
+<section data-min="5"><h1>Reference</h1></section>
+<section><h2>Reference</h2>
+	<section><h3><a href="https://hackernoon.com/understand-nodejs-javascript-object-inheritance-proto-prototype-class-9bd951700b29">More on __proto__, [[prototype]] and prototype</a></h3>
+		<a href="https://hackernoon.com/understand-nodejs-javascript-object-inheritance-proto-prototype-class-9bd951700b29"><img src="images/theChickenOrTheEgg.jpeg" style="height: 50vh;"></a>
+	</section>
 </section>
 
 <!-- <section data-notes="20min"><h2>SectionTitle</h2>
