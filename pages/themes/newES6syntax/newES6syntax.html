@@ -101,53 +101,63 @@
 
 <section><h2>The arrow function syntax </h2>
     <section><h3>arrow functions???</h3>
-        <dl class="fa">
-            <dt>ES6 introduces a new function declaration syntax called <span class="note">arrow notation</span></dt>
-            <dt>Synonyms:</dt>
-            <dd>Arrow functions</dd>
-            <dd>Fat arrow functions</dd>
-            <dt>It is essentially syntactic sugar that reduces the number of times you have to type the word function , as well as the number of curly braces you have to type</dt>
+        <dl class="fa" style="font-size: .8em;">
+            <dt>ES6 introduces a <span class="note">new function declaration syntax</span> called <span class="note">arrow notation</span>.</dt>
+            <dt>Also known in JavaScript as <span class="note">Arrow functions</span> or <span class="note">Fat arrow functions</span></dt>
+            <dt>In other languages (Python, Java, C#,...) they are know as <span class="note">lambda functions</span></dt>
+            <dd>The term originated from Lisp language</dd>
+            <dt>It is essentially syntactic sugar that reduces the number of times you have to type the word function , as well as the number of braces you have to type</dt>
         </dl>
     </section>
     <section><h3>Function expression vs arrow syntax:</h3>
         <pre><code rel="JS">
             const pi = 3.14;
 
-            // function expression:
+            // function expression syntax:
             let circleAreaExp = function(r){
                 return r*r*pi;
             }
 
-            // arrow function:
-            let circleAreaArr = r=>r*r*pi;
+            // arrow function syntax:
+            let circleAreaArrow = r=>r*r*pi;
         </code></pre>
     </section>
-    <section><h3>syntax - examples</h3>
+    <section><h3>Basic Syntax</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>Arrow function syntax <span class="note">always creates an anonymous function</span>.</dt>
+            <dd>And this is usually it main use-case.</dd>
+            <dd>In order to simplify the examples, we'll assign the arrow function to a variable.</dd>
+        </dl>
         <pre><code rel="Basic Syntax">
             (param1, param2, …, paramN) => { statements }
         </code></pre>
-        <pre><code rel="JS">
+        <pre><code rel="JS - example" class="javascript">
+            const pi = 3.14;
+
             let circleArea = (r)=>{return r*r*pi};
 
             console.log(`circleArea(2) = ${circleArea(2)}`);
         </code></pre>
     </section>
-    <section><h3>syntax - examples</h3>
+    <section><h3>"single parameter" syntax</h3>
         <dl class="fa">
-            <dt>If the function takes a single argument, you can omit the parentheses</dt>
+            <dt>If the function takes <span class="note">a single parameter</span>, you can omit the parameter's parentheses:</dt>
+            <dd>But note that braces are <span class="note">required</span> for multiple parameters.</dd>
         </dl>
         <pre><code rel="Basic Syntax">
             singleParam => { statements }
         </code></pre>
-        <pre><code rel="JS">
+        <pre><code rel="JS - examples" class="javascript">
+            const pi = 3.14;
+
             let circleArea = r=>{return r*r*pi};
 
             console.log(`circleArea(2) = ${circleArea(2)}`);
         </code></pre>
     </section>
-    <section><h3>syntax - examples</h3>
+    <section><h3>"single expression" syntax</h3>
         <dl class="fa">
-            <dt>If the function body is a single expression, you can omit curly braces and the return statement</dt>
+            <dt>If the function body is a <span class="note">single expression</span>, you can <span class="note">omit curly braces and the return statement</span></dt>
         </dl>
         <pre><code rel="Basic Syntax">
             (param1, param2, …, paramN) => expression
@@ -156,6 +166,23 @@
             let circleArea = r=>r*r*pi;
 
             console.log(`circleArea(2) = ${circleArea(2)}`);
+        </code></pre>
+    </section>
+    <section><h3>"single expression" syntax notes</h3>
+        <dl class="fa" style="font-size: .8em;">
+            <dt>Note again, that when the curly braces are <b>not omitted</b>, then the <code>return</code> <b>is not</b> implied.</dt>
+            <dt>In other words, next to syntaxes are <span class="note">not</span> equivallent:</dt>
+            <dd><code>(param1, param2, …, paramN) => expression</code></dd>
+            <dd><code>(param1, param2, …, paramN) => {expression}</code></dd>
+        </dl>
+        <pre><code rel="JS  - example" class="js">
+            const pi = 3.14;
+
+            // no return is implied, so the return value will be 'undefined':
+            let circleArea = r=>{r*r*pi};
+
+            console.log(`circleArea(2) = ${circleArea(2)}`);
+            // undefined
         </code></pre>
     </section>
     <section><h3>lexical "this"</h3>
@@ -217,6 +244,11 @@
             <dt>Arrow function syntax is best suited for non-method functions</dt>
             <dt>Perfect for callbacks</dt>
             <dt>Arrow functions cannot be used as constructors and will throw an error when used with new</dt>
+        </dl>
+    </section>
+    <section><h3>References</h3>
+        <dl class="fa">
+            <dt><a href="https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/">ES6 In Depth: Arrow functions</a> @hacks.mozilla.org</dt>
         </dl>
     </section>
 </section>
