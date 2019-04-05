@@ -27,6 +27,10 @@
   opacity: .7;
   /*background: red;*/
 }
+.reveal>.slides>section{
+  font-size: .8em;
+}
+
 /*sub-section title*/
 .reveal>.slides>section>section>h3{
   font-size: 1.1em;
