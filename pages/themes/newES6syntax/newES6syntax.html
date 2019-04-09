@@ -460,7 +460,90 @@
     </code></pre>
   </section>
   <section><h3>Method definitions</h3>
+    <dl class="fa">
+      <dt>ES6 introduces a shorter syntax for method definitions on objects initializers:</dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      let p1 = {
+        name: 'Pesho',
+        greet(){
+          console.log(`Hi, I'm ${this.name}`);
+        }
+      }
 
+      p1.greet(); // Hi, I'm Pesho
+    </code></pre>
+  </section>
+</section>
+
+<section data-min="10"><h1>object.assign() method</h1></section>
+<section><h2>object.assign() method</h2>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>The Object.assign() method is used to <span class="note">copy the values</span> of all enumerable own properties from one or more source objects to a target object.</dt>
+      <dt>It will return the target object.</dt>
+      <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() @mdn</a></dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      let source = {a:1, b:2}
+      let target = {a:2, c:3}
+
+      let new_object = Object.assign(target, source);
+
+      console.log(target);      // { a: 1, c: 3, b: 2 }
+      console.log(new_object);  // { a: 1, c: 3, b: 2 }
+    </code></pre>
+  </section>
+  <section><h3>Shallow vs Deep copy</h3>
+    <dl class="fa">
+      <dt>Object.assign() copies property <span class="note">values</span>, and if they are reference to other objects, then the same reference will be copy.</dt>
+      <dt>Which means that with Object.assign() we make a <span class="note"><a href="https://en.wikipedia.org/wiki/Object_copying#Shallow_copy">shallow copy</a></span> of an object.</dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      let p1 = {
+        name: 'Pesho',
+        address: {
+          town: 'Sofia',
+          zip: 1504
+        }
+      }
+
+      // shallow copy the object:
+      let p2 = Object.assign({}, p1);
+      console.log(p2.address);     // { town: 'Sofia', zip: 1504 }
+
+      // now change p1
+      p1.address.town = 'Plovdiv';
+
+      // check if the change is reflected into p2
+      console.log(p2.address); // { town: 'Plovdiv', zip: 1504 } (yes, so we have a shallow copy)
+    </code></pre>
+  </section>
+  <section><h3>Deep copy</h3>
+    <dl class="fa">
+      <dt>The <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy">Deep copy</a> on an object means that fields are dereferenced rather than references to objects being copied</dt>
+      <dt>For deep copy in JavaScript we can use the JSON methods:</dt>
+      <code>target = JSON.parse(JSON.stringify(source))</code>
+    </dl>
+    <pre><code rel="JS" class="js">
+      let p1 = {
+        name: 'Pesho',
+        address: {
+          town: 'Sofia',
+          zip: 1504
+        }
+      }
+
+      // create a deep copy
+      let p2 = JSON.parse(JSON.stringify(p1));
+      console.log(p2.address); // { town: 'Sofia', zip: 1504 }
+
+      // now change p1
+      p1.address.town = 'Plovdiv';
+
+      // check if the change is reflected into p2
+      console.log(p2.address); // { town: 'Sofia', zip: 1504 } (no, so we have a deep copy)
+    </code></pre>
   </section>
 </section>
 
