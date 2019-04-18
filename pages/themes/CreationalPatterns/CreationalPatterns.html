@@ -73,9 +73,8 @@
   </section>
   <section><h3>In computer science</h3>
   	<dl class="fa">
-  		<dt>The Gang Of Four book</dt>
-  		<dd>"Design Patterns: Elements of Reusable Object-Oriented Software"</dd>
-  		<dd>Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides</dd>
+  		<dt>The Gang Of Four book:</dt>
+  		<dd><a href="https://www.oreilly.com/library/view/design-patterns-elements/0201633612/">"Design Patterns: Elements of Reusable Object-Oriented Software"</a> by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides</dd>
   	</dl>
   </section>
 </section>
@@ -188,13 +187,14 @@
 			// Balnace = 0
 		</code></pre>
 	</section>
+	<!-- moved in OOP topic
 	<section><h3>The Factory Pattern - exercise (smartLogger)</h3>
 		<dl class="fa">
 			<dt>Implement a <code>logger</code> object, whose methods <code>log()</code> and <code>dir()</code> works on top of the standard <code>console</code> methods, but log a message only if the script is running under Dev environment and outputs nothing, if the script is started on Prod environment.
 			<dt>For simplicity, lets assume that our Dev environment will be distinguished from Prod by port in the URL. For instance, if the port is 8080 we assume that we are under Dev. env. Else - we can assume we are under Prod env.</dt>
 			<dt>Tips: you can simulate a development or production environment by using the simple  <a href="https://www.npmjs.com/package/live-server">live-server</a>. Start it with two instances on different ports and test your logger on them.</dt>
 		</dl>
-	</section>
+	</section> -->
 </section>
 
 <section data-min="5"><h1>The Singleton Pattern</h1></section>
@@ -202,16 +202,17 @@
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Singleton provides protection against accidentally creating multiple copies of a complex object.</dt>
-			<dt>Allows deferral of object instantiation until the first use</dt>
-			<dt>It's main usage is for managing the global application state and namespacing.</dt>
-			<dt class="note">In short, the main idea of the Singleton is to have only one instance of a specific class</dt>
-			<dt>Perhaps the most overused pattern, though it has fallen out of favor in recent years.</dt>
+			<dt>Allows deferral of object instantiation until the first use.</dt>
+			<dt>It's main usage is for managing the global application state and name-spacing.</dt>
+			<dt class="note">In short, the main idea of the Singleton is to have only one instance of a specific class.</dt>
+			<dt>Perhaps the most overused pattern, though it has fallen out of favour in recent years.</dt>
 		</dl>
 	</section>
 	<section><h3>usage</h3>
 		<dl class="fa">
 			<dt>for namespacing, i.e. to reduces the number of global variables</dt>
 			<dt>used to organize the code in a consistent manner,</dt>
+			<dt class="note">Note that from ES6 we can use modules (import/export).</dt>
 		</dl>
 	</section>
 	<section><h3>object literal</h3>
@@ -295,7 +296,7 @@
 			<dt>The Module pattern</dt>
 			<dt>AMD modules</dt>
 			<dt>CommonJS modules</dt>
-			<dt>ECMAScript Harmony modules</dt>
+			<dt>ECMAScript6 modules</dt>
 		</dl>
 	</section>
 	<section><h3>Module as Object Literal</h3>
@@ -359,8 +360,37 @@
 			myModule.showConfig();
 		</code></pre>
 	</section>
+	<section><h3>ES6 Modules - References</h3>
+		<dl class="fa">
+			<dt><a href="http://exploringjs.com/es6/ch_modules.html">Modules - chapter from Exploring ES6 by Axel Rauschmayer</a></dt>
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import @mdn</a></dt>
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">export @mdn</a></dt>
+		</dl>
+	</section>
+	<section><h3>ES6 Modules - nodejs demo</h3>
+		<pre><code rel="moduleA.mjs" class="js">
+			function foo(){
+			  console.log(`foo from moduleA is called!`);
+			}
+
+			// exports a constant
+			export const PI = 3.14;
+
+			// named exports
+			export { foo };
+		</code></pre>
+		<pre><code rel="main.mjs" class="js">
+			import { foo, PI} from "./moduleA.mjs";
+
+			foo()
+			console.log(`PI=${PI}`);
+		</code></pre>
+		<pre><code rel="Terminal" class="js">
+			node --experimental-modules main.mjs
+		</code></pre>
+	</section>
 </section>
-<section data-notes="2h"><h2>The Builder Pattern</h2>
+<section data-notes="2h"><h2 class="advanced">The Builder Pattern</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Avoids this issue by centralizing the logic necessary to build the object</dt>
@@ -378,8 +408,6 @@
 		</dl>
 	</section>
 </section>
-
-
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
