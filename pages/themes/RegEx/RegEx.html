@@ -268,8 +268,8 @@
 	</section>
 	<section><h3>Quantifiers (greedy and non-greedy match)</h3>
 		<dl class="fa">
-		    	<dt>The quantifiers are <span class="note">greedy</span>, meaning they will match the maximum part of the string they can:</dt>
-		    	<pre><code rel="JS" class="js">
+    	<dt>The quantifiers are <span class="note">greedy</span>, meaning they will match the maximum part of the string they can:</dt>
+    	<pre><code rel="JS" class="js">
 				var matched, str = `ala bala`;
 
 				matched = str.match(/a.*a/);
@@ -634,16 +634,16 @@
 		</code></pre>
 		<dl class="fa">
 		    <dt>Argument:</dt>
-		    <dd>A RegExp object, or a string which will be converted to RegExp pbject</dd>
+		    <dd>A RegExp object, or a string which will be converted to RegExp object</dd>
 		</dl>
 	</section>
 	<section><h3>The match() String method: Return value</h3>
-		<dl class="fa">
+		<dl class="fa" style="font-size:.9em;">
 		    <dt>If no match is found, the method returns <code class="note">null</code>.</dt>
 		    <dt>Without <code>g</code> modifier, <code>match()</code> returns an Array like object with next properties</dt>
 		    <table style="font-size: .9em">
 		    	<tr><th>Property/index</th><th>Description</th></tr>
-		    	<tr><td><code class="note">[0]</code></td><td>The part of the string that mathched the Regex</td></tr>
+		    	<tr><td><code class="note">[0]</code></td><td>The part of the string that matched the Regex</td></tr>
 		    	<tr><td><code class="note">[1]..[n]</code></td><td>The captured groups matches, if any</td></tr>
 		    	<tr><td><code class="note">index</code></td><td>The string index, where the match starts. Strings indexes are 0-based!</td></tr>
 		    	<tr><td><code class="note">input</code></td><td>The original string</td></tr>
@@ -666,10 +666,22 @@
 			console.dir(resultGlobal);
 		</code></pre>
 	</section>
-	<section><h3>The replace() String method</h3></section>
-	<section><h3>The search() String method</h3></section>
-	<section><h3>The split() String method</h3></section>
-	<section><h3>by <code>RegExp</code> object methods</h3>
+	<section><h3>The replace() String method</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace @mdn</a></dt>
+		</dl>
+	</section>
+	<section><h3>The search() String method</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search">search @mdn</a></dt>
+		</dl>
+	</section>
+	<section><h3>The split() String method</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">split @mdn</a></dt>
+		</dl>
+	</section>
+	<section><h3><code>RegExp</code> object methods</h3>
 		<dl class="fa">
 			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">exec()</a></dt><dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test">test()</a></dt>
 		</dl>
