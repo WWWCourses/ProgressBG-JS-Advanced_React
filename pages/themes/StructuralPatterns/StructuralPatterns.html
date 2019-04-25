@@ -461,15 +461,15 @@
 			}
 			Subject.prototype.notifyObservers = function() {
 				for (let i = 0, len = this.observerList.length; i < len; i += 1) {
-					this.observerList[i].notify();
+					this.observerList[i].update();
 				}
 			}
 
 			// The Observer "class"
 			var Observer = function() {
 				// notification means calling a method of the subscriber object
-				this.notify = function() {
-					throw "notify() is not implemented";
+				this.update = function() {
+					throw "update() is not implemented";
 				}
 			}
 		</code></pre>
