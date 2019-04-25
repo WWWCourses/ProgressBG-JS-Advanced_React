@@ -326,7 +326,7 @@
 	</section>
 </section>
 
-<section><h2>Façade</h2>
+<!-- <section><h2>Façade</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Provides alternative (often - simplified) interface to an object</dt>
@@ -350,7 +350,7 @@
 			}
 		</code></pre>
 	</section>
-</section>
+</section> -->
 
 <section><h2>Iterator</h2>
 	<section><h3>about</h3>
@@ -435,11 +435,14 @@
 	<section>
 		<dl class="fa">
 			<dt>The Observer Pattern defines an object (called <span class="note">subject</span>), which can notify a set of observers (or listeners), when a change in its state happens.</dt>
-			<dt>Define a one-to-many relationship between objects so that when one object changes state, all its dependents are notified and updated automatically.</dt>
+			<dt>Define a one-to-many relationship between objects so that when one object changes state, all its dependants are notified and updated automatically.</dt>
 		</dl>
 	</section>
 	<section>
 		<a href="images/simpleObserverDiagram.png"><img src="images/simpleObserverDiagram.png"></a>
+	</section>
+	<section>
+		<a href="images/observer_pattern_oreily.png"><img src="images/observer_pattern_oreily.png"></a>
 	</section>
 	<section><h3> Example - Subject-Observer pattern</h3>
 		<pre><code rel="JS" class="js">
@@ -478,7 +481,7 @@
 			// create Subject
 			var subject = new Subject();
 
-			// create Observers
+			// create Observers - each implements its own notify() method
 			var a = new Observer();
 			a.notify = ()=> {console.log(data)}
 			var b = new Observer();
@@ -607,7 +610,7 @@
 
 			// The Observer "class"
 			var Observer = function() {
-					// Each observer must! implement their own version of notify:
+					// Each observer must! implement their own version of notify, here we set default:
 					this.notify = function() {
 							throw "Observer.notify() Not Implemented!";
 					}
