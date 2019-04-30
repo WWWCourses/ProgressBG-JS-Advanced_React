@@ -79,11 +79,27 @@
 <section><h2>Cookies</h2>
   <section><h3>Overview</h3>
   	<dl class="fa">
-  		<dt>An HTTP cookie is a text data stored to the user's web browser</dt>
-  		<dt>Cookies are sent with the HTTP response message from the web server</dt>
+  		<dt>An HTTP cookie is a text data stored to the user's web browser.</dt>
+  		<dt>Cookies are sent with the HTTP response message from the web server.</dt>
   		<dt>The browser can sore the cookie and send it back to the server with next request.</dt>
-  		<dt>With cookies we can emulate a stateful connection through HTTP, which is <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless</a> by design.</dt>
+  		<dt>With cookies we can emulate a stateful connection through HTTP, which is <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless protocol</a> by design.</dt>
   	</dl>
+  </section>
+  <section><h3>How cookies are transferred?</h3>
+  	<a href="images/cookie_transfer.png"><img src="images/cookie_transfer.png"></a>
+  </section>
+  <section><h3>Cookie format</h3>
+  	<dl class="fa">
+  		<dt>A Cookie is a string containing a semicolon-separated list of all cookies (i.e. key=value pairs)</dt>
+  		<dt>A Cookie can have optional attributes:</dt>
+  		<dd><span class="note">;path=path</span> − The path to the directory or web page that set the cookie (e.g., '/', '/mydir') . If not specified, defaults to the current path of the current document location.</dd>
+  		<dd><span class="note">;domain=domain</span> −  (e.g., 'example.com' or 'subdomain.example.com'). If not specified, this defaults to the host portion of the current document location.</dd>
+  		<dd><span class="note">;expires=date-in-GMTString-format</span> − The date the cookie will expire. If neither expires nor max-age specified it will expire at the end of session.</dd>
+			<dd><span class="note">;secure</span> − the cookie will only be transmitted over secure protocol as <b>https</b>.</dd>
+  	</dl>
+
+
+
   </section>
 </section>
 
