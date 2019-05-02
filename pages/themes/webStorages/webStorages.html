@@ -94,39 +94,100 @@
   		<dt>A Cookie can have optional attributes:</dt>
   		<dd><span class="note">;path=path</span> − The path to the directory or web page that set the cookie (e.g., '/', '/mydir') . If not specified, defaults to the current path of the current document location.</dd>
   		<dd><span class="note">;domain=domain</span> −  (e.g., 'example.com' or 'subdomain.example.com'). If not specified, this defaults to the host portion of the current document location.</dd>
-  		<dd><span class="note">;expires=date-in-GMTString-format</span> − The date the cookie will expire. If neither expires nor max-age specified it will expire at the end of session.</dd>
+  		<dd><span class="note">;expires=date-in-GMTString-format</span> − defines a specific date and time for when the browser should delete the cookie. If neither expires nor max-age specified it will expire at the end of session.</dd>
 			<dd><span class="note">;secure</span> − the cookie will only be transmitted over secure protocol as <b>https</b>.</dd>
+			<dt>Reference:</dt>
+			<dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie">Document​.cookie @mdn</a></dd>
+			<dd><a href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP cookie @wikipedia</a></dd>
   	</dl>
+  </section>
+  <section><h3>Setting cookies with JS</h3>
+  	<dl class="fa">
+  		<dt>All cookies are stored in a <code>document.cookie</code> string</dt>
+  	</dl>
+  	<pre><code rel="JS" class="js">
+  		function setCookie(name, value){
+  			// get datetime 1 minute after current time:
+  		  let now = new Date();
+  		  now.setMinutes( now.getMinutes() + 1 );
 
+  		  // set a cooke: <name=value>
+  		  document.cookie = `${name}=${value}; Expires=${now.toString()}; Path=/`
+  		}
+  		setCookie(color, '#FF0000');
+  	</code></pre>
+  </section>
+  <section><h3>Read a cookie value with vanilla JS</h3>
+  	<pre><code rel="JS" class="js">
+  		function readCookie(name){
+  		  // get all cookies
+  		  let cookies = document.cookie;
 
+  		  // check if we have ${name} cookie set, and get its value (note the use of lookahed):
+  		  // see regex explaind here: https://regex101.com/r/0pOjkH/4
+  		  let pattern = `${name}=(.+?)(?=;|$)`;
+  		  let re = new RegExp(pattern,'i');
 
+  		  let match = cookies.match(re);
+  		  if(match){
+  		    return match[1]; // return the 1st capture group, i.e. the cookie value
+  		  }else{
+  		    return false;
+  		  }
+  		}
+
+  		let color = readCookie('color');
+  	</code></pre>
   </section>
 </section>
 
-<section data-min="520"><h1>SessionStorage</h1></section>
-<section><h2>SessionStorage</h2>
-  <section><h3>Overview</h3>
-
+<section data-min="520"><h1>Session Storage</h1></section>
+<section><h2>Session Storage</h2>
+  <section><h3>References</h3>
+  	<dl class="fa">
+  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage @mdn</a></dt>
+  	</dl>
   </section>
 </section>
 
-<section data-min="20"><h1>LocalStorage</h1></section>
-<section><h2>LocalStorage</h2>
-  <section><h3>Overview</h3>
-
+<section data-min="20"><h1>Local Storage</h1></section>
+<section><h2>Local Storage</h2>
+  <section><h3>References</h3>
+  	<dl class="fa">
+  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage @mdn</a></dt>
+  	</dl>
   </section>
 </section>
 
 
 
-<!--
+
 <section style="font-size: .8em"><h2>Exercises</h2>
-	<section><h3>Task: __task_ttile__</h3>
+	<section><h3>Store user colour preferences</h3>
 		<dl class="fa">
-			<dt></dt>
+			<dt>Given is next hmtl code:</dt>
+		</dl>
+		<pre><code rel="HTML" class="html">
+			<div class="bgChoice">
+			  <h2>Choose background color:</h2>
+			  <select>
+			    <option value="#FF0000">red</option>
+			    <option value="#00FF00">green</option>
+			    <option value="#0000FF">blue</option>
+			  </select>
+			  <button>Set BG</button>
+			</div>
+		</code></pre>
+	</section>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>You have to store the colour selected by the user, so that next time when she enters the site, her chosen colour would be set as page background colour.</dt>
+			<dd>Implement the task with cookies</dd>
+			<dd>Implement the task with Session Storage</dd>
+			<dd>Implement the task with Local Storage</dd>
 		</dl>
 	</section>
-</section> -->
+</section>
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
