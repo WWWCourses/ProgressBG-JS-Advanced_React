@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>__cliche_title__</title>
+	<title>promisesAndAsync</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>__cliche_title__</h1></section>
+<section><h1>Promises and Async</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -55,7 +55,7 @@
 				<p>Created for</p>
 			</div>
 			<div class="company">
-				<a href="http://progressbg.net/kurs-po-web-design/">
+				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
 				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png">
 				</a>
 			</div>
@@ -74,25 +74,82 @@
 	</section>
 </section>
 
+<section data-min="5"><h1>Asynchrony in JavaScript</h1></section>
+<section><h2>Asynchrony in JavaScript</h2>
+	<section><h3>What is multitasking?</h3>
+		<a href="images/driver_multitasking.jpg" style="display: block; margin-top: -.8em;"><img src="images/driver_multitasking.jpg" style="height: 60vh;"></a>
+		<a href="images/driver_multitasking_diagram.png" style="display: block; margin-top: -.8em;"><img src="images/driver_multitasking_diagram.png" style="height: 15vh; width: 40vw;"></a>
+	</section>
+	<section><h3>Multitasking in JS</h3>
+		<dl class="fa">
+			<dt>Multitasking (concurrency) is usually achieved by <a href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a> or <a href="https://en.wikipedia.org/wiki/Multiprocessing">multiprocessing</a>.</dt>
+			<dt class="note">A JavaScript program runs on a single thread!</dt>
+			<dt>But the host environment (node.js/browsers/etc.) allows us to achieve a kind of multitasking programs using asynchronous code execution</dt>
+			<dt>More on asyncronous JavaScript, eventloop: <a href="https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff">Understanding Asynchronous JavaScript</a></dt>
+		</dl>
+	</section>
+  <section><h3>Synchronous vs. Asynchronous Overview</h3>
+  	<a href="images/sync_execution.png"><img src="images/sync_execution.png" style="width: 33%;"></a>
+  	<a href="images/async_execution.png"><img src="images/async_execution.png" style="width: 30%;"></a>
+  </section>
+  <section><h3>Synchronous vs. Asynchronous Demo</h3>
+  	<pre><code rel="JS" class="js">
+  		function syncDemo(){
+  		  console.time('syncDemo');
+  		  console.log(`1`);
+  		  console.log(`2`);
+  		  console.log(`3`);
+  		  console.timeEnd('syncDemo');
+  		}
 
-<section data-min="5"><h1>___MainSectionTitle___</h1></section>
-<section><h2>___MainSectionTitle___</h2>
-  <section><h3>___SubSectionTitle___</h3>
+  		function asyncDemo(){
+  		  //setTimeout is executed asynchronous and is not blocking the rest of the code!
+  		  console.time('asyncDemo');
+  		  setTimeout(()=>{console.log(`1`)}, 1500)
+  		  setTimeout(()=>{console.log(`2`)}, 1000)
+  		  setTimeout(()=>{console.log(`3`)}, 500)
+  		  console.timeEnd('asyncDemo');
+  		}
 
+  		console.log(`~~~~~ Sync execution ~~~~~`);
+  		syncDemo();
+
+  		console.log(`\n~~~~~ Async execution ~~~~~`);
+  		asyncDemo();
+
+  		// output:
+  		~~~~~ Sync execution ~~~~~
+  		1
+  		2
+  		3
+  		syncDemo: 0.317ms
+
+  		~~~~~ Async execution ~~~~~
+  		asyncDemo: 0.620ms
+  		3
+  		2
+  		1
+  	</code></pre>
   </section>
 </section>
 
+<section data-min="5"><h1>Promises</h1></section>
+<section><h2>Promises</h2>
+  <section><h3>Overview</h3>
+  	<dl class="fa">
+  		<dt>A Promise is an object representing the eventual completion or failure of an asynchronous operation</dt>
+  	</dl>
+  </section>
+</section>
 
-
-<!--
-<section style="font-size: .8em"><h2>Exercises</h2>
-	<section><h3>Task: __task_ttile__</h3>
-		<dl class="fa">
-			<dt></dt>
-		</dl>
-	</section>
+<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task1: __task_title__</h2>
+  <section><h3>__task_description__</h3>
+  	<dl class="fa">
+  		<dt></dt>
+  	</dl>
+  </section>
 </section> -->
-
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>
