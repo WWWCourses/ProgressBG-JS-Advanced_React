@@ -137,8 +137,43 @@
 <section><h2>Promises</h2>
   <section><h3>Overview</h3>
   	<dl class="fa">
-  		<dt>A Promise is an object representing the eventual completion or failure of an asynchronous operation</dt>
+  		<dt>A Promise is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
+      <dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
   	</dl>
+  </section>
+  <section><h3>The meaning</h3>
+    <dl class="fa">
+      <dt>NLP case: "If you keep your promise to clean the room, then we are going to eat icecream</dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      let cleanRoom = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve(`cleanRoom: resolved after 1s`);
+        }, 1000);
+      });
+
+
+      let eatIcecream = function(){
+        return new Promise(function (resolve, reject){
+          console.log(`Icecream time! `);
+          setTimeout( _=>{
+            resolve('eatIcecream: resolved after 2s')
+          },2000)
+        })
+      }
+
+      cleanRoom.then(eatIcecream)
+    </code></pre>
+  </section>
+</section>
+
+<section data-min="5"><h1>References</h1></section>
+<section><h2>References</h2>
+  <section><h3>Docs</h3>
+    <dl class="fa">
+      <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises @mdn</a></dt>
+      <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise Constructor @mdn</a></dt>
+    </dl>
   </section>
 </section>
 
