@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>React_JSX</title>
+	<title>react_components_and_props</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React_JSX</h1></section>
+<section><h1>react_components_and_props</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -75,127 +75,51 @@
 </section>
 
 
-<section data-min="5"><h1>Why JSX?</h1></section>
-<section><h2>Why JSX?</h2>
-  <section><h3>Demo</h3>
+<section data-min="5"><h1>Project folder structure</h1></section>
+<section><h2>Project folder structure</h2>
+  <section><h3></h3>
   	<dl class="fa">
-  		<dt>You can create elements either using pure JavaScript syntax or by using the JSX syntax</dt>
-  		<dt>JSX just provides syntactic sugar for the React.createElement(component, props, ...children) function.</dt>
-  		<dt>In next example both React elements are rendered to identical DOM structure:</dt>
+  		<dt>React gives you the freedom to organize your porject according to your needs.</dt>
+  		<dt>One of the most important for a React project is to have a components directory for storing your Components</dt>
+  		<dt>There can be various way to organize its content, but for now we'll keep it simple</dt>
+  		<dt>Each component will reside in: <code>src/components/component-name</code></dt>
   	</dl>
   	<pre><code rel="JS" class="js">
-  		const jsElement = React.createElement("div", {className: "App"},
-  		  React.createElement("h1", null,
-  		    React.createElement('span',null,'Hello')));
+  		src
+  		├── assets  # dependencies shared by your application (SASS mixins, images, ets.)
+  		│   └──images
+  		│      └── logo.svg
+  		├── components
+  		│   └── app  # this is the app component
+  		│       ├── app.css
+  		│       ├── app.js
+  		│       └── app.test.js
+  		├── index.css
+  		├── index.js
+  		└── service-worker.js
   	</code></pre>
-  	<pre><code rel="JSX" class="jsx">
-  		const jsxElement =
-  		  <div className="App">
-  		      <h1><span>Hello</span></h1>
-  		  </div>
-  	</code></pre>
-  	<dl class="fa">
-  		<dt>the jsxElement is transpiled by babel to the same code, as in jsElement: <a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBAVhAHgUQDYFMC26ywLwBQMMAPACYCWAbjMKgIYQR4BEAggA4csB8RxAkgAsAjDxIQO9MDwAS6VKhAkA9JOniVovsVWUqOgcSA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.5&externalPlugins=">babel repl</a></dt>
-  	</dl>
   </section>
-  <section><h3>Embedding Expressions in JSX</h3>
+</section>
+<section data-min="5"><h1>Function and Class Components</h1></section>
+<section><h2>Function and Class Components</h2>
+  <section><h3>Overview</h3>
   	<dl class="fa">
-  		<dt>You can put any <span class="note">valid JavaScript <b>expression</b></span> inside the <span class="note">curly braces in JSX</span></dt>
-  		<pre><code rel="JS" class="js">
-  			let users = ['Maria', 'Pesho'];
-
-  			function App() {
-  			  return <div>Hello {users[0]}</div>; // OK, Hello Maria wil be the div content
-  			}
-  		</code></pre>
-  		<pre><code rel="JS" class="js">
-  			return <div>{
-  			    if(1){console.log(1);  // this is statement, not expression! Error will be raised
-  			    }
-  			  }</div>
-  		</code></pre>
-  	</dl>
-  </section>
-  <section><h3>JSX expressions</h3>
-  	<dl class="fa">
-  		<dt>JSX expressions are transpiled to regular JavaScript function calls and evaluate to JavaScript objects.</dt>
-  		<dt>So any valid JSX expresion is a valid JS expresion and can be embedded in other JSX epressions</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-	  	let users = ['Maria', 'Pesho'];
-	  	const h1 = <h1>Hello {users[0]}</h1>;
-
-	  	function App() {
-	  	  return <div>{h1}</div>;
-	  	}
-	  </code></pre>
-  </section>
-  
-<section><h3>JSX Epressions</h3>
-	<dl class="fa">
-		<dt>You can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		function evenNumber(number) {
-		  return number%2 ?
-		    <strong>Odd</strong>:
-		    <strong>Even</strong>
-		}
-
-		function App() {
-		  let x = 4;
-		  return <div>{x} is {evenNumber(x)}</div>;
-		}
-	</code></pre>
-</section>
-<section><h3>Specifying Attributes with JSX</h3>
-	<dl class="fa">
-		<dt>You can use <span class="note">quotes to specify <b>string literals</b></span> as attributes:</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		const el = <p id="test" title="test">Test paragraph</p>;
-	</code></pre>
-	<dl class="fa">
-		<dt>Or you can <span class="note">intrpolate JavaScript expression inside curly braces</span> as an attribute value</dt>
-		<dt>But <span class="note">don’t put quotes around curly braces</span> when embedding a JavaScript expression in an attribute.</dt>
-	</dl>
-	<pre><code rel="JS" class="jsx">
-		let user = {
-		  'name': 'Pesho',
-		  'avatar': 'some_picture.png'
-		}
-		const el = &lt;img src={user.avatar} alt=&quot;some_picture.png&quot;/&gt; // OK
-		const el = &lt;img src=&quot;{user.avatar}&quot; alt=&quot;some_picture.png&quot;/&gt; // will not interpolate, because of quotes!
-	</code></pre>
-</section>
-<section><h3>Specifying Attributes with JSX</h3>
-	<dl class="fa">
-		<dt>React DOM uses camelCase property naming convention instead of HTML attribute names.</dt>
-		<dt>I.e. <code>tabindex</code> HTML attribute should be written as <code>tabIndex</code> in JSX</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		const el = <ul className="todoList"><li tabIndex="1">First Item</li></ul>
-	</code></pre>
-</section>
-<section><h3>Preventing Injection Attacks</h3>
-	<dl class="fa">
-		<dt>By default, React DOM escapes any values embedded in JSX before rendering them</dt>
-		<dt>Everything is converted to a pure string before being rendered</dt>
-		<dt>This helps prevent XSS (cross-site-scripting)</dt>
-		<dt>Of course, always double check, because <a href="https://medium.com/javascript-security/avoiding-xss-in-react-is-still-hard-d2b5c7ad9412">Avoiding XSS in React is Still Hard</a></dt>
-	</dl>
-</section>
-
-
-<section data-min="5"><h1>References</h1></section>
-<section><h2>References</h2>
-  <section><h3>Docs</h3>
-  	<dl class="fa">
-  		<dt><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></dt>
-  		<dt><a href="https://reactjs.org/docs/jsx-in-depth.html">JSX In Depth</a></dt>
+  		<dt>React lets you define components as classes or functions.</dt>
+  		<dt>To define a React component class, you need to extend React.Component</dt>
   	</dl>
   </section>
 </section>
+
+
+<section data-min="5"><h1>How a component is rendered?</h1></section>
+<section><h2>How a component is rendered?</h2>
+  <section><h3>___SubSectionTitle___</h3>
+
+  </section>
+</section>
+
+
+
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Task1: __task_title__</h2>
   <section><h3>__task_description__</h3>
