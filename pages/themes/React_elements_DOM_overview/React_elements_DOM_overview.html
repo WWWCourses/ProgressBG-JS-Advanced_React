@@ -98,17 +98,33 @@
   		<dd>JSX syntax</dd>
   	</dl>
   	<pre><code rel="helloWorld.js" class="js">
-  		const h1 = React.createElement("h1", null, "Hello, world!");
+  		const h1 = React.createElement("h1", {className: 'green'}, "Hello, world!");
   		ReactDOM.render(
   		    h1, document.getElementById('root')
   		);
   	</code></pre>
   	<pre><code rel="helloWorld.jsx" class="jsx">
-  		const h1 = <h1>Hello, world!</h1>
+  		const h1 = <h1 className="green">Hello, world!</h1>
   		ReactDOM.render(
   		    h1, document.getElementById('root')
   		);
   	</code></pre>
+  </section>
+  <section><h3>React Element object</h3>
+    <dl class="fa">      
+      <dt>react elements, created by React.createElement() or JSX, creates an object like:</dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      Object
+        type: 'h1',
+        key: null,
+        
+        props: {
+          className: 'green',
+          children: 'Hello, world!'
+        }
+      
+    </code></pre>
   </section>
   <section><h3>Rendering an Element into the DOM</h3>
   	<dl class="fa">
@@ -121,11 +137,15 @@
   		);
   	</code></pre>
   </section>
-  <section><h3></h3></section>
 </section>
 
 <section data-min="5"><h1>References</h1></section>
 <section><h2>References</h2>
+  <section><h3>Docs</h3>
+    <dl class="fa">
+      <dt><a href="https://reactjs.org/docs/rendering-elements.html">Rendering Elements</a></dt>
+    </dl>
+  </section>
   <section><h3>Video</h3>
     <dl class="fa">
       <dt><a href="https://www.youtube.com/watch?v=l2Tu0NqH0qU&t=399s">Let's Build a Virtual DOM from Scratch</a></dt>
