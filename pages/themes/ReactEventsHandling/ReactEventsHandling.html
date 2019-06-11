@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ReactEventsHandling</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="/ProgressBG-JS-Advanced_React/index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link" href="#"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div><span>N/Space</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Events handling in React</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section data-min="5"><h1>DOM Events</h1></section>
+<section><h2>DOM Events</h2>
+  <section><h3>Overview</h3>
+  	<dl class="fa">
+  		<dt>Two ways to handle DOM event :</dt>
+  		<dd>with HTML attributes (onclick, onscroll, etc)</dd>
+  		<dd>with <code>node.addEventListener</code></dd>
+  	</dl>
+  </section>
+  <section><h3>Example</h3>
+  	<pre><code rel="HTML" class="html">
+  		&lt;button id=&quot;btn1&quot; onclick=&quot;btnOnClickHandler(this,event)&quot;&gt;Click me&lt;/button&gt;
+  		&lt;button id=&quot;btn2&quot;&gt;Click me,too&lt;/button&gt;
+  	</code></pre>
+  	<pre style="height: 30vh;"><code rel="JS" class="js">
+  		  let btn2 = document.querySelector('#btn2');
+  		  let now = Date.now();
+
+  		  function btnOnClickHandler(node,e){
+  		    let clickedAt = new Date(now+e.timeStamp);
+  		    console.log(`${node.id} was clicked at ${clickedAt.toLocaleString()}`);
+  		  }
+
+  		  function btnClickHandler(e){
+  		    let clickedAt = new Date(now+e.timeStamp);
+  		    console.log(`${this.id} was clicked at ${clickedAt.toLocaleString()}`);
+  		  }
+
+  		  btn2.addEventListener('click', btnClickHandler);
+  	</code></pre>
+  </section>
+  <section><h3>The Event Object</h3>
+  	<dl class="fa">
+  		<dt>The event object is created when the event first happens</dt>
+  		<dt>The event listener callback function <span class="note">is passed the event object as its first argument</span>. </dt>
+  		<dt>The Event object contains a bunch of useful information about the event being fired</dt>
+  		<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event API @MDN</a></dt>
+  	</dl>
+  </section>
+  <section><h3>Some Event Object common properties</h3>
+  	<dl class="fa">
+  		<dt><span class="note">type</span> (string): contains the name of the event</dt>
+  		<dt><span class="note">target</span> (node): the DOM node where the event originated.</dt>
+  		<dt><span class="note">currentTarget</span> (node): DOM node that the event callback is currently firing on.</dt>
+  		<dt><span class="note">bubbles</span> (boolean): indicates whether this is a “bubbling” event.</dt>
+  	</dl>
+  </section>
+  <section><h3>Some Event Object common methods</h3>
+  	<dl class="fa">
+  		<dt><span class="note">preventDefault()</span> (function): prevents any default behaviour from occurring that the user agent might carry out in relation to the event (for example, preventing a click event on an &lt;a&gt; element from loading a new page).</dt>
+  		<dt><span class="note">stopPropagation()</span> (function): prevents any callbacks from being fired on any nodes further along the event chain. But it does not prevent any additional callbacks of the same event name from being fired on the current node. </dt>
+
+  	</dl>
+  </section>
+  <section><h3>Event Phases</h3>
+  	<a href="images/DOMEventsPhases.png"><img src="images/DOMEventsPhases.png"></a>
+  	<a href="examples/TimedoutEventPhases.html">Click for demo...</a>
+  </section>
+</section>
+
+<section data-min="5"><h1>Handling Events in React</h1></section>
+<section><h2>Handling Events in React</h2>
+  <section><h3>Overview</h3>
+  	<p>Handling events with React elements is similar to handling events on DOM elements, using the HTML attributes</p>
+  	<p>The main differences are:</p>
+  	<dl class="fa">
+  		<dt>React events are named <span class="note">using camelCase</span>, rather than lowercase.</dt>
+  		<dt>With JSX you <span class="note">pass a function</span> as the event handler, rather than a string.</dt>
+  		<dt>In React we do not need to call addEventListener to add listeners to a DOM element after it is created. Instead, we just provide a listener when the element is initially rendered.</dt>
+  	</dl>
+  </section>
+  <section><h3>Event handlers in function component</h3>
+  	<pre><code rel="JSX" class="jsx">
+  		export default function AddTodo(props) {
+
+  		  function clickHandler(e) {
+  		      console.log('The button was clicked');
+  		  }
+
+  		  return  (
+  		    &lt;div&gt;
+  		      &lt;input type=&quot;text&quot;/&gt;
+  		      &lt;button onClick={clickHandler}&gt;Add&lt;/button&gt;
+  		    &lt;/div&gt;
+  		  )
+  		}
+  	</code></pre>
+  </section>
+  <section style="font-size: .8em"><h3>Event handlers in class component</h3>
+  	<dl class="fa">
+  		<dt>When we define a component using an ES6 class, a common pattern is for an event handler to be a method on the class.</dt>
+  	</dl>
+  	<pre><code rel="JS" class="js">
+  		import React from 'react';
+
+  		class AddTodoCC extends React.Component{
+  		  constructor(props){
+  		    super(props);
+  		  }
+
+  		  clickHandler(e) {
+  		    console.log(`Btn was clicked`);
+  		  }
+
+  		  render(){
+  		    return(
+  		      <div>
+  		        <input type="text"/>
+  		        <button id='btn2' onClick={this.clickHandler}>Add</button>
+  		      </div>
+  		    )
+  		  }
+  		}
+
+  		export default AddTodoCC;
+  	</code></pre>
+  </section>
+  <section><h3>The problem with 'this' in DOM event handlers</h3>
+  	<pre><code rel="HTML" class="html">
+  		<button id="btn2">Greet user</button>
+  	</code></pre>
+  	<pre><code rel="JS" class="js">
+  		  let btn2 = document.querySelector('#btn2');
+
+  		  let user = {
+  		    'userName': 'Pesho',
+  		    'greet':function(){
+  		      console.log(`Hello ${this.userName}`);
+  		    }
+  		  }
+
+  		  btn2.addEventListener('click', user.greet);
+
+  		  // will log: 'Hello undefined', as this will be bind to the btn2 obj, not the user object
+  	</code></pre>
+  </section>
+  <section><h3>The solution for 'this' problem in DOM event handlers</h3>
+  	<pre><code rel="JS" class="js">
+  		  let btn2 = document.querySelector('#btn2');
+
+  		  let user = {
+  		    'userName': 'Pesho',
+  		    'greet':function(){
+  		      console.log(`Hello ${this.userName}`);
+  		    }
+  		  }
+
+  		  // This problem solution:
+  		  user.greet = user.greet.bind(user);
+
+  		  btn2.addEventListener('click', user.greet);
+  		  //will log: 'Hello Pesho'
+  	</code></pre>
+  </section>
+  <section><h3>The problem with 'this' in React event handlers</h3>
+  	<dl class="fa">
+  		<dt>We have the similar problem with 'this', when using a React class component.</dt>
+  	</dl>
+  	<pre><code rel="JS" class="js">
+  		class AddTodoCC extends React.Component{
+  		  constructor(props){
+  		    super(props);
+
+  		    this.now = Date.now();
+  		  }
+
+  		  clickHandler(e) {
+  		    // Problem - this is not bound to the AddTodoCC instances:
+  		    console.dir(this)
+  		    let clickedAt = new Date(this.now+e.timeStamp);
+  		    console.log(`${e.target.id} was clicked at ${clickedAt.toLocaleString()}`);
+  		  }
+
+  		  render(){
+  		    return(
+  		      <div>
+  		        <input type="text"/>
+  		        <button id='btn2' onClick={this.clickHandler}>Add</button>
+  		      </div>
+  		    )
+  		  }
+  		}
+  	</code></pre>
+  </section>
+  <section><h3>The solution</h3>
+  	<dl class="fa">
+  		<dt>And 'bind' can give us a solution again</dt>
+  	</dl>
+  	<pre><code rel="JS" class="js">
+  		class AddTodoCC extends React.Component{
+  		  constructor(props){
+  		    super(props);
+
+  		    this.now = Date.now();
+
+  		    // This problem solution: bind event handlers:
+  		    this.clickHandler = this.clickHandler.bind(this);
+  		  }
+  	</code></pre>
+  </section>
+</section>
+
+<section data-min="5"><h1>React's Syntetic Events</h1></section>
+<section><h2>React's Syntetic Events</h2>
+  <section><h3>Overview</h3>
+  	<dl class="fa">
+  		<dt>React passes to our event handlers instances of <a href="https://reactjs.org/docs/events.html">SyntheticEvent</a>, a cross-browser wrapper around the browser’s native event</dt>
+  		<dt>It has the same interface as the browser’s native event, including stopPropagation() and preventDefault(), except the events work identically across all browsers.</dt>
+  	</dl>
+  </section>
+  <section><h3>Supported Events</h3>
+  	<dl class="fa">
+  		<dt>React normalizes events so that they have consistent properties across different browsers</dt>
+  		<dt>Reference: <a href="https://reactjs.org/docs/events.html#supported-events">Supported Events @reactjs.org/docs</a></dt>
+  	</dl>
+  </section>
+  <section><h3>Bubbling and Capturing Events</h3>
+  	<dl class="fa">
+  		<dt>The event handlers are triggered by an event in the bubbling phase.</dt>
+  		<dt>To register an event handler for the capture phase, append Capture to the event name</dt>
+  		<dd>I.e. <code>onClick={}</code> => onClickCapture={}</dd>
+  	</dl>
+  </section>
+</section>
+
+
+
+
+
+<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task1: __task_title__</h2>
+  <section><h3>__task_description__</h3>
+  	<dl class="fa">
+  		<dt></dt>
+  	</dl>
+  </section>
+</section> -->
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customised version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="../../../lib/reveal.js/js/reveal.js"></script>
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: '100%',
+			height: '100%',
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+</body>
+</html>
