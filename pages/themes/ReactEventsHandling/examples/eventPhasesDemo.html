@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Even Phases Demo</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      height: 100%;
+      margin: 0;
+      padding: 1em;
+      list-style-type: none;
+      /*transition: background 13 00ms;*/
+    }
+    html{background: hsl(266, 60%, 30%); padding: 5%;}
+    body{background: hsl(266, 60%, 40%); padding: 5%;}
+    ul{background: hsl(266, 60%, 50%); padding: 5%;}
+    li{background: hsl(266, 60%, 60%); padding: 5%;}
+    .fakeIMG{
+      padding: 5%;
+      background: hsl(266, 60%, 70%);
+      font-size:2em;
+      text-align: center;
+    }
+
+    .bubbleStyle{
+      background: hsl(166, 60%, 70%)
+    }
+    .captureStyle{
+      background: hsl(60, 60%, 70%)
+    }
+    .targetStyle{
+      background: hsl(280, 60%, 70%)
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><div class="fakeIMG">Click somewhere here...</div></li>
+  </ul>
+
+  <script type="text/javascript">
+    // WIP: dirty fast code... TODO: one handler with params for all events
+    function clickHandlerBubbling(e){
+      pause = coef*eventCount++;
+      let target = e.currentTarget;
+
+      setTimeout(function(){
+        target.classList.add('bubbleStyle');
+        targetNode.innerHTML = `${target.tagName} click event is in BUBBLING phase `;
+      }, pause);
+
+      setTimeout(function(){
+          target.classList.remove('bubbleStyle');
+          targetNode.innerHTML = '';
+        }, pause+coef);
+    }
+    function clickHandlerCapturing(e){
+      pause = coef*eventCount++;
+      let target = e.currentTarget;
+
+      setTimeout(function(){
+        target.classList.add('captureStyle');
+        targetNode.innerHTML = `${target.tagName} click event is in CAPTURING phase `;
+      }, pause);
+
+      setTimeout(function(){
+        target.classList.remove('captureStyle');
+        targetNode.innerHTML = '';
+      }, pause+coef);
+    }
+    function clickHandlerTarget(e){
+      pause = coef*eventCount++;
+      let target = e.currentTarget;
+
+      setTimeout(function(){
+        target.classList.add('targetStyle');
+        targetNode.innerHTML = `${target.tagName} click event is in TARGET phase `;
+      }, pause);
+
+      setTimeout(function(){
+        target.classList.remove('targetStyle');
+        targetNode.innerHTML = '';
+      }, pause+coef);
+    }
+    function getParentNodes(node){
+      let parentNodes = [];
+
+      (function recurse(node){
+        let parent = node.parentElement;
+        if(parent){
+          parentNodes.push(parent);
+          recurse(parent)
+        }else{
+          return;
+        }
+      })(node);
+
+      return parentNodes;
+    }
+
+    let targetNode = document.querySelector('.fakeIMG');
+    let pause, coef = 1500; // ms
+    let eventCount = 0;
+
+    targetNode.addEventListener('click', clickHandlerTarget);
+    getParentNodes(targetNode).forEach( node => {
+      node.addEventListener('click', clickHandlerCapturing,true);
+      node.addEventListener('click', clickHandlerBubbling,false);
+    });
+  </script>
+</body>
+</html>
