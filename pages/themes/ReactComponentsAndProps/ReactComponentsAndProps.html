@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>react_components_and_props</title>
+  <title>ReactComponentsAndProps</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -83,6 +83,9 @@
       <dt>A React Component is a <span class="note">JavaScript class or function</span> that optionally accepts inputs i.e. properties(props) and returns a React Element describing what should appear on the screen.</dt>
       <dt>React lets you define components as classes or functions.</dt>
     </dl>
+  </section>
+  <section><h3>Components and UI Tree</h3>
+    <a href="images/UI_ComponentTree.png"><img src="images/UI_ComponentTree.png"></a>
   </section>
 </section>
 <section data-min="5"><h1>Project folder structure</h1></section>
@@ -228,6 +231,22 @@
         document.getElementById('root')
       );
     </code></pre>
+  </section>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>Props are way of passing data from parent to child component</dt>
+      <dt>React follows the rule that properties have to flow down from a parent component to <span class="note">an immediate child</span> component.</dt>
+      <dt>React implements only one-way data binding!</dt>
+    </dl>
+  </section>
+  <section><h3>Props propagation</h3>
+    <a href="images/propsPropagation.png"><img src="images/propsPropagation.png"></a>
+    <p style="font-size:.8em;">If we want to send props from component 1 to  component 6, <span class="note">every child component</span> in this path has to receive the property from its parent and then resend that property to its child</p>
+  </section>
+  <section><h3>Props immutability</h3>
+    <dl class="fa">
+      <dt>Props are <span class="note">immutable</span> objects, since they are passed from parent to child!</dt>
+    </dl>
   </section>
 </section>
 
