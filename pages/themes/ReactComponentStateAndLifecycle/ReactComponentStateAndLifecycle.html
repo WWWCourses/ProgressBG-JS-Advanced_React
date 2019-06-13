@@ -1,47 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>ReactComponentStateAndLifecycle</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<!-- css & themes include -->
-	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	</script>
-	<!--[if lt IE 9]>
-	<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
-	<!-- custom -->
-	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-	<base target="_blank">
+  <meta charset="utf-8">
+  <title>ReactComponentStateAndLifecycle</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <!-- css & themes include -->
+  <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- custom -->
+  <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+  <base target="_blank">
 </head>
 <body>
-	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-		<div class="top_links">
-			<a class="home_link" href="/ProgressBG-JS-Advanced_React/index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
-			<span class="help_link" href="#"><i class="fa fa-question"></i></span>
-			<div class="help_text">
-				<div><span>N/Space</span><span>Next Slide</span></div>
-				<div><span>P</span><span>Previous Slide</span></div>
-				<div><span>O</span><span>Slides Overview</span></div>
-				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
-			</div>
-		</div>
-		<div class="footer theme_switch">
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-		</div>
-		<div class="slides">
+  <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+      <a class="home_link" href="/ProgressBG-JS-Advanced_React/index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+      <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+      <div class="help_text">
+        <div><span>N/Space</span><span>Next Slide</span></div>
+        <div><span>P</span><span>Previous Slide</span></div>
+        <div><span>O</span><span>Slides Overview</span></div>
+        <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+      </div>
+    </div>
+    <div class="footer theme_switch">
+      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -49,103 +49,359 @@
 -->
 <section><h1>State and Lifecycle in a React component</h1></section>
 <section data-transition="zoom">
-	<section>
-		<div class="copyright">
-			<div class="note">
-				<p>Created for</p>
-			</div>
-			<div class="company">
-				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
-				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png">
-				</a>
-			</div>
-		</div>
-	</section>
-	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-		<div class="note">
-			<p>Created by</p>
-		</div>
-		<div class="company">
-		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova</a></div>
-		</div>
-		<!-- <div class="author">
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-		</div> -->
-	</section>
+  <section>
+    <div class="copyright">
+      <div class="note">
+        <p>Created for</p>
+      </div>
+      <div class="company">
+        <a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+        <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png">
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+    <div class="note">
+      <p>Created by</p>
+    </div>
+    <div class="company">
+       <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova</a></div>
+    </div>
+    <!-- <div class="author">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+    </div> -->
+  </section>
 </section>
 
 
 <section data-min="5"><h1>Components State</h1></section>
 <section><h2>Components State</h2>
   <section><h3>Overview</h3>
-
+    <dl class="fa">
+      <dt>So far we see, that Components can receive props from their parents and can only  render them, without changing the data.</dt>
+      <dd>Such Components are called <span class="note">Stateless Components</span>, and usually we implement them with Funciton Component.</dd>
+      <dt>But in order to implement a business logic in our App, a Componnent will need to store data which can change over time.</dt>
+      <dd>I.e. we need a <span class="note">Stateful Components</span></dd>
+      <dt>Stateful components can store data in an object, called <span class="note">state</span> and the change of that data (the state) will determines how the component will behave and render.</dt>
+    </dl>
   </section>
+  <section><h3>Stateful components</h3>
+    <dl class="fa">
+      <dt>In React we use Class Component to write a Stateful Component</dt>
+      <dt>The component <span class="note">state</span> is an instance property, accessible by <code>this.state</code> </dt>
+    </dl>
+  </section>
+  <section><h3>Demo</h3>
+    <pre><code rel="JS" class="js">
+      class TodoList extends React.Component{
+
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'todos' :  [
+              {'title': 'Todo 1', 'completed': false},
+              {'title': 'Todo 2', 'completed': true},
+            ]
+          };
+        }
+        render(){
+          return  (
+            &lt;ul&gt;
+              {this.state.todos.map( todo =&gt;
+                &lt;Todo title={todo.title} completed={todo.completed}/&gt;
+             )}
+            &lt;/ul&gt;
+          )
+        }
+      }
+    </code></pre>
+  </section>
+  <section><h3>Stateful component diagram</h3>
+    <a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
+  </section>
+  <section><h3>State vs Props</h3>
+    <dl class="fa">
+      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
+      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
+      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
+      <dt>State can be changed inside a component</dt>
+      <dt>Often, state data are passed to child components through the props.</dt>
+    </dl>
+  </section>
+   <section><h3>Changing state</h3>
+    <dl class="fa">
+      <dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
+      <dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
+      <dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
+      <dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
+    </dl>
+  </section>
+  <section><h3>Changing state demo</h3>
+    <pre><code rel="Counter.js" class="jsx">
+      export class Counter extends React.Component{
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'count': 0
+          }
+
+          this.increment = ()=&gt;{this.setState({
+            'count': this.state.count+1
+          })}
+
+          this.decrement = ()=&gt;{this.setState({
+            'count': this.state.count-1
+          })}
+        }
+
+        render(){
+          return (
+          &lt;div className=&quot;counterDemo&quot;&gt;
+            &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+            &lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
+            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+          &lt;/div&gt;
+          )
+        }
+      }
+
+
+
+    </code></pre>
+  </section>
+
+  <!--<section><h3>States vs Props</h3>
+    <table>
+      <tr>
+        <th>Conditions</th>
+        <th>State</th>
+        <th>Props</th>
+      </tr>
+      <tr>
+        <td>Parent component can change values</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Component itself can change values</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+    </table>
+  </section>-->
 </section>
 
+
+<section data-min="5"><h1>Component Lifecycle</h1></section>
+<section><h2>Component Lifecycle</h2>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>React provides various methods which notify when a certain stage in the lifecycle of a component occurs.</dt>
+      <dt>These methods are called the lifecycle methods.</dt>
+    </dl>
+  </section>
+  <section><h3>Diagram</h3>
+    <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Interactive React lifecycle methods diagram</a> by <a href="https://github.com/wojtekmaj">Wojciech Maj</a>
+  </section>
+  <section><h3>Mounting phase</h3>
+    <dl class="fa">
+      <dt>The phase where it attaches itself to the DOM is known as mounting.</dt>
+      <dt>The mounting phase has the <code>constructor</code>, <code>render</code>, and <code>componentDidMount</code> methods</dt>
+    </dl>
+  </section>
+  <section><h3>Updating phase</h3>
+    <dl class="fa">
+      <dt>The phase where the component updates because of new props or state changes is the updating phase. </dt>
+      <dt>The updating phase has just the <code>render</code> and <code>componentDidUpdate</code> methods.</dt>
+    </dl>
+  </section>
+  <section><h3>Unmounting Phase</h3>
+  	<dl class="fa">
+  		<dt>Unmounting occurs when a component is wiped out of the DOM and no longer available.</dt>
+  		<dt>This phase has the <code>componentWillUnmount()</code> method</dt>
+  	</dl>
+  </section>
+  <section><h3>Error Handling Phase</h3>
+  	<dl class="fa">
+  		<dt>We can use the <code>getDerivedStateFromError()</code> and <code>componentDidCatch()</code> methods</dt>
+  	</dl>
+  </section>
+  <section><h3>AutoCounter Demo</h3>
+    <pre><code rel="JS" class="js">
+      import React from 'react';
+
+      export class AutoCounter extends React.Component{
+        constructor(props){
+          super(props);
+
+          this.state = {'count': 0}
+
+          this.autoIncrement = ()=&gt;{
+              this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
+          }
+        }
+
+        componentDidMount() {
+          this.timer = setInterval(this.autoIncrement, 1000);
+        }
+
+        render(){
+          return (
+          &lt;div className=&quot;counterDemo&quot;&gt;
+            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+          &lt;/div&gt;
+          )
+        }
+      }
+    </code></pre>
+  </section>
+  <section><h3>constructor()</h3>
+    <dl class="fa">
+      <dt>The constructor method is called once, when the class instance is created. I.e. before the component to be mounted</dt>
+      <dt>Use constructor to initialize state and/or bind methods.</dt>
+      <dt>Constructor is the only place where you should assign this.state directly. In all other methods, you need to use this.setState() instead.</dt>
+      <dt class="note">If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.</dt>
+    </dl>
+  </section>
+  <section><h3>constructor() demo</h3>
+  	<pre><code rel="JS" class="js">
+  	    constructor(props){
+  	      super(props);
+
+  	      // the constructor is the place to init the state
+  	      this.state = {'count': 0}
+
+  	      // lexically bindig this
+  	      this.autoIncrement = ()=&gt;{
+  	          this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
+  	      }
+  	    }
+  	</code></pre>
+  </section>
+  <section><h3>render()</h3>
+  	<dl class="fa">
+  		<dt>The <code>render()</code> method is responsible for returning some data (like JSX!) to whatever parent component is responsible for instantiating the current component.</dt>
+  		<dt>It is called whenever the component did update</dt>
+  		<dt class="note">render() will not be invoked if <code>shouldComponentUpdate()</code> returns false.</dt>
+  		<dt>The render() function should be pure!</dt>
+  		<dd>If we need to interact with the browser, is better to use <code>componentDidMount()</code> or other proper lifecycle method</dd>
+  	</dl>
+  </section>
+  <section><h3>componentDidMount()</h3>
+  	<dl class="fa">
+  		<dt>componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).</dt>
+  		<dt>Initialization required by DOM nodes should go here.</dt>
+  		<dt>It's the perfect place, as well, to load data from a remote endpoint.</dt>
+  	</dl>
+  </section>
+  <section><h3>componentDidUpdate()</h3>
+  	<dl class="fa">
+  		<dt>componentDidUpdate() is invoked immediately after updating occurs.</dt>
+  		<dt>This method is not called for the initial render.</dt>
+  		<dt>Use it to perform additional tasks revolving around whether the component's props or state <span class="note">were actually updated.</span></dt>
+  		<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#componentdidupdate">componentDidUpdate()</a></dt>
+  	</dl>
+  </section>
+  <section><h3>componentDidUpdate() demo</h3>
+  	<pre><code rel="JSX" class="jsx">
+  		componentDidUpdate(prevProps, prevState) {
+  		   console.log('====================================');
+  		   console.log(`componentDidUpdate() fired`);
+  		   console.log(`prevProps: ${JSON.stringify(prevProps)}`);
+  		   console.log(`prevState: ${JSON.stringify(prevState)}`);
+  		   console.log('====================================');
+
+  		   if(prevState.count !== this.state.count){
+  		     // do something
+  		   }
+  		 }
+  	</code></pre>
+  </section>
+  <section><h3>componentWillUnmount()</h3>
+  	<dl class="fa">
+  		<dt>componentWillUnmount() is invoked immediately before a component is unmounted and destroyed</dt>
+  		<dt>This is the place to perform any necessary cleanup (usually initialisations created in componentDidMount())</dt>
+  	</dl>
+  </section>
+  <section><h3>componentWillUnmount()</h3>
+  	<pre><code rel="JS" class="js">
+  		componentWillUnmount() {
+		    console.log('====================================');
+		    console.log(`componentWillUnmount() fired`);
+		    console.log('====================================');
+
+		    clearInterval(this.timer)
+		  }
+  	</code></pre>
+  </section>
+</section>
 
 
 
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Task1: __task_title__</h2>
   <section><h3>__task_description__</h3>
-  	<dl class="fa">
-  		<dt></dt>
-  	</dl>
+    <dl class="fa">
+      <dt></dt>
+    </dl>
   </section>
 </section> -->
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customised version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+   <p>These slides are based on</p>
+   <p>customised version of </p>
+   <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+   <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-		</div>
-	</div>
-	<!-- Custom processing -->
-	<script src="../../../outfit/js/slides.js"></script>
-	<!-- external scripts -->
-	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
-	<script src="../../../lib/reveal.js/js/reveal.js"></script>
-	<!-- init reveal -->
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		var highlightjsTabSize = '  ';
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			slideNumber: 'c/t',
-			keyboard: true,
-			history: true,
-			center: true,
-			width: '100%',
-			height: '100%',
-			// slide transition
-			transition: 'concave', // none/fade/slide/convex/concave/zoom
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
-			// shift+maous click to zoom in/out element
-			zoomKey: 'ctrl',
-			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			// transition: Reveal.getQueryHash().transition || 'default'
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
-	<!-- linkedin badge -->
-	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    </div>
+  </div>
+  <!-- Custom processing -->
+  <script src="../../../outfit/js/slides.js"></script>
+  <!-- external scripts -->
+  <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+  <script src="../../../lib/reveal.js/js/reveal.js"></script>
+  <!-- init reveal -->
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    var highlightjsTabSize = '  ';
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      keyboard: true,
+      history: true,
+      center: true,
+      width: '100%',
+      height: '100%',
+      // slide transition
+      transition: 'concave', // none/fade/slide/convex/concave/zoom
+      // Factor of the display size that should remain empty around the content
+      margin: 0.1,
+      // shift+maous click to zoom in/out element
+      zoomKey: 'ctrl',
+      // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      // transition: Reveal.getQueryHash().transition || 'default'
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+        { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+        { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+  <!-- linkedin badge -->
+  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
 </html>
