@@ -341,14 +341,29 @@
 
 
 
-<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
+<section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task1: TodoApp Components</h2>
+  <section id="appInterface"><h3>App Interface</h3>
+    <p>Create the components of a TodoApp with next UI (for now, we do not care about the Styles)</p>
+    <a href="images/Selection_063.png"><img src="images/Selection_063.png"></a>
+  </section>
+  <section><h3>Functionality</h3>
     <dl class="fa">
-      <dt></dt>
+      <dt>Input form for entering new Todo item</dt>
+      <dd>Write event handler, which will at least print the Todo text in  the console</dd>
+      <dt>A list of no more than 10 Todo Items to be shown.</dt>
+      <dt>Each Todo Item row should contain:</dt>
+      <dd>Todo Title, Edit and Delete buttons</dd>
+      <dt>A Delete All button, which will delete all of the Todos </dt>
     </dl>
   </section>
-</section> -->
+  <section><h3>The Data</h3>
+    <dl class="fa">
+      <dt>Todos data to be fetched from <a href="https://jsonplaceholder.typicode.com/todos">jsonplaceholder.typicode.com/todos</a> endpoint</dt>
+      <dd>Write a function, which will fetch the data using the <a href="http://127.0.0.1:2222/ProgressBG-JS-Advanced_React/pages/themes/AJAX/AJAX.html#/4">Fetch API</a></dd>
+    </dl>
+  </section>
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
    <p>These slides are based on</p>
@@ -373,7 +388,7 @@
     // Full list of configuration options available at:
     // https://github.com/hakimel/reveal.js#configuration
     var highlightjsTabSize = '  ';
-    Reveal.initialize({
+      Reveal.initialize({
       controls: true,
       progress: true,
       slideNumber: 'c/t',
