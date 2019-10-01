@@ -31,12 +31,10 @@ function init(){
 function attachEvents(){
     // onclick to themes/sub-themes titles:
     var titleNodes = document.querySelectorAll('.themes>article>h1, .themes>article h3');
-    // console.log("titleNodes:", titleNodes);
     for (let i = 0; i < titleNodes.length; i++) {
         let titleNode = titleNodes[i];
 
         // do not add click on empty lists and remove the arrow class on that title:
-        console.log(`titleNode: ${titleNode.innerHTML}`);
         if(titleNode.nextElementSibling && titleNode.nextElementSibling.tagName === "OL" && titleNode.nextElementSibling.children.length === 0){
             titleNode.className = "";
             continue;
@@ -99,7 +97,7 @@ function setThemeURL(){
         // create link node:
         let aNode = document.createElement('a');
         aNode.setAttribute("title", "slides");
-        aNode.href = `/ProgressBG-JS-Advanced_React/pages/themes/${themeTitle}/${themeTitle}.html`;
+        aNode.href = `pages/themes/${themeTitle}/${themeTitle}.html`;
         aNode.innerHTML = h3_content;
 
         // append it into h3 node
@@ -154,7 +152,6 @@ function calcTotalHours(){
     for (var i = 0; i < hours_nodes.length; i++) {
         var theme_hours = hours_nodes[i].innerHTML*1 || 0; // cause of NaN
         total += theme_hours;
-        // console.log("total hours=", total);
     };
     out_node.innerHTML = total;
 }
@@ -186,9 +183,6 @@ function calcTotalDays(){
 }
 
 function showHideAll( clicked_node, effected_nodes ){
-    // console.log("BEFORE: effected_nodes.shown: ", effected_nodes.shown);
-    // console.log("clicked_node: ", clicked_node);
-    // console.log("effected_nodes: ", effected_nodes);
     // init static flag to show or hide all
     // showHideAll.show = (typeof showHideAll.show == 'undefined' ) ? false : showHideAll.show;
     if (effected_nodes.shown) {
@@ -200,7 +194,6 @@ function showHideAll( clicked_node, effected_nodes ){
         effected_nodes.shown = true;
         clicked_node.title = 'Show Subtopics';
     }
-    // console.log("effected_nodes.shown: ", effected_nodes.shown);
 }
 function showAllNodes ( effected_nodes){
     for (var i = 0; i < effected_nodes.length; i++) {
@@ -217,7 +210,6 @@ function hideAllNodes ( effected_nodes){
     };
 }
 function showHideNodes(effected_nodes){
-    // console.log('showHideNode - effected_nodes:'+effected_nodes);
     effected_nodes.forEach( function(effected_node){
         if ( effected_node.classList.contains("hidden") ){
             showNode(effected_node);
@@ -229,14 +221,12 @@ function showHideNodes(effected_nodes){
     });
 }
 function showNode(effected_node){
-    // console.log("showNode IN: effected_node", effected_node);
     effected_node.classList.remove("hidden");
 
     // change title of the H3 element
     effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Hide Subtopics';
     // change arrow
     var arr_node = effected_node.parentElement.getElementsByTagName("h3")[0];
-    // console.log("arr_node:", arr_node);
     changeArrow( arr_node, 'up');
 };
 function hideNode (effected_node) {
@@ -246,7 +236,6 @@ function hideNode (effected_node) {
     effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Show Subtopics';
     // change arrow
     var arr_node = effected_node.parentElement.getElementsByTagName("h3")[0];
-    // console.log("arr_node:", arr_node);
     changeArrow( arr_node, 'down');
 }
 function changeArrow ( node, direction ) {
