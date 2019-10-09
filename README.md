@@ -1,2 +1,2 @@
-# ProgressBG-JS-Advanced_React
-JavaScript-Advanced course at Progressbg Educational Centre
+# ProgressBG-JS-Advanced for React
+JavaScript-Advanced for React Course at Progressbg Educational Centre
