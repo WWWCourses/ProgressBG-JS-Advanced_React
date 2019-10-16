@@ -14,9 +14,32 @@ body{
     font-style: normal;
 }
 
-
+/* Course about */
+.course_about{
+  margin-top:2em;
+}
+.course_about>h1{
+  margin: 0 0 1em 1em;
+  text-align: center;
+  color: #999;
+}
+.course_about>p{
+  margin: .7em 3.3em .3em 3.3em;
+  line-height: 1.2em;
+  text-align: justify;
+}
+.course_about>ul{
+  margin: 0 3em 0 5em;
+  list-style-type: disc;
+}
+.course_about>ul>li{
+  margin: .8em;
+}
 
 /*SYLLABUS TITLE*/
+.syllabus{
+  margin-top: 3em;
+}
 .syllabus>h1{
 	margin: 0em 0 1em 0;
 	padding: 0;
