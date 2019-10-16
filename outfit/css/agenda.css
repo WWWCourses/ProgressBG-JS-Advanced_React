@@ -1,7 +1,9 @@
  /*fonts*/
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
-@import url(https://fonts.googleapis.com/css?family=Glass+Antiqua);
-@import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Glass+Antiqua');
+@import url('https://fonts.googleapis.com/css?family=Modern+Antiqua');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 /*other*/
 @import	url('common.css');
 
@@ -16,6 +18,7 @@ body{
 
 /* Course about */
 .course_about{
+  font-family: Roboto, sans-serif;
   margin-top:2em;
 }
 .course_about>h1{
@@ -38,6 +41,7 @@ body{
 
 /*SYLLABUS TITLE*/
 .syllabus{
+  font-family: sans-serif;
   margin-top: 3em;
 }
 .syllabus>h1{
