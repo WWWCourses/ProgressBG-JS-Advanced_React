@@ -347,10 +347,47 @@
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">TypedArray Object @mdn</a></dt>
         </dl>
     </section>
-    <section data-notes="2min"><h3>Keyed collections: Maps, Sets, WeakMaps, WeakSets</h3>
+    <section data-notes="2min"><h3>Example</h3>
         <dl class="fa">
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map Object @mdn</a></dt>
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set Object @mdn</a></dt>
+            <dt>Arrays are objects</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let arr = ['a','b','c'];
+            arr.id = 1;
+
+            console.log(`arr.id: ${arr.id}`);
+            // arr.id: 1
+        </code></pre>
+    </section>
+    <section data-notes="2min"><h3>Keyed collections: Maps</h3>
+        <dl class="fa">
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Maps</a> - the Map object holds key-value pairs and <span class="note">remembers the original insertion order</span> of the keys.</dt>           
+        </dl>
+        <pre><code rel="JS" class="js">
+            let fruits = new Map();
+            fruits.set('banana', 1);
+            fruits.set('orange', 2);
+            fruits.set('meat', 4);
+
+            console.dir(fruits);
+            // Map { 'banana' => 1, 'orange' => 2, 'meat' => 4 }
+        </code></pre>
+    </section>
+    <section><h3>Keyed collections: Sets</h3>
+        <dl class="fa">
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a> - the Set object is a collections of <span class="note">unique values</span>.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let arr = ['a','b','c', 'b','a','b','c'];
+
+            let someSet = new Set(arr);
+
+            console.dir(someSet);
+            //Set { 'a', 'b', 'c' }
+        </code></pre>
+    </section>
+    <section data-notes="2min"><h3>Keyed collections: WeakMaps, WeakSets</h3>
+        <dl class="fa">            
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">WeakMap Object @mdn</a></dt>
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet">WeaSetp Object @mdn</a></dt>
         </dl>
