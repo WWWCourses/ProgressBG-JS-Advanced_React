@@ -225,7 +225,11 @@ var examples = {
     },
 }
 
-examples.inClass_ShortDemo();
+console.log(`THIS in global scope:`);
+console.dir(this);
+
+// examples.inClass_ShortDemo();
+
 
 // for (const key in examples) {
 //     if (examples.hasOwnProperty(key)) {

@@ -75,28 +75,48 @@
 </section>
 
 
-<section><h2>the "this" in global context (non-function context)</h2>
-    <dl class="fa">
-            <dt><code class="note">this ≅ global object</code></dt>
-            <dd>in Browsers: <code class="note">Window</code></dd>
-            <dd>in Node:<code class="note">global</code></dd>
-            <dd>Note, that in nodejs, the top-level scope is not the global scope. Ref: <a href="https://nodejs.org/api/globals.html#globals_global">nodejs#globals_global</a>. Each JS file is treated as a module.</dd>
-    </dl>
+<section data-min="3"><h1>"this" in global scope (non-function scope)</h1></section>
+<section><h2>"this" in global scope (non-function scope)</h2>
+    <section>
+        <dl class="fa">
+            <!-- <dt><code class="note">this ≅ global object</code></dt> -->
+            <dt>in Browsers: <code class="note">window object</code></dt>
+            <dt>in Node:<code class="note">global object</code><br><span class="advanced">Note, that in nodejs, the top-level file scope is not the global scope, as each JS file in Node is treated as a module. Ref: <a href="https://nodejs.org/api/globals.html#globals_global">nodejs#globals_global</a>.</span></dt>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="thisInGlobalScope.js" class="js">
+            console.log(`THIS in global scope:`);
+            console.dir(this);
+        </code></pre>
+        <pre><code rel="HTML" class="html5">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                &lt;title&gt;thisInGlobalScope &lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;script src=&quot;thisInGlobalScope.js&quot;&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+    </section>
 </section>
 
-<section><h2>the "this" in <span class="note">function call</span> context</h2>
-    <dl class="fa">
-        <dt><code class="note">this</code> depends on <b>how</b> a function is invoked!</dt>
-        <dt>different ways of function invocation:</dt>
-        <dd>as a <strong>function</strong></dd>
-        <dd>as a <strong>method</strong></dd>
-        <dd>as a <strong>constructor</strong></dd>
-        <dd>with <span class="code">apply</span> or <span class="code">call</span> or <span class="code">bind</span> </dd>
-    </dl>
-</section>
-
-<section><h2>Invoke as a function</h2>
-    <section><h3>in non Strict Mode</h3>
+<section data-min="50"><h1>"this" in <span class="note">function call</span> context</h1></section>
+<section><h2>"this" in <span class="note">function call</span> context</h2>
+    <section><h3>Different ways of function invocation:</h3>
+        <dl class="fa">
+            <dt><code class="note">this</code> depends on <b>how</b> a function is invoked!</dt>
+            <dt>There is various ways to invoke a function in JS:</dt>
+            <dd>as a <strong>function</strong></dd>
+            <dd>as a <strong>method</strong></dd>
+            <dd>as a <strong>constructor</strong></dd>
+            <dd>with <span class="code">apply</span> or <span class="code">call</span> or <span class="code">bind</span> </dd>
+        </dl>
+    </section>
+    <section><h3>Invoke as a function - in non Strict Mode</h3>
         <dl class="fa">
             <dt><code class="note">this ≅ global object</code></dt>
             <dd>in Browsers: <code class="note">Window</code></dd>
@@ -111,11 +131,9 @@
             // Window
         </code></pre>
     </section>
-    <section><h3>in Strict Mode</h3>
+    <section><h3>Invoke as a function - in Strict Mode</h3>
         <dl class="fa">
             <dt><code class="note">this = undefined</code></dt>
-            <dd>in Browsers <code>global = Window</code></dd>
-            <dd>in Node <code>global = global</code></dd>
         </dl>
         <pre><code rel="JS">
             "use strict";
@@ -128,10 +146,7 @@
         </code></pre>
         <p>more on Strict Mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">MDN JavaScript Reference</a></p>
     </section>
-</section>
-
-<section><h2>Invoke as a method</h2>
-   <section>
+    <section><h3>Invoke as a method</h3>
         <p><code class="note">this = the object </code> the method is called on</p>
         <pre><code rel="JS">
             var obj = {
@@ -144,42 +159,63 @@
             // this = [object Object]
         </code></pre>
    </section>
+   <section><h3>Invoke as a constructor</h3>
+       <p><code class="note"><code>this</code> = the object being constructed</code></p>
+       <pre><code rel="JS">
+           function Constructor(id){
+               this.id = id;
+               console.log(`this = ${this}`);
+           };
+
+           var obj1 = new Constructor(1);
+
+           // this = [object Object]
+       </code></pre>
+   </section>
+   <section><h3>example</h3>
+       <p>in method call <code>this</code> will be bound to the object, as well</p>
+       <pre><code rel="JS">
+        function Constructor(id){
+               this.id = id;
+               console.log(`this in constructor: ${this}`);
+
+               this.showID = function(){
+                   console.log(`ID: ${id}`);
+                   console.log(`this in a method: ${this}`);
+               }
+           };
+
+           var obj1 = new Constructor(1);
+           obj1.showID();
+       </code></pre>
+   </section>
+   <section><h3 class="advanced">Invoke as static method</h3>
+       <dl class="fa">
+           <dt>In static (class) methods, <span class="note">this</span> refers to the class itself. Not to the object being created.</dt>
+           <dt>Note, that you can not invoke a static method from an object.</dt>
+           <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">Classes/static @mdn</a></dt>
+       </dl>
+   </section>
+   <section><h3>Example</h3>
+       <pre><code rel="JS">
+           class A{
+               method1(){
+                   console.log(`This in method: ${this}`);
+               }
+               static staticMethod(){
+                   console.log(`This in static method: ${this}`);
+               }
+           }
+
+           let obj = new A();
+
+           obj.method1()
+           A.staticMethod()
+       </code></pre>
+   </section>
 </section>
 
-<section><h2>Invoke as a constructor</h2>
-   <section>
-        <p><code class="note">this = the object being constructed</code></p>
-        <pre><code rel="JS">
-            function Constructor(id){
-                this.id = id;
-                console.log(`this = ${this}`);
-                // this = [object Object]
-            };
-
-            var obj1 = new Constructor(1);
-        </code></pre>
-   </section>
-   <section>
-        <p>in method call this will be bound to the object, as well</p>
-        <pre><code rel="JS">
-            function Constructor(id){
-                this.id = id;
-                console.log(`this = ${this}`);
-                // this = [object Object]
-
-                this.sayHello = function(){
-                    console.log(`Oh, hello dear. I'm obj ${id}`);
-                    console.log(`this = ${this}`);
-                    // this = [object Object]
-                }
-            };
-
-            var obj1 = new Constructor(1);
-            obj1.sayHello();
-        </code></pre>
-   </section>
-</section>
-
+<section data-min="50"><h1>the "this" Pitfall and "that" Solution</h1></section>
 <section><h2>the "this" Pitfall and "that" Solution</h2>
     <section><h3>the problem</h3>
         <iframe height='265' title='the This Pitfall' src='//codepen.io/ProgressWWWCourses/embed/OmxEGw/?height=265&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/OmxEGw/'>the This Pitfall</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
@@ -191,101 +227,70 @@
     </section>
 </section>
 
-<section><h2>Invoke with apply()</h2>
-   <section>
+
+<section data-min="50"><h1>Invoke with <code>apply()</code>, <code>call()</code> and <code>bind()</code></h1></section>
+<section><h2>Invoke with <code>apply()</code>, <code>call()</code> and <code>bind()</code></h2>
+   <section><h3>Invoke with apply()</h3>
         <pre><code rel="Syntax">
             func.apply(thisArg, [argsArray])
         </code></pre>
         <dl class="fa">
-            <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument</dt>
+            <dt><dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument.The other arguments are passed <span class="note">as an array</span> to the function being called.</dt></dt>
         </dl>
         <pre><code rel="JS">
-            const maria = {name: "Maria", age:18};
             function update(name, age){
                 this.name = name;
                 this.age = age;
             }
 
+            let maria = {name: "Maria", age:18};
             console.log("maria before", maria);
-            update.call(maria, "Maria Ivanova", 23);
+
+            update.apply(maria, ["Maria Ivanova", 23]);
             console.log("maria after", maria);
         </code></pre>
    </section>
-</section>
-
-<section><h2>Invoke with call()</h2>
-    <section>
-        <pre><code rel="Syntax">
-            func.call(thisArg, arg1, arg2, ...)
-        </code></pre>
-        <dl class="fa">
-            <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument</dt>
-        </dl>
-        <pre><code rel="JS">
-            const maria = {name: "Maria", age:18};
+   <section><h3>Invoke with call()</h3>
+       <pre><code rel="Syntax">
+           func.call(thisArg, arg1, arg2, ...)
+       </code></pre>
+       <dl class="fa">
+           <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument.The other arguments are passed <span class="note">as list</span> to the function being called.</dt>
+       </dl>
+       <pre><code rel="JS">
             function update(name, age){
-                this.name = name;
-                this.age = age;
+               this.name = name;
+               this.age = age;
             }
 
-            mariaNewRecord = ["Maria Ivanova", 23];
-
+            let maria = {name: "Maria", age:18};
             console.log("maria before", maria);
-            update.apply(maria, mariaNewRecord );
+
+            update.call(maria, "Maria Ivanova", 23);
             console.log("maria after", maria);
-        </code></pre>
-    </section>
-</section>
+       </code></pre>
+   </section>
+   <section><h3>Invoke through bind()</h3>
+       <pre><code rel="Syntax">
+           func.bind(thisArg[, arg1[, arg2[, ...]]])
+       </code></pre>
+       <dl class="fa">
+           <dt>The bind() method creates a new function that, when called, has its <code>this</code> keyword set to the provided value (thisArg), with a given list of arguments preceding any provided when the new function is called</dt>
+       </dl>
+       <pre><code rel="JS">
+           const maria = {name: "Maria", age:18};
+           function update(name, age){
+               this.name = name;
+               this.age = age;
+           }
 
-<section><h2>Invoke through bind()</h2>
-    <section>
-        <pre><code rel="Syntax">
-            func.bind(thisArg[, arg1[, arg2[, ...]]])
-        </code></pre>
-        <dl class="fa">
-            <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument</dt>
-        </dl>
-        <pre><code rel="JS">
-            const maria = {name: "Maria", age:18};
-            function update(name, age){
-                this.name = name;
-                this.age = age;
-            }
+           console.log("maria before", maria);
+           var updateMaria = update.bind(maria,"Maria Ivanova", 23);
 
-            console.log("maria before", maria);
-            var updateMaria = update.bind(maria,"Maria Ivanova", 23);
-
-            updateMaria();
-            console.log("maria after", maria);
-        </code></pre>
-    </section>
-</section>
-
-<section><h2>In static (class) methods</h2>
-    <section>
-        <dl class="fa">
-            <dt>In static methods, <span class="note">this</span> refers to the class itself. Not to the object being created.</dt>
-            <dt>Note, that you can not invoke a static method from an object.</dt>
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">Classes/static @mdn</a></dt>
-        </dl>
-    </section>
-    <section><h3>Example</h3>
-        <pre><code rel="JS">
-            class A{
-                method1(){
-                    console.log(`This in method: ${this}`);
-                }
-                static staticMethod(){
-                    console.log(`This in static method: ${this}`);
-                }
-            }
-
-            let obj = new A();
-
-            obj.method1()
-            A.staticMethod()
-        </code></pre>
-    </section>
+           updateMaria();
+           console.log("maria after", maria);
+       </code></pre>
+   </section>
 </section>
 
 
