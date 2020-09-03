@@ -71,9 +71,9 @@
 				console.dir(searchRe);
 				// console.log(`inputStream: ${inputStream}`);
 				// console.log(`searchTerm: ${searchTerm}`);
-				inputStream.replace(searchRe,'<b>$1</b>');
-				searchInText.content(inputStream);
-				console.log(`inputStream new: ${inputStream}`);
+				let newInputStream = inputStream.replace(searchRe,'<b>$1</b>');
+				searchInText.content(newInputStream);
+				console.log(`inputStream new: ${newInputStream}`);
 			}
 		}
 	</script>

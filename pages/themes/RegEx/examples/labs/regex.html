@@ -135,9 +135,29 @@
 			// str.match(re).forEach(x=>console.log(x));
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
+		'replaceDemo': function(){
+		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+			let str = `
+				line 1
+				line 2.
+				line 3!
+				line 4,
+				line 5 .
+				line 6
+			`
+			let re1 = /^(.+[^.!,?])$/mg;
+			let re2 = /^(.+)\s+([.!,?])$/gm
+
+
+			let newStr = str.replace(re1,"$1.").replace(re2,"$1$2");
+			console.log(newStr);
+
+			// str.match(re).forEach(x=>console.log(x));
+		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+		}
 	}
 
-	examples.matchStrings();
+	examples.replaceDemo();
 </script>
 </body>
 </html>
