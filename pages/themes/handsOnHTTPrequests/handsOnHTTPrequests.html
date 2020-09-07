@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>handsOnHTTPrequests</title>
+	<link rel="shortcut icon" href="../../../favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#handsOnHTTPrequests" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link" href="#"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div><span>N/Space</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="80"><h1>Hands on HTTP Requests with fake JSON REST server</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="http://progressbg.net/kurs-po-web-design/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+	</section>
+</section>
+
+
+<section data-min="20"><h1>Setup json-server and DB</h1></section>
+<section><h2>Setup json-server and DB</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>For our TodoApp demo project, we can use the <a href="https://www.npmjs.com/package/json-server">json-server</a>, as it is freely  available on NPM and ready to use.</dt>
+			<dt>Please note, that this server is useful only for learning purposes and you must not use it for any production code.</dt>
+		</dl>
+	</section>
+	<section><h3>Installation</h3>
+		<dl class="fa">
+			<dt>Install <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
+			<dd>To prevent polluting your global environment, it's recommended to install NPM packages locally, i.e. without the <code>-g</code> option.</dd>
+		</dl>
+		<pre><code rel="Terminal" class="bash">
+			# navigate to your project root folder
+			$ cd /path/to/TodoApp
+
+			# install json-server package
+			npm install json-server
+		</code></pre>
+	</section>
+	<section><h3>Create the DB file</h3>
+		<dl class="fa">
+			<dt>In project root folder create the file <code>db.json</code> with next content:</dt>
+		</dl>
+		<pre><code rel="db.json" class="json">
+			{
+				"todos":[
+					{
+						"id": 1,
+						"title": "Learn HTML",
+						"completed": false
+					},
+					{
+						"id": 2,
+						"title": "Learn CSS",
+						"completed": false
+					},
+					{
+						"id": 3,
+						"title": "Learn JavaScript",
+						"completed": false
+					}
+				]
+			}
+		</code></pre>
+	</section>
+	<section><h3>Start the server</h3>
+		<dl class="fa">
+			<dt>All locally installed NPM packages place the executable commands in <code>./node-modules/.bin/</code> folder. You can start json-server by:</dt>
+			<pre><code rel="Terminal" class="bash">
+				$ ./node_modules/.bin/json-server --watch db.json
+			</code></pre>
+			<dt class="advanced">Or you can use <a href="https://www.npmjs.com/package/npx">npx</a> which executes 'command' either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for 'command' to run.</dt>
+		</dl>
+	</section>
+	<section><h3>json-server usage notes</h3>
+		<dl class="fa">
+			<dt>Your request body JSON should be object enclosed, just like the GET output. (for example {"name": "Foobar"})</dt>
+			<dt>Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.</dt>
+			<dt>A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.</dt>
+		</dl>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt>Video Tutorial: <a href="https://egghead.io/lessons/javascript-creating-demo-apis-with-json-server">Creating demo APIs with json-server</a></dt>
+			<dt>Official docs: <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="30"><h1>Define the Endpoints</h1></section>
+<section><h2>Define the Endpoints</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>For our TodoApp, we need the server to be capable of serving next requests:</dt>
+			<table style="margin-top: .5em;">
+				<tr><th>Method</th><th>Path</th><th>Action</th></tr>
+				<tr><td>GET</td><td>/todos</td><td>get all todos</td></tr>
+				<tr><td>GET</td>	<td>/todos/id</td>	<td>get Todo by id</td></tr>
+				<tr><td>POST</td>	<td>/todos</td>		<td>add new Todo</td></tr>
+				<tr><td>PUT</td>	<td>/todos/id</td>	<td>update Todo by id</td></tr>
+				<tr><td>DELETE</td>	<td>/todos/id</td>	<td>remove Todo by id</td></tr>
+			</table>
+			<dt>The json-server we've setup can serve all of them, even more: <a href="https://www.npmjs.com/package/json-server#routes">Routes in json-server</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10"><h1>Explore the Endpoints with Postman</h1></section>
+<section><h2>Explore the Endpoints</h2>
+	<section><h3>Explore the Endpoints with Postman</h3>
+		<dl class="fa">
+			<dt>Before starting with coding, it's useful to get insights of the API Server endpoints. I.e. to send HTTP requests to the server and inspect the response. A useful tool for such API exploratory tasks is <a href="https://www.postman.com/">postman</a></dt>
+			<dt>Next slides will present you a screenshot of Postman for each request we need to inspect</dt>
+		</dl>
+	</section>
+	<section><h3>GET	/todos	(get all todos)</h3>
+		<a href="images/postman/json-serever_GET_all.png"><img src="images/postman/json-serever_GET_all.png" alt=""></a>
+	</section>
+	<section><h3>GET	/todos/id	(get Todo by id)</h3>
+		<a href="images/postman/json-serever_GET_one.png"><img src="images/postman/json-serever_GET_one.png" alt=""></a>
+	</section>
+	<section><h3>POST	/todos	(add new Todo)</h3>
+		<a href="images/postman/json-serever_POST.png"><img src="images/postman/json-serever_POST.png" alt=""></a>
+	</section>
+	<section><h3>PUT	/todos/id	(update Todo by id)</h3>
+		<a href="images/postman/json-serever_PUT.png"><img src="images/postman/json-serever_PUT.png" alt=""></a>
+	</section>
+	<section><h3>DELETE	/todos/id	(remove Todo by id)</h3>
+		<a href="images/postman/json-serever_DELETE.png"><img src="images/postman/json-serever_DELETE.png" alt=""></a>
+	</section>
+</section>
+<!--
+<section data-min="__Y__"><h1>Implement the HTTP Requests in Angular</h1></section>
+<section><h2>Implement the HTTP Requests in Angular</h2>
+	<section><h3>the api service</h3>
+		<dl class="fa">
+			<dt>It's a good practice to separate all HTTP Requests into a Service, which will be responsible only for sending the HTTP Request and returning the data observables or throwing errors.</dt>
+			<dt>So, let's create our <code>api</code> service file:</dt>
+		</dl>
+		<pre><code rel="Terminal" class="bash">
+			$ ng generate service api
+		</code></pre>
+	</section>
+</section> -->
+
+
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your file names/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:ProgressBG.WWW.Courses@gmail.com?Subject=_handsOnHTTPrequests_">ProgressBG.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	<p>These slides are based on</p>
+	<p>customized version of </p>
+	<p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+
+	<script src="../../../lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			// width: 1024,
+			// height: 768,
+
+			width: 1920,
+			height: 1080,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0.2,
+			maxScale: 1.5,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+</body>
+</html>
