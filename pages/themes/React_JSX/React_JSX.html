@@ -90,36 +90,76 @@
   	</code></pre>
   	<pre><code rel="JSX" class="jsx">
   		const jsxElement =
-  		  <div className="App">
-  		      <h1><span>Hello</span></h1>
-  		  </div>
+  		  &lt;div className=&quot;App&quot;&gt;
+  		      &lt;h1&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/h1&gt;
+  		  &lt;/div&gt;
   	</code></pre>
   	<dl class="fa">
   		<dt>the jsxElement is transpiled by babel to the same code, as in jsElement: <a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBAVhAHgUQDYFMC26ywLwBQMMAPACYCWAbjMKgIYQR4BEAggA4csB8RxAkgAsAjDxIQO9MDwAS6VKhAkA9JOniVovsVWUqOgcSA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.5&externalPlugins=">babel repl</a></dt>
   	</dl>
   </section>
-  <section><h3>Embedding Expressions in JSX</h3>
-  	<dl class="fa">
-  		<dt>You can put any <span class="note">valid JavaScript <b>expression</b></span> inside the <span class="note">curly braces in JSX</span></dt>
-  		<pre><code rel="JS" class="js">
-  			let users = ['Maria', 'Pesho'];
+</section>
 
-  			function App() {
-  			  return <div>Hello {users[0]}</div>; // OK, Hello Maria wil be the div content
-  			}
-  		</code></pre>
-  		<pre><code rel="JS" class="js">
-  			return <div>{
-  			    if(1){console.log(1);  // this is statement, not expression! Error will be raised
-  			    }
-  			  }</div>
-  		</code></pre>
-  	</dl>
-  </section>
-  <section><h3>JSX expressions</h3>
+<section data-min="5"><h1>JSX in HTML?</h1></section>
+<section><h2>JSX in HTML?</h2>
+	<section><h3></h3>
+		<dl class="fa">
+			<dt>If you want to use JSX syntax in <code>script</code> element inside a HTML file, you have to import the <code>babel</code> (as JSX is compiled to JavaScript by babel) and set the script attribute <code>type="text/babel"</code></dt>
+			<dt class="note">Of course, this is not recommended for production!</dt>
+		</dl>
+		<pre><code rel="HTML" class="js">
+			&lt;!DOCTYPE html&gt;
+			&lt;html lang=&quot;en&quot;&gt;
+			&lt;head&gt;
+				&lt;!-- use latest react version --&gt;
+				&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/react@latest/umd/react.production.min.js&quot;&gt;&lt;/script&gt;
+				&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/react-dom@latest/umd/react-dom.production.min.js&quot;&gt;&lt;/script&gt;
+
+				&lt;!-- use latest babel --&gt;
+				&lt;script src=&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;&gt;&lt;/script&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+				&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+
+				&lt;script type=&quot;text/babel&quot;&gt;
+					let reactJSXElement = &lt;h1 className=&quot;green&quot;&gt;Hello, world!&lt;/h1&gt;
+
+					let rootDOMElement = document.querySelector(&#39;#root&#39;);
+
+					ReactDOM.render(reactJSXElement, rootDOMElement);
+				&lt;/script&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+		</code></pre>
+	</section>
+</section>
+
+<section data-min="20"><h1>JSX Expressions</h1></section>
+<section><h2>JSX Expressions</h2>
+	<section><h3>How?</h3>
+		<dl class="fa">
+			<dt>You can put any <span class="note">valid JavaScript <b>expression</b></span> inside the <span class="note">curly braces in JSX</span></dt>
+			<pre><code rel="JS" class="js">
+				let users = [&#39;Maria&#39;, &#39;Pesho&#39;];
+
+				function App() {
+					return &lt;div&gt;Hello {users[0]}&lt;/div&gt;; // OK, Hello Maria wil be the div content
+				}
+			</code></pre>
+			<pre><code rel="JS" class="js">
+				return <div>{
+					// this is statement, not expression! Error will be raised
+					if(1){
+						console.log(1);
+					}
+				}</div>
+			</code></pre>
+		</dl>
+	</section>
+	<section>
   	<dl class="fa">
   		<dt>JSX expressions are transpiled to regular JavaScript function calls and evaluate to JavaScript objects.</dt>
-  		<dt>So any valid JSX expresion is a valid JS expresion and can be embedded in other JSX epressions</dt>
+  		<dt>So any valid JSX expression is a valid JS expression and can be embedded in other JSX expressions</dt>
   	</dl>
   	<pre><code rel="JS" class="js">
 	  	let users = ['Maria', 'Pesho'];
@@ -129,62 +169,71 @@
 	  	  return <div>{h1}</div>;
 	  	}
 	  </code></pre>
-  </section>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt>You can use JSX inside of IF statements and FOR loops, assign it to variables, accept it as arguments, and return it from functions:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			function evenNumber(number) {
+				return number%2 ?
+					<strong>Odd</strong>:
+					<strong>Even</strong>
+			}
 
-<section><h3>JSX Epressions</h3>
-	<dl class="fa">
-		<dt>You can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		function evenNumber(number) {
-		  return number%2 ?
-		    <strong>Odd</strong>:
-		    <strong>Even</strong>
-		}
+			function App() {
+				let x = 4;
+				return <div>{x} is {evenNumber(x)}</div>;
+			}
+		</code></pre>
+	</section>
+</section>
 
-		function App() {
-		  let x = 4;
-		  return <div>{x} is {evenNumber(x)}</div>;
-		}
-	</code></pre>
+<section data-min="20"><h1>Specifying Attributes with JSX</h1></section>
+<section><h2>Specifying Attributes with JSX</h2>
+	<section>
+		<dl class="fa">
+			<dt>You can use <span class="note">quotes to specify <b>string literals</b></span> as attributes:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const el = <p id="test" title="test">Test paragraph</p>;
+		</code></pre>
+		<dl class="fa">
+			<dt>Or you can <span class="note">intrpolate JavaScript expression inside curly braces</span> as an attribute value</dt>
+			<dt>But <span class="note">don’t put quotes around curly braces</span> when embedding a JavaScript expression in an attribute.</dt>
+		</dl>
+		<pre><code rel="JS" class="jsx">
+			let user = {
+				'name': 'Pesho',
+				'avatar': 'some_picture.png'
+			}
+			const el = &lt;img src={user.avatar} alt=&quot;some_picture.png&quot;/&gt; // OK
+			const el = &lt;img src=&quot;{user.avatar}&quot; alt=&quot;some_picture.png&quot;/&gt; // will not interpolate, because of quotes!
+		</code></pre>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt>React DOM uses camelCase property naming convention instead of HTML attribute names.</dt>
+			<dt>I.e. <code>tabindex</code> HTML attribute should be written as <code>tabIndex</code> in JSX</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const el = &lt;ul className=&quot;todoList&quot;&gt;&lt;li tabIndex=&quot;1&quot;&gt;First Item&lt;/li&gt;&lt;/ul&gt;
+		</code></pre>
+	</section>
 </section>
-<section><h3>Specifying Attributes with JSX</h3>
-	<dl class="fa">
-		<dt>You can use <span class="note">quotes to specify <b>string literals</b></span> as attributes:</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		const el = <p id="test" title="test">Test paragraph</p>;
-	</code></pre>
-	<dl class="fa">
-		<dt>Or you can <span class="note">intrpolate JavaScript expression inside curly braces</span> as an attribute value</dt>
-		<dt>But <span class="note">don’t put quotes around curly braces</span> when embedding a JavaScript expression in an attribute.</dt>
-	</dl>
-	<pre><code rel="JS" class="jsx">
-		let user = {
-		  'name': 'Pesho',
-		  'avatar': 'some_picture.png'
-		}
-		const el = &lt;img src={user.avatar} alt=&quot;some_picture.png&quot;/&gt; // OK
-		const el = &lt;img src=&quot;{user.avatar}&quot; alt=&quot;some_picture.png&quot;/&gt; // will not interpolate, because of quotes!
-	</code></pre>
+
+<section data-min="5"><h1>Preventing Injection Attacks</h1></section>
+<section><h2>Preventing Injection Attacks</h2>
+	<section>
+		<dl class="fa">
+			<dt>By default, React DOM escapes any values embedded in JSX before rendering them</dt>
+			<dt>Everything is converted to a pure string before being rendered</dt>
+			<dt>This helps prevent Injection and XSS (cross-site-scripting) attacks.</dt>
+			<dt>Of course, always double check, because <a href="https://medium.com/javascript-security/avoiding-xss-in-react-is-still-hard-d2b5c7ad9412">Avoiding XSS in React is Still Hard</a></dt>
+		</dl>
+	</section>
 </section>
-<section><h3>Specifying Attributes with JSX</h3>
-	<dl class="fa">
-		<dt>React DOM uses camelCase property naming convention instead of HTML attribute names.</dt>
-		<dt>I.e. <code>tabindex</code> HTML attribute should be written as <code>tabIndex</code> in JSX</dt>
-	</dl>
-	<pre><code rel="JS" class="js">
-		const el = <ul className="todoList"><li tabIndex="1">First Item</li></ul>
-	</code></pre>
-</section>
-<section><h3>Preventing Injection Attacks</h3>
-	<dl class="fa">
-		<dt>By default, React DOM escapes any values embedded in JSX before rendering them</dt>
-		<dt>Everything is converted to a pure string before being rendered</dt>
-		<dt>This helps prevent XSS (cross-site-scripting)</dt>
-		<dt>Of course, always double check, because <a href="https://medium.com/javascript-security/avoiding-xss-in-react-is-still-hard-d2b5c7ad9412">Avoiding XSS in React is Still Hard</a></dt>
-	</dl>
-</section>
+
 
 
 <section data-min="5"><h1>References</h1></section>

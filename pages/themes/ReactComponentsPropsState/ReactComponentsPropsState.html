@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ReactComponentsAndProps</title>
+  <title>ReactComponentsPropsState</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React Components and Props</h1></section>
+<section><h1>React Components, Props and State</h1></section>
 <section data-transition="zoom">
   <section>
     <div class="copyright">
@@ -212,6 +212,8 @@
     </dl>
   </section>
 </section>
+
+
 <section data-min="5"><h1>Props</h1></section>
 <section><h2>Props</h2>
   <section><h3>Overview</h3>
@@ -249,6 +251,125 @@
   </section>
 </section>
 
+<section data-min="5"><h1>Components State</h1></section>
+<section><h2>Components State</h2>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>So far we see, that Components can receive props from their parents and can only  render them, without changing the data.</dt>
+      <dd>Such Components are called <span class="note">Stateless Components</span>, and usually we implement them with Funciton Component.</dd>
+      <dt>But in order to implement a business logic in our App, a Componnent will need to store data which can change over time.</dt>
+      <dd>I.e. we need a <span class="note">Stateful Components</span></dd>
+      <dt>Stateful components can store data in an object, called <span class="note">state</span> and the change of that data (the state) will determines how the component will behave and render.</dt>
+    </dl>
+  </section>
+  <section><h3>Stateful components</h3>
+    <p>A stateful component can be created by:</p>
+    <dl class="fa">
+      <dt>Class component, where the <span class="note">state</span> is an instance property, accessible by <code>this.state</code></dt>
+      <dt>Function component (from React v16, using the <code>useState</code> hook)</dt>
+    </dl>
+  </section>
+  <section><h3>Stateful Class Component Demo</h3>
+    <pre><code rel="JS" class="js">
+      class TodoList extends React.Component{
+
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'todos' :  [
+              {'title': 'Todo 1', 'completed': false},
+              {'title': 'Todo 2', 'completed': true},
+            ]
+          };
+        }
+        render(){
+          return  (
+            &lt;ul&gt;
+              {this.state.todos.map( todo =&gt;
+                &lt;Todo title={todo.title} completed={todo.completed}/&gt;
+             )}
+            &lt;/ul&gt;
+          )
+        }
+      }
+    </code></pre>
+  </section>
+  <section><h3>Stateful component diagram</h3>
+    <a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
+  </section>
+  <section><h3>State vs Props</h3>
+    <dl class="fa">
+      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
+      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
+      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
+      <dt>State can be changed inside a component</dt>
+      <dt>Often, state data are passed to child components through the props.</dt>
+    </dl>
+  </section>
+   <section><h3>Changing state</h3>
+    <dl class="fa">
+      <dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
+      <dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
+      <dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
+      <dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
+    </dl>
+  </section>
+  <section><h3>Changing state demo</h3>
+    <pre><code rel="Counter.js" class="jsx">
+      export class Counter extends React.Component{
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'count': 0
+          }
+
+          this.increment = ()=&gt;{this.setState({
+            'count': this.state.count+1
+          })}
+
+          this.decrement = ()=&gt;{this.setState({
+            'count': this.state.count-1
+          })}
+        }
+
+        render(){
+          return (
+          &lt;div className=&quot;counterDemo&quot;&gt;
+            &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+            &lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
+            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+          &lt;/div&gt;
+          )
+        }
+      }
+
+
+
+    </code></pre>
+  </section>
+
+  <!--<section><h3>States vs Props</h3>
+    <table>
+      <tr>
+        <th>Conditions</th>
+        <th>State</th>
+        <th>Props</th>
+      </tr>
+      <tr>
+        <td>Parent component can change values</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Component itself can change values</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+    </table>
+  </section>-->
+</section>
 
 
 <section data-min="5"><h1>References</h1></section>

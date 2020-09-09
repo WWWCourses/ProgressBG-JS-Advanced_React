@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React_elements_DOM_overview</h1></section>
+<section><h1>React elements</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -87,15 +87,15 @@
   		<dt>Elements are the smallest building blocks of React apps</dt>
   		<dt>Elements are what components are "made of"</dt>
   		<dt>An element describes what you want to see on the screen</dt>
-  		<dt>React elements are plain objects, and are cheap to create and update(<span class="note">unlike DOM Elements</span>)</dt>
-  		<dt><code class="note">React DOM</code> takes care of updating the DOM to match the React elements</dt>
+  		<dt class="note">React elements are plain objects, which are cheap to create and update (unlike DOM Elements)</dt>
+  		<dt><code>ReactDOM</code> takes care of updating the DOM to match the React elements</dt>
   	</dl>
   </section>
-  <section><h3>Creating React Elements (js vs jsx overview)</h3>
+  <section><h3>Creating React Elements</h3>
   	<dl class="fa">
   		<dt>To create a react element we can use either:</dt>
-  		<dd><code>React.createElement()</code> method</dd>
-  		<dd>JSX syntax</dd>
+  		<dd><code>React.createElement()</code> method, or</dd>
+  		<dd>JSX syntax (the preferred way)</dd>
   	</dl>
   	<pre><code rel="helloWorld.js" class="js">
   		const h1 = React.createElement("h1", {className: 'green'}, "Hello, world!");

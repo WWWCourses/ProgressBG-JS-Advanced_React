@@ -163,17 +163,17 @@
       &lt;/head&gt;
       &lt;body&gt;
         &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
-        &lt;script type=&quot;text/javascript&quot;&gt;
-          &quot;use strict&quot;;
-          ReactDOM.render(
-            React.createElement(&quot;h1&quot;, null, &quot;Hello, world!&quot;),
-            document.getElementById('root')
-          );
+
+        &lt;script&gt;
+          let reactElement = React.createElement(&quot;h1&quot;, null, &quot;Hello, world!&quot;);
+          let rootDOMElement = document.querySelector(&#39;#root&#39;);
+
+          ReactDOM.render(reactElement, rootDOMElement);
         &lt;/script&gt;
       &lt;/body&gt;
     </code></pre>
   </section>
-  <section><h3>The simplest "hello world" react app, using npm</h3>
+  <!-- <section><h3>The simplest "hello world" react app, using npm</h3>
     <pre><code rel="Terminal" class="bash">
       # create the project folder
       mkdir simplest-react-app
@@ -187,7 +187,7 @@
       # install react
       npm install react react-dom
     </code></pre>
-  </section>
+  </section> -->
 </section>
 
 <section data-min="5"><h1>create-react-app cli</h1></section>
