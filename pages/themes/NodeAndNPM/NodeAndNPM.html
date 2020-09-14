@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>__cliche_title__</title>
+	<title>Node and NPM</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,7 +27,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 		<div class="top_links">
-			<a class="home_link" href="../../../index.html#__cliche_title__" target="_top"><i class="fa fa-home"></i></a>
+			<a class="home_link" href="../../../index.html#Node and NPM" target="_top"><i class="fa fa-home"></i></a>
 			<span class="help_link"><i class="fa fa-question"></i></span>
 			<div class="help_text">
 				<div><span>N/Space</span><span>Next Slide</span></div>
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>__presentation_title__</h1></section>
+<section><h1>Nodejs and NPM Overview</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -75,12 +75,66 @@
 </section>
 
 
-<section data-min="5"><h1>___MainSectionTitle___</h1></section>
-<section><h2>___MainSectionTitle___</h2>
-  <section><h3>___SubSectionTitle___</h3>
+<section data-min="5"><h1>Setup the environment.</h1></section>
+<section><h2>Setup the environment.</h2>
+  <section><h3>Prerequisites</h3>
+    <dl class="fa">
+      <dt>Install or update <a href="https://nodejs.org/en/">nodejs</a> to the current stable version</dt>
+      <dt>Make sure you have next commands available in your path:</dt>
+    </dl>
+    <pre><code rel="Terminal" class="js">
+      node --version
+      # v12.2.0
 
+      npm --version
+      # 6.9.0
+
+      npx --version
+      # 6.9.0
+    </code></pre>
   </section>
 </section>
+<section data-min="5"><h1>The node package manager (npm)</h1></section>
+<section><h2>The node package manager (npm)</h2>
+  <section><h3>What is NPM?</h3>
+    <dl class="fa">
+      <dt>NPM allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They are the <span class="note">dependencies</span> of your application.</dt>
+      <dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
+      <dd>Global node packages are accessible from everywhere in the terminal and you have to install them only once to your global directory</dd>
+      <dd>Local node packages are accessible only from your project folder</dd>
+    </dl>
+  </section>
+  <section><h3>Initialize node project with NPM</h3>
+    <dl class="fa">
+      <dt>Before starting your project, which will use node modules, you have to initialize the project, and write the <span class="note">package.json</span> file</dt>
+      <dt>Only when you have that file, you can install new local packages via npm</dt>
+    </dl>
+    <pre><code rel="Terminal" class="bash">
+      #initialize a npm project (-y == defaults for package.json)
+      npm init -y
+    </code></pre>
+  </section>
+  <section><h3>Share a node project</h3>
+    <dl class="fa">
+      <dt>the <code>package.json</code> enables you to share your project with other developers without sharing all the node packages (the dependencies).</dt>
+      <dt>Someone who will use your project can simply install all packages by using <code>npm install</code> on the command line.</dt>
+      <dt><code>npm install</code> script takes all the dependencies listed in the package.json file and installs them in the node_modules folder</dt>
+    </dl>
+  </section>
+  <section><h3>Package installation</h3>
+    <pre><code rel="Terminal" class="bash">
+      # Install package locally
+      npm install &lt;package&gt;
+
+      # Install package globally
+      npm install -g &lt;package&gt;
+    </code></pre>
+    <dl class="fa">
+      <dt>The installed package will automatically appear in a folder called <span class="note">node_modules</span> and will be listed in the package.json file next to your other dependencies.</dt>
+    </dl>
+  </section>
+</section>
+
 
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Task1: __task_title__</h2>

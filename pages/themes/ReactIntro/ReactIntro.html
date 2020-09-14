@@ -74,80 +74,21 @@
   </section>
 </section>
 
-<section data-min="5"><h1>Setup the environment.</h1></section>
-<section><h2>Setup the environment.</h2>
-  <section><h3>Prerequisites</h3>
-    <dl class="fa">
-      <dt>Install or update <a href="https://nodejs.org/en/">nodejs</a> to the current stable version</dt>
-      <dt>Make sure you have next commands available in your path:</dt>
-    </dl>
-    <pre><code rel="Terminal" class="js">
-      node --version
-      # v12.2.0
-
-      npm --version
-      # 6.9.0
-
-      npx --version
-      # 6.9.0
-    </code></pre>
-  </section>
-</section>
-
 <section data-min="5"><h1>Overview</h1></section>
 <section><h2>Overview</h2>
   <section><h3>What is React</h3>
     <dl class="fa">
-      <dt>React is <span class="note">a view library</span>,  not (yet another)SPA framework</dt>
+      <dt>React is <span class="note">a view (UI) library</span>,  not (yet another)SPA framework</dt>
       <dt>It only enables you to render components as viewable elements in a browser</dt>
       <dt>It is the V in the MVC (model view controller)</dt>
       <dt class="note">But the view is a hierarchy of <strong>composable components</strong>.</dt>
       <dt>Yet the whole ecosystem around React makes it possible, and incrementally easy, to build SPA</dt>
     </dl>
   </section>
-</section>
-
-<section data-min="5"><h1>The node package manager (npm)</h1></section>
-<section><h2>The node package manager (npm)</h2>
-  <section><h3>What is NPM?</h3>
-    <dl class="fa">
-      <dt>NPM allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They are the <span class="note">dependencies</span> of your application.</dt>
-      <dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
-      <dd>Global node packages are accessible from everywhere in the terminal and you have to install them only once to your global directory</dd>
-      <dd>Local node packages are accessible only from your project folder</dd>
-    </dl>
-  </section>
-  <section><h3>initialize a npm project</h3>
-    <dl class="fa">
-      <dt>Before starting your project, which will use node modules, you have to initialize the project, and write the <span class="note">package.json</span> file</dt>
-      <dt>Only when you have that file, you can install new local packages via npm</dt>
-    </dl>
-    <pre><code rel="Terminal" class="bash">
-      #initialize a npm project (-y == defaults for package.json)
-      npm init -y
-    </code></pre>
-  </section>
-  <section><h3>share a npm project</h3>
-    <dl class="fa">
-      <dt>the <code>package.json</code> enables you to share your project with other developers without sharing all the node packages (the dependencies).</dt>
-      <dt>Someone who will use your project can simply install all packages by using <code>npm install</code> on the command line.</dt>
-      <dt><code>npm install</code> script takes all the dependencies listed in the package.json file and installs them in the node_modules folder</dt>
-    </dl>
-  </section>
-  <section><h3>package installation</h3>
-    <pre><code rel="Terminal" class="bash">
-      # Install package locally
-      npm install &lt;package&gt;
-
-      # Install package globally
-      npm install -g &lt;package&gt;
-    </code></pre>
-    <dl class="fa">
-      <dt>The installed package will automatically appear in a folder called <span class="note">node_modules</span> and will be listed in the package.json file next to your other dependencies.</dt>
-    </dl>
+  <section><h3>Components and UI Tree</h3>
+    <a href="images/UI_ComponentTree.png"><img src="images/UI_ComponentTree.png"></a>
   </section>
 </section>
-
 
 <section data-min="5"><h1>Write your first react app</h1></section>
 <section><h2>Write your first react app</h2>
@@ -204,10 +145,53 @@
       <dt><a href="https://facebook.github.io/create-react-app/docs/getting-started">create-react-app - getting-started</a></dt>
     </dl>
     <pre><code rel="Terminal" class="bash">
-      npx create-react-app hello-world
+      npx create-react-app todoApp
 
       # and follow the instructions
     </code></pre>
+  </section>
+</section>
+
+<section data-min="5"><h1>React Project folder structure</h1></section>
+<section><h2>React Project folder structure</h2>
+  <section><h3></h3>
+    <dl class="fa" style="font-size: .7em">
+      <dt>React gives you the freedom to organize your project according to your needs (check <a href="https://reactjs.org/docs/faq-structure.html">File Structure</a> @react docs)</dt>
+      <dt>For now we'll keep it simple, by putting all of our components into the <code>src/components</code> folder</dt>
+      <dt>Each component will reside in: <code>src/components/ComponentName.js</code></dt>
+    </dl>
+    <pre><code rel="JS" class="js" style="font-size: .9em">
+      src/
+      ├── App.css
+      ├── App.js
+      ├── components
+      │   ├── Header.js
+      │   ├── TodoInput.js
+      │   ├── TodoItem.js
+      │   └── TodoList.js
+      ├── index.css
+      ├── index.js
+      ├── logo.svg
+      ├── serviceWorker.js
+      └── setupTests.js
+
+    </code></pre>
+  </section>
+</section>
+
+
+
+<section data-min="5"><h1>Debugging Tools</h1></section>
+<section><h2>Debugging Tools</h2>
+  <section><h3>React Developer Tools</h3>
+    <dl class="fa">
+      <dt><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">React Developer Tools</a> - <span>the official tool from Facebook to debug ReactJS applications</span></dt>
+    </dl>
+  </section>
+  <section><h3>React Sight</h3>
+    <dl class="fa">
+      <dt><a href="https://chrome.google.com/webstore/detail/react-sight/aalppolilappfakpmdfdkpppdnhpgifn">React Sight</a> - <span>a chrome extension that extends the Developer Tools, adding a sidebar that displays React Component Hierarchy</span></dt>
+    </dl>
   </section>
 </section>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ReactComponentsAndProps</title>
+  <title>ReactComponentsPropsState</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React Components and Props</h1></section>
+<section><h1>React Props and State</h1></section>
 <section data-transition="zoom">
   <section>
     <div class="copyright">
@@ -74,144 +74,7 @@
   </section>
 </section>
 
-<section data-min="5"><h1>Components</h1></section>
-<section><h2>Components</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>Components are the building blocks of any React app.</dt>
-      <dt>Thinking in components allows us to <span class="note">split the UI</span> into independent, reusable pieces, and work with each piece in isolation.</dt>
-      <dt>A React Component is a <span class="note">JavaScript class or function</span> that optionally accepts inputs i.e. properties(props) and returns a React Element describing what should appear on the screen.</dt>
-      <dt>React lets you define components as classes or functions.</dt>
-    </dl>
-  </section>
-  <section><h3>Components and UI Tree</h3>
-    <a href="images/UI_ComponentTree.png"><img src="images/UI_ComponentTree.png"></a>
-  </section>
-</section>
-<section data-min="5"><h1>Project folder structure</h1></section>
-<section><h2>Project folder structure</h2>
-  <section><h3></h3>
-    <dl class="fa" style="font-size: .7em">
-      <dt>React gives you the freedom to organize your project according to your needs.</dt>
-      <!-- <dt>One of the most important for a React project is to have a components directory for storing your Components</dt> -->
-      <dt>There can be various way to organize its content, but for now we'll keep it simple, by putting all of our components into a <code>components</code> folder</dt>
-      <dt>Each component will reside in: <code>src/components/component-name.js</code></dt>
-    </dl>
-    <pre><code rel="JS" class="js" style="font-size: .9em">
-      src
-      ├── assets  # dependencies shared by your application (SASS mixins, images, ets.)
-      │   └──images
-      │      └── logo.svg
-      ├── App.css
-      ├── App.js
-      ├── App.test.js
-      ├── components
-      │   ├── AddTodo.js
-      │   ├── FilterTodo.js
-      │   ├── Todo.js
-      │   └── TodoList.js
-      ├── index.css
-      ├── index.js
-      └── service-worker.js
-    </code></pre>
-  </section>
-</section>
-<section data-min="5"><h1>Function Component</h1></section>
-<section><h2>Function Component</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>The simplest way to define a component is to write <span class="note">a JavaScript function, which takes a single object</span> (by convention called “props” - from properties) argument and <span class="note">returns a React element</span></dt>
-      <dd>It's just as simple as: <code>(props)=>JSX</code></dd>
-      <dt>Note, that the function name <span class="note">must start with capital letter!</span> </dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      //the simplest component, without using "props":
-      function TodoWithNoProps() {
-        return <div>Todo 1 (hardcoded)</div>
-      }
 
-      // or written as Arrow Function:
-      const TodoWithNoProps = () => <div>Todo 1 (hardcoded)</div>
-    </code></pre>
-  </section>
-  <section><h3>Example</h3>
-    <pre><code rel="JS" class="js">
-      function TodoWithProps(props) {
-        return (
-          &lt;div className=&quot;Todo&quot;&gt;
-            {props.title}
-          &lt;/div&gt;
-        );
-      }
-
-      // note, that return is implied
-      const TodoWithPropsArrow = (props)=>
-        &lt;div className=&quot;Todo&quot;&gt;
-          {props.title}
-        &lt;/div&gt;
-    </code></pre>
-  </section>
-</section>
-<section data-min="5"><h1>Class Component</h1></section>
-<section><h2>Class Component</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>From ES6, we can use class syntax to define a component:</dt>
-      <dd>Before that, you could've use the React's <code>createClass</code> method</dd>
-      <dt>The only method you <span class="note">must define</span> in a React Component subclass is the <code class="note">render()</code> method</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      //class component, without using "props":
-      class HelloWorld extends React.Component {
-        render() {
-          return <h1>Hello World!</h1>;
-        }
-      }
-    </code></pre>
-  </section>
-  <section><h3>Accessing props in Class Component</h3>
-    <dl class="fa">
-      <dt>the "props" object is available to any Class Component as property to the class. I.e. with <code>this.props</code></dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      class ClassComponentWithProps extends React.Component{
-          render(){
-              return <div>{this.props.title}</div>
-          }
-      }
-    </code></pre>
-  </section>
-  <section><h3>Component inheritance?</h3>
-    <dl class="fa">
-      <dt>All the internal React Component logic comes from the React Component class</dt>
-      <dt>However, it isn’t recommended to use the concept of inheritance for your custom class components more than that.</dt>
-      <dt>In React code reuse is primarily achieved through <a href="https://reactjs.org/docs/composition-vs-inheritance.html">composition rather than inheritance</a></dt>
-    </dl>
-  </section>
-</section>
-<section data-min="5"><h1>Rendering a Component</h1></section>
-<section><h2>Rendering a Component</h2>
-  <section>
-    <dl class="fa">
-      <dt>React elements can represent DOM elements or user-defined components</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      // React element, representing a DOM element:
-      const element = &lt;div /&gt;;
-
-      // React element, representing a user-defined component:
-      const element = &lt;HelloWorld /&gt;;
-    </code></pre>
-  </section>
-  <section><h3>Naming conventions</h3>
-    <dl class="fa">
-      <dt class="note">User-Defined Components Must Be Capitalized</dt>
-      <dt>React treats components starting with lowercase letters (like '&lt;div /&gt;') as DOM elements.</dt>
-      <dt>And components starting with capital letter as user-defined, which have to be declared in the scope</dt>
-      <dt>Reference: <a href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">React treats components starting with lowercase letters as DOM tags</a></dt>
-    </dl>
-  </section>
-</section>
 <section data-min="5"><h1>Props</h1></section>
 <section><h2>Props</h2>
   <section><h3>Overview</h3>
@@ -249,6 +112,125 @@
   </section>
 </section>
 
+<section data-min="5"><h1>Components State</h1></section>
+<section><h2>Components State</h2>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>So far we see, that Components can receive props from their parents and can only  render them, without changing the data.</dt>
+      <dd>Such Components are called <span class="note">Stateless Components</span>, and usually we implement them with Funciton Component.</dd>
+      <dt>But in order to implement a business logic in our App, a Componnent will need to store data which can change over time.</dt>
+      <dd>I.e. we need a <span class="note">Stateful Components</span></dd>
+      <dt>Stateful components can store data in an object, called <span class="note">state</span> and the change of that data (the state) will determines how the component will behave and render.</dt>
+    </dl>
+  </section>
+  <section><h3>Stateful components</h3>
+    <p>A stateful component can be created by:</p>
+    <dl class="fa">
+      <dt>Class component, where the <span class="note">state</span> is an instance property, accessible by <code>this.state</code></dt>
+      <dt>Function component (from React v16, using the <code>useState</code> hook)</dt>
+    </dl>
+  </section>
+  <section><h3>Stateful Class Component Demo</h3>
+    <pre><code rel="JS" class="js">
+      class TodoList extends React.Component{
+
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'todos' :  [
+              {'title': 'Todo 1', 'completed': false},
+              {'title': 'Todo 2', 'completed': true},
+            ]
+          };
+        }
+        render(){
+          return  (
+            &lt;ul&gt;
+              {this.state.todos.map( todo =&gt;
+                &lt;Todo title={todo.title} completed={todo.completed}/&gt;
+             )}
+            &lt;/ul&gt;
+          )
+        }
+      }
+    </code></pre>
+  </section>
+  <section><h3>Stateful component diagram</h3>
+    <a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
+  </section>
+  <section><h3>State vs Props</h3>
+    <dl class="fa">
+      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
+      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
+      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
+      <dt>State can be changed inside a component</dt>
+      <dt>Often, state data are passed to child components through the props.</dt>
+    </dl>
+  </section>
+   <section><h3>Changing state</h3>
+    <dl class="fa">
+      <dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
+      <dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
+      <dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
+      <dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
+    </dl>
+  </section>
+  <section><h3>Changing state demo</h3>
+    <pre><code rel="Counter.js" class="jsx">
+      export class Counter extends React.Component{
+        constructor(props){
+          super(props);
+
+          this.state = {
+            'count': 0
+          }
+
+          this.increment = ()=&gt;{this.setState({
+            'count': this.state.count+1
+          })}
+
+          this.decrement = ()=&gt;{this.setState({
+            'count': this.state.count-1
+          })}
+        }
+
+        render(){
+          return (
+          &lt;div className=&quot;counterDemo&quot;&gt;
+            &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+            &lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
+            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+          &lt;/div&gt;
+          )
+        }
+      }
+
+
+
+    </code></pre>
+  </section>
+
+  <!--<section><h3>States vs Props</h3>
+    <table>
+      <tr>
+        <th>Conditions</th>
+        <th>State</th>
+        <th>Props</th>
+      </tr>
+      <tr>
+        <td>Parent component can change values</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Component itself can change values</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+    </table>
+  </section>-->
+</section>
 
 
 <section data-min="5"><h1>References</h1></section>
