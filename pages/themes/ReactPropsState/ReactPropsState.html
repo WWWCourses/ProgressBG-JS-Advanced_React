@@ -159,15 +159,6 @@
   <section><h3>Stateful component diagram</h3>
     <a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
   </section>
-  <section><h3>State vs Props</h3>
-    <dl class="fa">
-      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
-      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
-      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
-      <dt>State can be changed inside a component</dt>
-      <dt>Often, state data are passed to child components through the props.</dt>
-    </dl>
-  </section>
    <section><h3>Changing state</h3>
     <dl class="fa">
       <dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
@@ -210,8 +201,16 @@
 
     </code></pre>
   </section>
-
-  <!--<section><h3>States vs Props</h3>
+  <section><h3>State vs Props</h3>
+    <dl class="fa">
+      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
+      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
+      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
+      <dt>State can be changed inside a component</dt>
+      <dt>Often, state data are passed to child components through the props.</dt>
+    </dl>
+  </section>
+  <section><h3>State vs Props</h3>
     <table>
       <tr>
         <th>Conditions</th>
@@ -229,7 +228,16 @@
         <td>No</td>
       </tr>
     </table>
-  </section>-->
+  </section>
+</section>
+
+<section data-min="5"><h1>Lifting State Up</h1></section>
+<section><h2>Lifting State Up</h2>
+  <section>
+    <dl class="fa">
+      <dt>Reading: <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a> @reaact docs</dt>
+    </dl>
+  </section>
 </section>
 
 
