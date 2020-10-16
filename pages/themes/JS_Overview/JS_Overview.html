@@ -252,7 +252,7 @@
 </section>
 
 
-<section data-min="20"><h1>The object oriented nature of JavaScript: "everything is an object"?</h1></section>
+<section data-min="20"><h1>The object oriented nature of JavaScript: "is everything an object" ?</h1></section>
 <section><h2>The object oriented nature of JavaScript: "everything is an object"?</h2>
     <section data-notes="2min"><h3>Data types and structures</h3>
         <dl class="fa">
@@ -298,29 +298,50 @@
         //"true"
     </code></pre>
     </section>
-    <section data-notes="1min"><h3>Primitives Immutability</h3>
+    <section><h3>Primitives <span class="note">are NOT</span> objects - example</h3>
+        <pre><code rel="JS">
+            let str = 'Some string';
+            str.id = 1; // wraps 'Some string' into anonymous String object
+            console.log( str.id ); // undefined
+        </code></pre>
+    </section>
+    <section data-notes="1min"><h3>Primitives are Immutable. Objects are Mutable.</h3>
         <dl class="fa">
-            <dt><span class="note">Immutability</span>: objects whose state is <span class="note">not allowed to change</span> over time</dt>
+            <dt>Immutability: meaning -  <span class="note">not allowed to change</span> over time</dt>
             <dt>Immutability is a core principle in functional programming</dt>
             <dt class="note">All primitive types in JavaScript are immutable!</dt>
+            <dt class="note">All reference types in JavaScript (i.e. objects, arrays) are mutable!</dt>
         </dl>
-        <pre><code rel="JS">
-            var ada = 'Ada';
-            console.log(ada); // 'Ada'
+        <p>Read more in: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable#:~:text=In%20JavaScript%2C%20only%20objects%20and,are%20mutable%2C%20not%20primitive%20values.&text=A%20mutable%20object%20is%20an,Strings%20and%20Numbers%20are%20Immutable.">Mutable @MDN</a></p>
+    </section>
+    <section><h3>Primitives are Immutable. Objects are Mutable - example</h3>
+        <pre><code rel="JS" class="js">
+            let x = 1;
+            let y = x;
+            x = 5;
+            // did  we change the value in y? No, because a number is immutable, and a new memory has to be allocated
 
-            ada.surname = 'Byron';
-            console.log(ada.surname); // undefined
+            let xArr = [1];
+            let yArr = xArr;
+            yArr[0] = 5;
+            // did  we change the value in yArr? Yes, because arrays are mutable, and we changed the value itself
+
+            console.log( y );    // 1
+            console.log( yArr ); // [5]
+
         </code></pre>
     </section>
     <section data-notes="2min"><h3>Objects</h3>
         <dl class="fa">
             <dt>A collection of properties</dt>
             <dt>Property values can be values of any type, including other objects</dt>
-            <dt>Properties are identified using key values</dt>
-            <dt>A key value is either a String or a Symbol value.</dt>
+            <dt>When property value contains a function, by convention this property is called a method.</dt>
+            <dt>JavaScript object can repesent any <span class="note">key:value</span> data structure, like <i>associative arrays</i> and <i>dictionaries</i>.</dt>
+            <!-- <dt>Properties are identified using key values</dt>
+            <dt>A key value is either a String or a Symbol value.</dt> -->
         </dl>
     </section>
-    <section data-notes="2min"><h3>Objects</h3>
+    <!-- <section data-notes="2min"><h3>Objects</h3>
         <p>Objects are mutable!</p>
         <pre><code rel="JS">
             var ada = {};
@@ -329,7 +350,7 @@
             ada.surname = 'Byron';
             console.log(ada.surname); //Byron
         </code></pre>
-    </section>
+    </section> -->
     <section data-notes="5min"><h3>Functions</h3>
         <dl class="fa">
             <dt><span class="note">Functions are objects</span> that have an internal [[Call]] property</dt>
@@ -348,7 +369,7 @@
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">TypedArray Object @mdn</a></dt>
         </dl>
     </section>
-    <section data-notes="2min"><h3>Example</h3>
+    <section data-notes="2min"><h3>Arrays - Example</h3>
         <dl class="fa">
             <dt>Arrays are objects</dt>
         </dl>
@@ -360,9 +381,9 @@
             // arr.id: 1
         </code></pre>
     </section>
-    <section data-notes="2min"><h3>Keyed collections: Maps</h3>
+    <section data-notes="2min"><h3 class="advanced">Keyed collections: Maps</h3>
         <dl class="fa">
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Maps</a> - the Map object holds key-value pairs and <span class="note">remembers the original insertion order</span> of the keys.</dt>           
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Maps</a> - the Map object holds key-value pairs and <span class="note">remembers the original insertion order</span> of the keys.</dt>
         </dl>
         <pre><code rel="JS" class="js">
             let fruits = new Map();
@@ -374,7 +395,7 @@
             // Map { 'banana' => 1, 'orange' => 2, 'meat' => 4 }
         </code></pre>
     </section>
-    <section><h3>Keyed collections: Sets</h3>
+    <section><h3 class="advanced">Keyed collections: Sets</h3>
         <dl class="fa">
             <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a> - the Set object is a collections of <span class="note">unique values</span>.</dt>
         </dl>
@@ -387,16 +408,19 @@
             //Set { 'a', 'b', 'c' }
         </code></pre>
     </section>
-    <section data-notes="2min"><h3>Keyed collections: WeakMaps, WeakSets</h3>
-        <dl class="fa">            
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">WeakMap Object @mdn</a></dt>
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet">WeaSetp Object @mdn</a></dt>
-        </dl>
+    <section><h3 class="advanced">Sets - use case demo (get unique array values)</h3>
+        <pre><code rel="JS" class="js">
+            let arr = ['a','b','c', 'b','a','b','c'];
+            let unique = [... new Set(arr)]
+            console.dir(unique);
+            //[ 'a', 'b', 'c' ]
+        </code></pre>
+        <p><span class="note">Note:</span> the <code>[... set]</code> construct will be discussed in next themes.</p>
     </section>
 </section>
 
 
-<section data-min="10"><h1>DOM - overview, elements, events</h1></section>
+<!-- <section data-min="10"><h1>DOM - overview, elements, events</h1></section>
 <section><h2>DOM - overview, elements, events</h2>
   <section>
     <dl class="fa">
@@ -404,7 +428,8 @@
         <dt>Reference: <a href="http://wwwcourses.github.io/ProgressBG-Front-End-Dev/pages/themes/beginners/JS_Events/JS_Events.html#/">DOM Events @JavaScript-Beginners course</a></dt>
     </dl>
   </section>
-</section>
+</section> -->
+
 <!--
 <section id="refs" data-notes="0min"><h2>Resources</h2>
     <ol class="fa">

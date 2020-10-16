@@ -1,0 +1,29 @@
+[33mcommit 09d7aa41689661a11e91981400ec12db56d7f890[m[33m ([m[1;36mHEAD -> [m[1;32mgh-pages[m[33m, [m[1;31morigin/gh-pages[m[33m)[m
+Author: WWWCourses <ivawebcourses@gmail.com>
+Date:   Mon Oct 12 13:07:23 2020 +0300
+
+    fixes: tmp
+
+[33mcommit 6bb8e004ed5f71db280bee738ebc1a2ae90ad7b2[m
+Author: WWWCourses <ivawebcourses@gmail.com>
+Date:   Tue Sep 15 01:38:07 2020 +0300
+
+    revert old structure
+
+[33mcommit 7aea32876bb8136904ac4c29f7c1b4739d0eaf01[m
+Author: WWWCourses <ivawebcourses@gmail.com>
+Date:   Wed Sep 9 22:14:15 2020 +0300
+
+    fixes
+
+[33mcommit ed06ba41cc57bcc9e6de7ada3ca7647ccec2b64d[m
+Author: WWWCourses <ivawebcourses@gmail.com>
+Date:   Mon Sep 7 23:38:40 2020 +0300
+
+    fix default presentation size
+
+[33mcommit c04db7d8fdbd82001e1693fda45219ae1917dc0b[m
+Author: WWWCourses <ivawebcourses@gmail.com>
+Date:   Mon Sep 7 22:58:32 2020 +0300
+
+    fix: copyright sections
