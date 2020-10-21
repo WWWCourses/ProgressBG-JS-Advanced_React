@@ -89,7 +89,7 @@
         <pre><code rel="JS">
             const add = function(x,y){
                 return x+y
-            }
+            };
         </code></pre>
         <dl class="fa">
             <dt>function name can be omitted in function expressions to create anonymous functions</dt>
@@ -122,11 +122,11 @@
             foo();
             </code></pre>
         </code></pre>
-        <p class="note" style="font-size:0.7em">Remember,  a best practise is to put semicolons manualy to separate statements and expressions, instead of relying on Automatic Semicolon Insertion (ASI).</p>
+        <p class="note" style="font-size:0.7em">Remember,  a best practise is to put semicolons manually to separate statements and expressions, instead of relying on Automatic Semicolon Insertion (ASI).</p>
     </section>
     <section><h3>Function expression: named function</h3>
         <dl class="fa">
-            <dt>A function name can be given in function expression. But the function name is scoped to function body!</dt>
+            <dt>A function name can be given in function expression. But <span class="note">the function name is scoped to function body</span>!</dt>
             <dt>Using a named function in expression is useful for debugging purposes. </dt>
         </dl>
         <pre><code rel="JS">
@@ -145,14 +145,14 @@
             <dd>Function expressions are <span class="note">not</span>  hoisted</dd>
         </dl>
     </section>
-    <section><h3>Function Constructor</h3>
+    <section><h3 class="advanced">Function Constructor</h3>
         <dl class="fa">
             <dt>Another way to define a function is by Function Constructor.</dt>
             <dt>In practise, you'll never use directly Function Constructor, but only <span class="note">when you need to dynamically create function</span></dt>
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function">Function Constructor</a>@MDN</dt>
         </dl>
     </section>
-    <section><h3>Why not to use the Function Constructor</h3>
+    <section><h3 class="advanced">Why not to use the Function Constructor</h3>
     <dl class="fa">
         <dt>Parsing</dt>
         <dd>Functions defined by Function Constructor are parsed each time the constructor is called.</dd>
@@ -162,7 +162,7 @@
         <dd>Functions defined by Function Expressions and Function Declarations create closure to their creation context.</dd>
     </dl>
     </section>
-    <section><h3>Conditional function definition</h3>
+    <section><h3 class="advanced">Conditional function definition</h3>
         <p>the strict ES2015 behaviour</p>
         <pre><code rel="JS">
             if (0){
@@ -175,7 +175,7 @@
         </code></pre>
         <p class="note">Not browser compatible! Some older browser would defined the function.</p>
     </section>
-    <section><h3>Conditional function definition</h3>
+    <section><h3 class="advanced">Conditional function definition</h3>
         <p>Safer way:</p>
         <pre><code rel="JS">
             let add;
