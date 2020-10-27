@@ -305,9 +305,10 @@
 </section>
 
 <section><h2>Closures</h2>
-    <section>
+    <section><h3>What is?</h3>
         <dl class="fa">
             <dt>Allows a function which is executed outside its lexical scope, to preserve the values of scoped variables</dt>
+            <dt>Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where those variable(s) wouldn't be accessible.</dt>
         </dl>
         <pre><code rel="JS">
             function outer(){
@@ -320,7 +321,7 @@
             }
 
             let f = outer();
-            f(); // f can access the local x !
+            f(); // f can access the value of local x !
         </code></pre>
     </section>
     <section><h3>Common problem: "closures in loops"</h3>
@@ -393,57 +394,65 @@
         </code></pre>
     </section>
     <section><h3>"closures in loops - timeout Problem"</h3>
+        <pre><code rel="HTML" class="html5">
+            <div class="box" style="width:5em; height:5em; border:1px solid #000"></div>
+        </code></pre>
         <pre><code rel="JS">
             var colors = ["red", "green", "blue"];
+            var box = document.querySelector('.box');
+
+            function changeBG(color){
+                box.style.background = color;
+            }
 
             for (var i = 0; i < colors.length; i++) {
                 setTimeout(function(){
-                    changeBG("box", colors[i]);
-                }, 1000)
-            }
-
-            function changeBG(id, color){
-                var node = document.getElementById(id);
-                node.style.background = color;
+                    console.log(`i:${i}`);
+                    changeBG( colors[i] );
+                }, 1000*i)
             }
         </code></pre>
+        <dl class="fa">
+            <dt style="font-size: .8em;">setTimeout() is invoked immediately 3 times. The delay is for the callback function. If we pass same delay, they will be invoked simultaneously after the delay. So, we need to change the delay, i.e. like <code>i*1000</code></dt>
+            <dt>But the problem with global <code>i</code> still exists.</dt>
+        </dl>
     </section>
     <section><h3>"closures in loops - timeout IIFE fix"</h3>
         <pre><code rel="JS">
             var colors = ["red", "green", "blue"];
+            var box = document.querySelector('.box');
+
+            function changeBG(color){
+                box.style.background = color;
+            }
 
             for (var i = 0; i < colors.length; i++) {
-                (function(i){
+                (function (i) {
                     setTimeout(function(){
-                        changeBG("box", colors[i]);
+                        console.log(`i:${i}`);
+                        changeBG( colors[i] );
                     }, 1000*i)
                 })(i);
             }
-
-            function changeBG(id, color){
-                var node = document.getElementById(id);
-                node.style.background = color;
-            }
         </code></pre>
-        <p class="note">setTimeout() is invoked immediately 3 times. The delay is for the inner function. If we pass same delay, they will be invoked simultaneously after the delay. So, we need to change the delay, as well, i.e. <code>i*1000</code></p>
     </section>
     <section><h3>"closures in loops - timeout separate call fix"</h3>
         <pre><code rel="JS">
             var colors = ["red", "green", "blue"];
+            var box = document.querySelector('.box');
+
+            function changeBG(color){
+                box.style.background = color;
+            }
+            function doTimeout(i){
+                setTimeout(function(){
+                    console.log(`i:${i}`);
+                    changeBG( colors[i] );
+                }, 1000*i);
+            }
 
             for (var i = 0; i < colors.length; i++) {
                 doTimeout(i);
-            }
-
-            function doTimeout(i){
-                setTimeout(function(){
-                    changeBG("box", colors[i]);
-                }, i*1000)
-            }
-
-            function changeBG(id, color){
-                var node = document.getElementById(id);
-                node.style.background = color;
             }
         </code></pre>
     </section>
@@ -457,7 +466,7 @@
     <section>
         <dl class="fa">
             <dt>A recursive function is a function which <span class="note">calls itself</span> (directly or indirectly)</dt>
-            <dt>Each call creates a separate function stack!</dt>
+            <dt>Each call creates a separate function stack (space in memory)!</dt>
             <dt>Recursion can be endless if we do not take care when it has to stop!</dt>
         </dl>
     </section>
@@ -511,6 +520,9 @@
 
             console.log(power(2, 10));
         </code></pre>
+        <dl class="fa">
+            <dt>Can you think of iterative solution?</dt>
+        </dl>
     </section>
     <section><h3>Traversing the DOM</h3>
         <iframe height='204' title='KmvZKv' src='https://codepen.io/ProgressWWWCourses/embed/KmvZKv/?height=204&theme-id=0&default-tab=js,result&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/KmvZKv/'>KmvZKv</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.

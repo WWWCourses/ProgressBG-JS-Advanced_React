@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>closureTimeoutProblem </title>
+</head>
+<body>
+	<div class="box" style="width:5em; height:5em; border:1px solid #000"></div>
+	<script>
+		var colors = ["red", "green", "blue"];
+		var box = document.querySelector('.box');
+
+		function changeBG(color){
+			box.style.background = color;
+		}
+		function doTimeout(i){
+			setTimeout(function(){
+				console.log(`i:${i}`);
+				changeBG( colors[i] );
+			}, 1000*i);
+		}
+
+		for (var i = 0; i < colors.length; i++) {
+			doTimeout(i);
+		}
+	</script>
+</body>
+</html>
