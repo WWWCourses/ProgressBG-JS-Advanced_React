@@ -102,17 +102,28 @@
 			<dt>Jailed to development processes, "best practises", frameworks.</dt>
 		</dl>
 	</section>
+	<section><h3>The notion of class and instance in classic OOP</h3>
+		<dl class="fa">
+			<dt>Class: a "blueprint" which describes objects and their behaviour:<br>
+				<img src="images/classAsBlueprint.png" alt="images/classAsBlueprint">
+			</dt>
+			<dt>Object (instance of a Class): the real entities with which we work.<br>
+				<img src="images/instancesOfClass.png" alt="instancesOfClass">
+			</dt>
+
+		</dl>
+	</section>
 	<section><h3>Class-based vs. Prototype-based OOP paradigms</h3>
-	<dl class="fa">
-		<dt>Class-based paradigm</dt>
-		<dd>Objects are instanses of <span class="note">classes</span></dd>
-		<dd>Classes inherit from <span class="note">classes</span></dd>
-		<dd>Classes are <span class="note">immutable</span></dd>
-		<dt>Prototype-based paradigm</dt>
-		<dd>Objects are instanses of <span class="note">objects</span></dd>
-		<dd>Objects inherit from <span class="note">objects</span></dd>
-		<dd>Objects are <span class="note">mutable</span></dd>
-	</dl>
+		<dl class="fa">
+			<dt>Class-based paradigm</dt>
+			<dd>Objects are instanses of <span class="note">classes</span></dd>
+			<dd>Classes inherit from <span class="note">classes</span></dd>
+			<dd>Classes are <span class="note">immutable</span></dd>
+			<dt>Prototype-based paradigm</dt>
+			<dd>Objects are instanses of <span class="note">objects</span></dd>
+			<dd>Objects inherit from <span class="note">objects</span></dd>
+			<dd>Objects are <span class="note">mutable</span></dd>
+		</dl>
 	</section>
 	<section><h3>OOP in JavaScript</h3>
 		<table>
@@ -228,9 +239,9 @@
 			// I'm object: Object 2
 		</code></pre>
 	</section>
-	<section style="font-size: .8em"><h3>The Factory as mechanism to enforce encapsulation</h3>
+	<section style="font-size: .8em"><h3>The Factory as mechanism to enforce <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a></h3>
 		<dl class="fa">
-			<dt>As we saw, the only way to enforce encapsulation in JavaScript is by function scopes and closures </dt>
+			<dt>As we saw, the only way to "hide" a variable in JavaScript is by function scopes and closures</dt>
 			<dt>And Factory is just a function!</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
@@ -339,7 +350,7 @@
 			<dd><code>new</code> and <code>this</code> problems!</dd>
 		</dl>
 	</section>
-	<section><h3>Factory Pattern with Counstructors - flexibility example</h3>
+	<section><h3 class="advanced">Factory Pattern with Constructors - flexibility example</h3>
 		<pre><code rel="JS" class="js">
 			"use strict";
 			// constructors:
@@ -380,11 +391,11 @@
 			// micahel_nyman_band_live.avi is playing as Video!
 		</code></pre>
 	</section>
-	<section><h3>The Object.create() method</h3>
+	<!-- <section><h3>The Object.create() method</h3>
 		<p>The <code>Object.create()</code> method creates a new object with the specified prototype object and properties.</p>
 		<p>Object prototypes are discussed further.</p>
 		<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create()</a>
-	</section>
+	</section> -->
 </section>
 
 <section><h2>Object properties</h2>
