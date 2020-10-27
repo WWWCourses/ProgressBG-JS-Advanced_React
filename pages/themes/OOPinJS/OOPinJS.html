@@ -489,11 +489,14 @@
 	<section><h3>Shorthand method notation (ES2015)</h3>
 		<dl class="fa">
 			<dt>We can omit the function keyword, when defining methods after ES2015 </dt>
+			<dt class="note">This shorthand notation is widely used, especially in React/Vue/Angular</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
 			var obj = {
 				id: 1,
-				sayID(){console.log(this.id)},
+				sayID(){
+					console.log(this.id)
+				},
 			}
 			obj.sayID();
 			// 1
