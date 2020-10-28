@@ -417,7 +417,13 @@
             <dt>But the problem with global <code>i</code> still exists.</dt>
         </dl>
     </section>
-    <section><h3>"closures in loops - timeout IIFE fix"</h3>
+    <section id="HW_ClosureInLoop"><h3>TASK: "closures in loops - timeout Problem"</h3>
+        <dl class="fa">
+            <dt>Fix the next code, using an IIFE</dt>
+        </dl>
+        <pre><code rel="HTML" class="html5">
+            <div class="box" style="width:5em; height:5em; border:1px solid #000"></div>
+        </code></pre>
         <pre><code rel="JS">
             var colors = ["red", "green", "blue"];
             var box = document.querySelector('.box');
@@ -427,16 +433,14 @@
             }
 
             for (var i = 0; i < colors.length; i++) {
-                (function (i) {
-                    setTimeout(function(){
-                        console.log(`i:${i}`);
-                        changeBG( colors[i] );
-                    }, 1000*i)
-                })(i);
+                setTimeout(function(){
+                    console.log(`i:${i}`);
+                    changeBG( colors[i] );
+                }, 1000*i)
             }
         </code></pre>
     </section>
-    <section><h3>"closures in loops - timeout separate call fix"</h3>
+    <!-- <section><h3>"closures in loops - timeout separate call fix"</h3>
         <pre><code rel="JS">
             var colors = ["red", "green", "blue"];
             var box = document.querySelector('.box');
@@ -455,7 +459,7 @@
                 doTimeout(i);
             }
         </code></pre>
-    </section>
+    </section> -->
     <section><h3>Test it!</h3>
         <iframe height='328' title='Lab5: All Examples' src='https://codepen.io/ProgressWWWCourses/embed/JNydxy/?height=328&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/JNydxy/'>Lab5: All Examples</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
         </iframe>
