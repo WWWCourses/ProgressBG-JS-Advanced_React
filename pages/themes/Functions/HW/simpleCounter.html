@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>simpleCounter </title>
+	<style>
+		body{
+			width: 80%;
+			margin: 0 auto;
+		}
+		#counterWrapper{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			gap: 1em 2em ;
+			width: 20em;
+			/* justify-content: space-between; */
+			/* align-content: space-between; */
+
+
+		}
+		#counter{
+			grid-column: 1 / 3;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 2em;
+			border: 1px dotted #999;
+		}
+		.btnCounter{
+			font-size: 2em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 1.3em;
+			border: 1px solid #333;
+			outline: none;
+			box-sizing: border-box;
+			background-color: #666;
+			color: #DDD;
+		}
+		.btnCounter:hover{
+			cursor: pointer;
+		}
+		.btnCounter:active{
+			border: 1px solid #CCC;
+		}
+	</style>
+</head>
+<body>
+	<h1>simple counter - function demo</h1>
+	<div id="counterWrapper">
+		<div id="counter">0</div>
+		<button class="btnCounter" id="btnIncrement">+</button>
+		<button class="btnCounter" id="btnDecrement">-</button>
+	</div>
+
+	<script>
+		const counter = document.querySelector('#counter');
+		const btnIncrement = document.querySelector('#btnIncrement');
+		const btnDecrement = document.querySelector('#btnDecrement');
+
+
+		btnDecrement.addEventListener('click', function () {
+			counter.innerText--;
+		})
+		btnIncrement.addEventListener('click', function () {
+			counter.innerText++;
+		})
+
+	</script>
+</body>
+</html>

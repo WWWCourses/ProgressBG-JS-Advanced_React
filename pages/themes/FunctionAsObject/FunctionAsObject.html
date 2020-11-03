@@ -108,13 +108,13 @@
 
             // function methods (note the 'this' value):
             console.log(`Calling foo() with apply():`);
-            foo.apply({id:1},[2,3]); // argumentes are passed as array
+            foo.apply({id:1},[2,3]); // arguments are passed as array
 
             console.log(`Calling foo() with call():`);
-            foo.call({id:1},2,3);   // argumentes are passed as comma separated list
+            foo.call({id:1},2,3);   // arguments are passed as comma separated list
 
             console.log(`Binding foo:`);
-            let new_foo = foo.bind({id:1},20,30);   // argumentes are passed as comma separated list,and they will be prepended to the new_foo() arguments, if given
+            let new_foo = foo.bind({id:1},20,30);   // arguments are passed as comma separated list,and they will be prepended to the new_foo() arguments, if given
             new_foo(8,9);
         </code></pre>
     </section>
