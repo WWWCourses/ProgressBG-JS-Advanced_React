@@ -135,10 +135,38 @@
 			dev1.greet()
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
+		'gettersAndSetters': function(){
+		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+			class Person{
+				constructor(name){
+					this._name = name || "Anonymous";
+				}
+				get name(){
+					console.log(`getting name at: ${new Date()}`);
+					return this._name;
+				}
+
+				set name(name){
+					console.log(`setting new name at: ${new Date()}`);
+					this._name = name;
+				}
+
+				greet(){
+					console.log(`I'm ${this.name}`);
+				}
+			}
+
+			let p1 = new Person('Pesho', 23);
+			p1.name = 'Peter';
+			p1.greet();
+
+
+		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+		},
 	}
 
 
-	examples.subclassing();
+	examples.gettersAndSetters();
 </script>
 </body>
 </html>

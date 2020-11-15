@@ -636,16 +636,67 @@
       let p2 = new Person('Maria', 28);
     </code></pre>
   </section>
-  <!-- <section><h3>Field declarations</h3>
+  <section><h3 class="advanced">Field declarations</h3>
     <dl class="fa">
       <dt>The new field declaration syntax allows us to declare fields up-front, outside the constructor, setting some default value if we need.</dt>
       <dt>Using the fields declaration class definitions become more self-documenting, and the fields are always present.</dt>
     </dl>
-  </section> -->
-  <section><h3>Sub classing with <code>extends</code> keyword</h3>
+    <pre><code rel="JS" class="js">
+      class Person{
+        name="Anonymous";
+        age;
+
+        constructor(name, age){
+          this.name = name;
+          this.age = age;
+        }
+
+        greet(){
+          console.log(`I'm ${this.name}, ${this.age} years old.`);
+        }
+      }
+
+      let p1 = new Person('Pesho', 23);
+      let p2 = new Person();
+      p1.greet();
+      p2.greet();
+    </code></pre>
+  </section>
+  <section><h3 class="advanced">Getters and Setters</h3>
     <dl class="fa">
-      <dt>To create a class as a child of another class we can use the <span class="note">extends</span> keyword in class definition</dt>
-      <dt>The <span class="note">super</span> keyword allows to call the parent  constructor or any method of the super class</dt>
+      <dt>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get">get</a></code> syntax binds an object property to a function that will be called when that property is looked up.</dt>
+      <dt>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set">set</a></code> syntax binds an object property to a function to be called when there is an attempt to set that property.</dt>
+    </dl>
+    <pre><code rel="JS" class="js">
+      class Person{
+        constructor(name){
+          this._name = name || "Anonymous";
+        }
+        get name(){
+          console.log(`getting name at: ${new Date()}`);
+          return this._name;
+        }
+
+        set name(name){
+          console.log(`setting new name at: ${new Date()}`);
+          this._name = name;
+        }
+
+        greet(){
+          console.log(`I'm ${this.name}`); // here we use the getter
+        }
+      }
+
+      let p1 = new Person('Pesho', 23);
+      p1.name = 'Peter'; // here we use the setter
+      p1.greet();
+    </code></pre>
+  </section>
+  <section><h3>Sub-classing (inheritance) with <code>extends</code> and <code>super</code> keywords</h3>
+    <dl class="fa">
+      <dt>To create a class as a child of another class we can use the <span class="note"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends">extends</a> </span> keyword in class definition</dt>
+      <dt>The <span class="note"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super">super</a></span> keyword allows to call the parent constructor of the super class. Note that when the <code>supper</code> keyword is used to call the parent's constructor it must be used before the this keyword is used.</dt>
+      <dt>The <code>super</code> keyword can be used to call parent methods, as well, using the <code>super.prop</code> or <code>super[expr]</code> syntax</dt>
     </dl>
     <pre><code rel="JS" class="js">
       class Person{
@@ -683,7 +734,7 @@
 <section><h2>Exercises</h2>
   <section id="DeveloperManagerPersonClassSyntaxTaskDescription"><h3>Developer_Manager_Person with Class Syntax- task description</h3>
     <dl class="fa">
-      <dt>Refactor the solution of <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription">Developer_Manager_Person Task</a> using this time the Class Syntax</dt>
+      <dt>Refactor the solution of <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonAdvancedTaskDescription">Developer_Manager_Person Advanced Task</a> using this time the Class Syntax</dt>
       <dt>Your new code must produce the same results for same input data, as in the old solution.</dt>
     </dl>
   </section>
