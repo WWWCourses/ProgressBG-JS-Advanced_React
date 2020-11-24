@@ -95,19 +95,37 @@
   		<dt>Some of the patterns that fall under this category are: Factory, Abstract, Prototype, Singleton and Builder</dt>
   	</dl>
   </section>
-  <section><h3>Create new object</h3>
+  <section><h3>Create single object</h3>
   	<dl class="fa">
-  		<dt>Three main ways in JS:</dt>
+  		<dt>There are various ways to create an object in JS:</dt>
   	</dl>
   	<pre><code rel="JS" class="js">
-  			// by object literal
-  			const obj1 = {}
+		// by object literal
+		const objLiteral = {}
 
-  			// by Object.create method
-  			const obj2 = Object.create(null);
+		// by Object.create method
+		const objCreateNormal = Object.create({});
+		const objCreateNull = Object.create(null);
 
-  			// by Object constructor
-  			const obj3 = new Object()
+		// by Object.assign method
+		const objAssign = Object.assign({},{});
+
+		// by Object constructor
+		const objObjectConstructor = new Object()
+
+		console.dir(objLiteral);
+		console.dir(objCreateNormal);
+		console.dir(objCreateNull);
+		console.dir(objAssign);
+		console.dir(objObjectConstructor);
+
+		// OUTPUT
+		// {}
+		// {}
+		// [Object: null prototype] {}
+		// {}
+		// {}
+
   		</code></pre>
   </section>
 
@@ -167,30 +185,64 @@
 			<dt>And Factory is just a function!</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
-			var accountFactory = function(balance){
+			const accountFactory = function(balance){
 				// private members
-				var balance = balance;
+				let _balance = balance;
 
 				// public
-				var obj = {
-					getBalance: ()=>console.log(`Balnace = ${balance}`),
-					setBalance: (b)=>balance = b,
+				const obj = {
+					getBalance: ()=>_balance,
+					setBalance: (b)=>_balance = b,
 				};
 
 				return obj;
 			}
 
-			var obj1 = accountFactory(999999999);
+			const obj1 = accountFactory(999999999);
 
 			// let's try to change the balance directly:
-			obj1.balance = 0;
-			obj1.getBalance();
-			// Balnace = 999999999
+			obj1._balance = 0;
+			console.log(`New Balance: ${obj1.getBalance()}`);
+			;
+			// Balance = 999999999
 
 			// let's try to change the balance through the setter:
 			obj1.setBalance(0);
-			obj1.getBalance();
-			// Balnace = 0
+			console.log(`New Balance: ${obj1.getBalance()}`);
+			// Balance = 0
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">The Factory as mechanism to enforce encapsulation - Getter And Setter Example</h3>
+		<pre><code rel="JS" class="js">
+			const accountFactory = function(balance){
+				// private members
+				let _balance = balance;
+
+				// public
+				const obj = {
+					get balance(){
+						return _balance
+					},
+					set balance(b){
+						_balance = b
+					}
+				};
+
+				return obj;
+			}
+
+			const obj1 = accountFactory(999999999);
+
+			// let's try to change the balance directly:
+			obj1._balance = 0;
+			console.log(`New Balance: ${obj1.balance}`);
+			;
+			// Balance = 999999999
+
+			// let's try to change the balance through the setter:
+			obj1.balance = 0;
+			console.log(`New Balance: ${obj1.balance}`);
+			// Balance = 0
 		</code></pre>
 	</section>
 	<!-- moved in OOP topic
@@ -204,7 +256,7 @@
 </section>
 
 <section data-min="5"><h1>The Singleton Pattern</h1></section>
-<section data-notes="2h"><h2>The Singleton Pattern</h2>
+<section data-notes="2h"><h2 class="advanced">The Singleton Pattern</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Singleton provides protection against accidentally creating multiple copies of a complex object.</dt>
@@ -298,36 +350,13 @@
 <section><h2>The Module Pattern</h2>
 	<section><h3>Modules in JavaScript</h3>
 		<dl class="fa">
-			<dt>Object literal notation</dt>
 			<dt>The Module pattern</dt>
 			<dt>AMD modules</dt>
 			<dt>CommonJS modules</dt>
 			<dt>ECMAScript6 modules</dt>
 		</dl>
 	</section>
-	<section><h3>Module as Object Literal</h3>
-		<pre><code rel="JS" class="js">
-			var myModule = {
-				config: {
-					encoding: 'UTF8',
-					maxLength: '2048'
-				},
 
-				log: function(value, msg){
-					msg?
-						console.log(`${msg}: ${value}\n\n`):
-						console.log(`${value}\n\n`);
-
-				}
-			}
-
-			var m = myModule;
-
-			for( conf in m.config){
-				m.log( m.config[conf], conf);
-			}
-		</code></pre>
-	</section>
 	<section><h3>Module Pattern</h3>
 		<dl class="fa">
 			<dt>The Module pattern encapsulates "privacy", state and organization using closures.</dt>
@@ -337,32 +366,38 @@
 	</section>
 	<section><h3>Example</h3>
 		<pre><code rel="JS" class="js">
-			var myModule = (function(){
+			const myModule = (function(){
 				// private
-				var config = {
+				const config = {
 					encoding: 'UTF8',
 					maxLength: '2048'
 				};
 
-				var log = function(value, msg){
-					msg?
-						console.log(`${msg}: ${value}\n\n`):
-						console.log(`${value}\n\n`);
+				const logDateTime = function () {
+					return new Date();
+				}
 
-				};
 
 				// API
-				var showConfig =  function(){
-					for( c in this.config ){
-						this.log(this.config[c], this.config)
+				const showConfig =  function(){
+					for( key in config ){
+						console.log(`${key}: ${config[key]}`)
 					}
+				}
+				const changeConfig =  function(key, value){
+					config[key] = value;
+					console.log(`Configed changed at: ${logDateTime()}`);
 				}
 
 				return {
-					showConfig: showConfig
+					// from ES6 (Shorthand property names)
+					showConfig,
+					changeConfig
 				}
 			})();
 
+			myModule.showConfig();
+			myModule.changeConfig("maxLength",1024 );
 			myModule.showConfig();
 		</code></pre>
 	</section>
@@ -374,6 +409,9 @@
 		</dl>
 	</section>
 	<section><h3>ES6 Modules - nodejs demo</h3>
+		<dl class="fa">
+			<dt class="note">Using mjs in real-world scenario is not needed/recommended. We config package.json instead.But this is just a simplest demo for module mechanism:</dt>
+		</dl>
 		<pre><code rel="moduleA.mjs" class="js">
 			function foo(){
 			  console.log(`foo from moduleA is called!`);
@@ -396,7 +434,7 @@
 		</code></pre>
 	</section>
 </section>
-<section data-notes="2h"><h2 class="advanced">The Builder Pattern</h2>
+<!-- <section data-notes="2h"><h2 class="advanced">The Builder Pattern</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Avoids this issue by centralizing the logic necessary to build the object</dt>
@@ -413,7 +451,7 @@
 			<dt><span class="note">Product</span>: the complex object that is to be generated by the builder pattern.</dt>
 		</dl>
 	</section>
-</section>
+</section> -->
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
