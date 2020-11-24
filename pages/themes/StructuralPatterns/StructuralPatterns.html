@@ -175,16 +175,70 @@
 	</section>
 </section>
 
-<section data-notes="20min"><h2>Decorator</h2>
+<section data-notes="20min"><h2 class="advanced">Decorator</h2>
 	<section><h3>about</h3>
 		<a href="images/decoratorIdea.png"><img src="images/decoratorIdea.png"></a>
-		<p class="note"><b>Dynamically</b> augments the behaviour of an existing object</p class="note">
+		<p class="note"><b>Dynamically</b> augments the behaviour of an existing functions or objects</p class="note">
 	</section>
 	<section><h3>How Decorator differs from Classical Inheritance?</h3>
 		<dl class="fa">
 			<dt>The behaviour is not added to the all of the objects from the same class.</dt>
 			<dt>We can add behaviour only to the object being decorated.</dt>
 		</dl>
+	</section>
+	<section><h3>Function decorators - simple</h3>
+		<dl class="fa">
+			<dt>Let's look at the most simple case - decorating a function without arguments:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			//a decorator function:
+			function dateDecorator(f){
+				// decorating phase:
+				let d = new Date();
+				const formatedDateStr =  `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`
+				console.log(`${f.name} was called on ${formatedDateStr}`);
+
+				// return the decorated function
+				return f
+			}
+
+			// the function to be decorated
+			function howdy(){
+				console.log(`Howdy World!`);
+			}
+
+			// decorate the function
+			howdy = dateDecorator(howdy)
+
+			// use the decorated function
+			howdy();
+		</code></pre>
+	</section>
+	<section><h3>Function decorators - with arguments</h3>
+		<dl class="fa">
+			<dt>Now, we can look at the more common case - decorating a function with arguments:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			// decorator function
+			function logDecorator(f){
+				return  function(...args){
+					console.log(`${f.name} called with args: ${args}`);
+					return f(...args);
+				}
+			}
+
+			// the function to be decorated
+			function add(x,y){
+				return x+y;
+			}
+
+			// decorate the add function
+			add = logDecorator(add);
+
+			// use the decorated function
+			console.log(add(2,3));
+
+		</code></pre>
 	</section>
 	<section><h3>Object decoration</h3>
 		<pre><code rel="JS" class="js">
@@ -200,33 +254,34 @@
 	</section>
 	<section><h3>Example</h3>
 		<pre><code rel="JS" class="js">
-			// The constructor to decorate
-			function Laptop() {
-			  this.price = function() { return 1000; };
-			  this.screenSize = function () { return 13; };
+			// A normal Laptop class
+			class Laptop {
+				constructor(price,screenSize){
+					this.price = price;
+					this.screenSize = screenSize;
+				}
 			}
 
-			// Decorators
+			// Decorator: memory
 			function memory( laptop ) {
-				let p = laptop.price();
-			  laptop.price = function() {
-			    return p + 75;
-			  };
+				laptop.getPrice = function() {
+					return laptop.price + 75;
+				};
 			}
+			// Decorator: ssd
 			function ssd( laptop ) {
-				let p = laptop.price();
-			  laptop.price = function() {
-			    return p + 125;
-			  };
+				laptop.getPrice = function() {
+					return laptop.price + 125;
+				};
 			}
 
-			// usage
-			var thinkPad = new Laptop();
+			var thinkPad = new Laptop(1000, 13);
 
+			// decorate a Laptop instance with memory and ssd
 			memory( thinkPad );
 			ssd( thinkPad );
 
-			console.log( thinkPad.price() );
+			console.log( thinkPad.getPrice() );
 
 		</code></pre>
 	</section>
@@ -296,74 +351,6 @@
 		</code></pre>
 		<p>from <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Learning JavaScript Design Patterns: Decorators With jQuery</a></p>
 	</section> -->
-	<section><h3>Function decorators - simple</h3>
-		<dl class="fa">
-			<dt>Let's look at the most simple case - decorating a function without arguments:</dt>
-		</dl>
-		<pre><code rel="JS" class="js">
-			// just a helper function
-			function getCurrentDate(){
-			  let d = new Date();
-			  return `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`
-			}
-
-			// decorator function defined with function declaration
-			function decorator(f){
-			  console.log(`${f.name} was called on ${getCurrentDate()}`);
-			  return f
-			}
-
-			// decorator function defined with lambda (arrow function syntax)
-			const lambdaDecorator = f => {
-			  console.log(`${f.name} was called on ${getCurrentDate()}`);
-			  return f
-			}
-
-			// the function to be decorated
-			function howdy(){
-			  console.log(`Howdy World!`);
-			}
-
-			// decorate the function
-			howdy = lambdaDecorator(howdy)
-
-			// use the decorated function
-			howdy();
-		</code></pre>
-	</section>
-	<section><h3>Function decorators - with arguments</h3>
-		<dl class="fa">
-			<dt>Now, we can look at the more common case - decorating a function with arguments:</dt>
-		</dl>
-		<pre><code rel="JS" class="js">
-			// decorator function defined with function declaration
-			function logDecorator(f){
-			  return  function(...args){
-			    console.log(`${f.name} called with args: ${args}`);
-			    return f(...args);
-			  }
-			}
-
-			// decorator function defined with lambda (arrow function syntax)
-			const logDecoratorLambdas = f => (...args) => {
-			  console.log(`${f.name} called with args: ${args}`);
-			  return f(...args);
-			}
-
-			// the function to be decorated
-			function add(x,y){
-			  return x+y;
-			}
-
-			// decorate the add function
-			const decoratedAdd = logDecorator(add);
-			const lambdasDecoratedAdd = logDecoratorLambdas(add);
-
-			// use the decorated function
-			console.log(decoratedAdd(2,3));
-			console.log(lambdasDecoratedAdd(2,3));
-		</code></pre>
-	</section>
 </section>
 
 <!-- <section><h2>Façade</h2>
@@ -392,7 +379,7 @@
 	</section>
 </section> -->
 
-<section><h2>Iterator</h2>
+<section><h2 class="advanced">Iterator</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Provides easy access to elements of complex data structure.</dt>
@@ -420,7 +407,12 @@
 			}
 		</code></pre>
 	</section>
-	<section><h3>implementation (MDN)</h3>
+	<section><h3>Reference:</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterators">Iterators @MDN</a></dt>
+		</dl>
+	</section>
+	<!-- <section><h3>implementation (MDN)</h3>
 		<pre><code rel="JS" class="js">
 			function makeIterator(array) {
 			    var index = 0;
@@ -468,10 +460,10 @@
 			console.log(agg.next());
 		}
 		</code></pre>
-	</section>
+	</section> -->
 </section>
 
-<section><h2>Observer</h2>
+<section><h2 class="advanced">Observer</h2>
 	<section>
 		<dl class="fa">
 			<dt>The Observer Pattern defines an object (called <span class="note">subject</span>), which can notify a set of observers (or listeners), when a change in its state happens.</dt>
