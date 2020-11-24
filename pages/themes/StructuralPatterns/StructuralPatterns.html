@@ -81,7 +81,38 @@
 	<section><h3>About</h3>
 		<a href="images/mixinPatternDiagram.png"><img src="images/mixinPatternDiagram.png" alt=""></a>
 	</section>
-	<section><h3>example</h3>
+	<section><h3>Simple Example</h3>
+		<pre><code rel="JS" class="js">
+			const mixin1 = {
+				method1(){
+					console.log(`I'm method1 from mixin1`);
+				},
+				method2(){
+					console.log(`I'm method2 from mixin1`);
+				}
+			}
+
+			const mixin2 = {
+				method3(){
+					console.log(`I'm method3 from mixin2`);
+				}
+			}
+
+			class MixinUser{
+				// all objects of MixinUser class will have copies of mixin1 and mixin2 in them
+				constructor(){
+					Object.assign(this, mixin1, mixin2)
+				}
+			}
+
+			// test
+			let mixinUserObject = new MixinUser();
+			mixinUserObject.method1(); // I'm F1 from M1
+			mixinUserObject.method3(); // I'm F1 from M1
+
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">Mixin Pattern Implementation</h3>
 		<pre><code rel="JS" class="js">
 			// The Mixin - exports functionalities for vehicles
 			var Mixin = function (){};
