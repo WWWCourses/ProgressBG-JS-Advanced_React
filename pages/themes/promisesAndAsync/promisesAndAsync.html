@@ -94,41 +94,46 @@
   </section>
   <section><h3>Synchronous vs. Asynchronous Demo</h3>
   	<pre><code rel="JS" class="js">
-  		function syncDemo(){
-  		  console.time('syncDemo');
-  		  console.log(`1`);
-  		  console.log(`2`);
-  		  console.log(`3`);
-  		  console.timeEnd('syncDemo');
-  		}
+		// generate array of integers -needed for tests bellow:
+		let arr1 = Array.from({length:1_000_000},(a,b)=>b+1);
+		let arr2 = Array.from({length:2_000_000},(a,b)=>b+1);
+		let arr3 = Array.from({length:2_000_000},(a,b)=>b+1);
 
-  		function asyncDemo(){
-  		  //setTimeout is executed asynchronous and is not blocking the rest of the code!
-  		  console.time('asyncDemo');
-  		  setTimeout(()=>{console.log(`1`)}, 1500)
-  		  setTimeout(()=>{console.log(`2`)}, 1000)
-  		  setTimeout(()=>{console.log(`3`)}, 500)
-  		  console.timeEnd('asyncDemo');
-  		}
 
-  		console.log(`~~~~~ Sync execution ~~~~~`);
-  		syncDemo();
+		function syncDemo(){
+			console.time('syncDemo');
+			console.log(arr1.reduce((ac, el)=>ac+el));
+			console.log(arr2.reduce((ac, el)=>ac+el));
+			console.log(arr3.reduce((ac, el)=>ac+el));
+			console.timeEnd('syncDemo');
+		}
 
-  		console.log(`\n~~~~~ Async execution ~~~~~`);
-  		asyncDemo();
+		function asyncDemo(){
+			//setTimeout is executed asynchronous and is not blocking the rest of the code!
+			console.time('asyncDemo');
+			setTimeout(()=>{console.log( arr1.reduce((ac, el)=>ac+el) )}, 0)
+			setTimeout(()=>{console.log( arr2.reduce((ac, el)=>ac+el) )}, 0)
+			setTimeout(()=>{console.log( arr3.reduce((ac, el)=>ac+el) )}, 0)
+			console.timeEnd('asyncDemo');
+		}
 
-  		// output:
-  		~~~~~ Sync execution ~~~~~
-  		1
-  		2
-  		3
-  		syncDemo: 0.317ms
+		console.log(`~~~~~ Sync execution ~~~~~`);
+		syncDemo();
 
-  		~~~~~ Async execution ~~~~~
-  		asyncDemo: 0.620ms
-  		3
-  		2
-  		1
+		console.log(`\n~~~~~ Async execution ~~~~~`);
+		asyncDemo();
+
+		// ~~~~~ Sync execution ~~~~~
+		// 500000500000
+		// 2000001000000
+		// 2000001000000
+		// syncDemo: 143.463ms
+
+		// ~~~~~ Async execution ~~~~~
+		// asyncDemo: 0.391ms
+		// 500000500000
+		// 2000001000000
+		// 2000001000000
   	</code></pre>
   </section>
 </section>
