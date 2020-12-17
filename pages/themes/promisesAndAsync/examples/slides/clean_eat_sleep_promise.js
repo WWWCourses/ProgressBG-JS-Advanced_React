@@ -6,7 +6,7 @@ let cleanRoom = new Promise(function(resolve, reject) {
 
 
 let eatIcecream = function(msg){
-	console.log(msg);
+	console.log(`msg: ${msg}`);
 
 	return new Promise(function (resolve, reject){
 		console.log(`Icecream time! `);
@@ -25,4 +25,5 @@ let goToBed = function(msg){
 
 cleanRoom
   .then(eatIcecream)
-  .then(goToBed);
+  .then(goToBed)
+  .catch((msg)=>console.log(`Error:${msg}`))

@@ -94,26 +94,25 @@
   </section>
   <section><h3>Synchronous vs. Asynchronous Demo</h3>
   	<pre><code rel="JS" class="js">
-		// generate array of integers -needed for tests bellow:
-		let arr1 = Array.from({length:1_000_000},(a,b)=>b+1);
-		let arr2 = Array.from({length:2_000_000},(a,b)=>b+1);
-		let arr3 = Array.from({length:2_000_000},(a,b)=>b+1);
-
-
+		// generate array of integers - needed for tests bellow:
+		let testArrays = [
+			Array.from({length:1_000_000},(_,i)=>i+1),
+			Array.from({length:2_000_000},(_,i)=>i+1),
+			Array.from({length:3_000_000},(_,i)=>i+1),
+		];
 		function syncDemo(){
 			console.time('syncDemo');
-			console.log(arr1.reduce((ac, el)=>ac+el));
-			console.log(arr2.reduce((ac, el)=>ac+el));
-			console.log(arr3.reduce((ac, el)=>ac+el));
+			testArrays.forEach(arr=>{
+				console.log(arr.reduce((ac, el)=>ac+el));
+			})
 			console.timeEnd('syncDemo');
 		}
-
 		function asyncDemo(){
 			//setTimeout is executed asynchronous and is not blocking the rest of the code!
 			console.time('asyncDemo');
-			setTimeout(()=>{console.log( arr1.reduce((ac, el)=>ac+el) )}, 0)
-			setTimeout(()=>{console.log( arr2.reduce((ac, el)=>ac+el) )}, 0)
-			setTimeout(()=>{console.log( arr3.reduce((ac, el)=>ac+el) )}, 0)
+			testArrays.forEach(arr=>{
+				setTimeout(()=>{console.log( arr.reduce((ac, el)=>ac+el) )}, 0)
+			})
 			console.timeEnd('asyncDemo');
 		}
 
@@ -126,14 +125,14 @@
 		// ~~~~~ Sync execution ~~~~~
 		// 500000500000
 		// 2000001000000
-		// 2000001000000
-		// syncDemo: 143.463ms
-
+		// 4500001500000
+		// syncDemo: 176.295ms
+		//
 		// ~~~~~ Async execution ~~~~~
-		// asyncDemo: 0.391ms
+		// asyncDemo: 0.411ms
 		// 500000500000
 		// 2000001000000
-		// 2000001000000
+		// 4500001500000
   	</code></pre>
   </section>
 </section>
