@@ -75,30 +75,50 @@
 </section>
 
 
+
+<section data-min="5"><h1>Overview</h1></section>
+<section><h2>Overview</h2>
+	<section><h3>Nodejs</h3>
+		<dl class="fa">
+			<dt>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</dt>
+			<dt>It is an <span class="note">asynchronous (i.e. non-blocking)</span>, event-driven JavaScript runtime, mainly used, but not limited, for creating scalable and fast working network applications</dt>
+			<dt>Nodejs provides non-blocking I/O primitives and other libraries which are written using non-blocking paradigms, which allows the programs written on Node to run fast.</dt>
+			<dt>Node.js is built against modern versions of V8. This ensures that <span class="note">new features from the JavaScript ECMA-262 specification are brought to Node.js developers in a timely manner</span>, as well as continued performance and stability improvements.</dt>
+			<dt>Reference: <a href="https://nodejs.org">nodejs.org</a></dt>
+		</dl>
+	</section>
+	<section><h3><code>npm - the Node Package Manager</code></h3>
+		<dl class="fa">
+			<dt><code>npm</code> is a package manager for the JavaScript programming language.</dt>
+			<dt>It is the default package manager for the Node.js</dt>
+			<dt>It started as a way to download and manage dependencies of Node.js packages, but nowadays it become a tool used also in frontend JavaScript.</dt>
+			<dt><code>npm</code> consists of a command line client, also called <code>npm</code>, and an online database of public and paid-for private packages, called the npm registry.</dt>
+			<dt>Reference: <a href="https://www.npmjs.com/">www.npmjs.com</a></dt>
+		</dl>
+	</section>
+</section>
 <section data-min="5"><h1>Setup the environment.</h1></section>
 <section><h2>Setup the environment.</h2>
-  <section><h3>Prerequisites</h3>
+  <section><h3>Install nodejs and npm</h3>
     <dl class="fa">
-      <dt>Install or update <a href="https://nodejs.org/en/">nodejs</a> to the current stable version</dt>
+	  <dt>Install <a href="https://nodejs.org/en/">nodejs</a> to the current stable version.</dt>
+	  <dt>the npm CLI will be installed, as well.</dt>
       <dt>Make sure you have next commands available in your path:</dt>
     </dl>
     <pre><code rel="Terminal" class="js">
       node --version
-      # v12.2.0
+      # v12.20.0
 
       npm --version
-      # 6.9.0
-
-      npx --version
-      # 6.9.0
+      # 6.14.8
     </code></pre>
   </section>
 </section>
-<section data-min="5"><h1>The node package manager (npm)</h1></section>
-<section><h2>The node package manager (npm)</h2>
-  <section><h3>What is NPM?</h3>
+<section data-min="5"><h1>The npm CLI</h1></section>
+<section><h2>The npm CLI</h2>
+  <section><h3>Overview</h3>
     <dl class="fa">
-      <dt>NPM allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They are the <span class="note">dependencies</span> of your application.</dt>
+      <dt><code>npm</code> CLI allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They are the <span class="note">dependencies</span> of your application.</dt>
       <dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
       <dd>Global node packages are accessible from everywhere in the terminal and you have to install them only once to your global directory</dd>
       <dd>Local node packages are accessible only from your project folder</dd>

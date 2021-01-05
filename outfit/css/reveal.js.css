@@ -108,6 +108,11 @@
   font-weight: normal;
   text-decoration: inherit;
 } */
+.reveal section dl.fa>dd{
+  font-size: 0.9em;
+  line-height: 1.2em;
+
+}
 .reveal section dl.fa>dd:before{
   position: relative;
   bottom: .2em;
