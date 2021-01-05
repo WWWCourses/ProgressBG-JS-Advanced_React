@@ -76,177 +76,202 @@
 
 <section data-min="5"><h1>What is a React Element</h1></section>
 <section><h2>What is a React Element</h2>
-  <section><h3>Overview</h3>
-  	<pre><code rel="JS" class="jsx">
-  		"use strict";
+	<section><h3>Overview</h3>
+		<pre><code rel="index.html" class="html5">
+			&lt;body&gt;
+				&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+			&lt;/body&gt;
+		</code></pre>
+		<pre><code rel="index.js" class="jsx">
+			import React from 'react';
+			import ReactDOM from 'react-dom';
 
-  		var element = React.createElement("h1", null, "Hello, world");
-  	</code></pre>
-  	<dl class="fa">
-  		<dt>Elements are the smallest building blocks of React apps</dt>
-		  <dt>An element describes what you want to see on the screen</dt>
-		  <dt>React element is an object, representing a DOM node</dt>
-  		<dt class="note">React elements are plain objects, which are cheap to create and update (unlike DOM Elements)</dt>
-  		<dt><code>ReactDOM</code> takes care of updating the DOM to match the React elements</dt>
-  	</dl>
-  </section>
-  <section><h3>Creating React Elements</h3>
-    <p>To create a react element we can use either:</p>
-    <dl class="fa">
-  		<dt><code><a href="https://reactjs.org/docs/react-api.html#createelement">React.createElement()</a></code> method</dt>
-  	</dl>
-  	<pre><code rel="helloWorld.js" class="js">
-  		const h1 = React.createElement("h1", {className: 'green'}, "Hello, world!");
-  		ReactDOM.render(
-  		    h1, document.getElementById('root')
-  		);
-  	</code></pre>
-    <dl class="fa">
-      <dt>JSX syntax (the preferred way)</dt>
-    </dl>
-    <pre><code rel="helloWorld.jsx" class="jsx">
-  		const h1 = <h1 className="green">Hello, world!</h1>
-  		ReactDOM.render(
-  		    h1, document.getElementById('root')
-  		);
-    </code></pre>
-  </section>
-  <section><h3>React Element object</h3>
-    <dl class="fa">
-      <dt>React Elements, created by React.createElement() or JSX, creates an object like:</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      Object
-        type: 'h1',
-        key: null,
+			var element = React.createElement("h1", null, "Hello, world");
+			console.dir(element);
 
-        props: {
-          className: 'green',
-          children: 'Hello, world!'
-        }
+			ReactDOM.render(element, document.querySelector('#root'))
+		</code></pre>
+		<dl class="fa">
+			<dt>Elements are the smallest building blocks of React apps</dt>
+			<dt>An element describes what you want to see on the screen</dt>
+			<dt>React element is an object, representing a DOM node</dt>
+			<dt class="note">React elements are plain JavaScript objects, which are cheap to create and update (unlike DOM Elements Objects)</dt>
+			<dt>If we want to render a React Element into the DOM, we should use <code>ReactDOM</code> which takes care of updating the DOM to match the React elements</dt>
+		</dl>
+	</section>
+	<section><h3>notes on importing objects</h3>
+		<dl class="fa">
+			<dt>in order to use the <code>React.createElement()</code> and <code>ReactDOM.render()</code> methods we <span class="note">must</span> import the React and ReactDOM objects from corresponding libraries (node modules).</dt>
+		</dl>
+		<pre><code rel="index.js" class="js">
+			// imports from Node Modules - no './' prefix in path:
+			import React from 'react';
+			import ReactDOM from 'react-dom';
 
-    </code></pre>
-  </section>
-  <section><h3>Rendering an Element into the DOM</h3>
-  	<dl class="fa">
-  		<!-- <dt>Applications built with React usually have <span class="note">a single root DOM node</span>.</dt> -->
-  		<dt>To render a React element into the DOM, we use the  <code><a href="https://reactjs.org/docs/react-dom.html#render">ReactDOM.render()</a></code> method</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-  		ReactDOM.render(
-  		    h1, document.getElementById('root')
-  		);
-  	</code></pre>
-  </section>
+			// imports from project files - prepend './' or '../' prefix in path:
+			import './index.css';
+		</code></pre>
+		<dl class="fa">
+			<dt>Note, that wnen we import from node_modules folder, we <span class="note">must not </span> use the './' prefix in path</dt>
+			<dt>But when we import a file from our project, we <span class="note">must</span> prepend './' prefix in path</dt>
+		</dl>
+	</section>
+	<section><h3>Creating React Elements</h3>
+		<p>To create a react element we can use either:</p>
+		<dl class="fa">
+			<dt><code><a href="https://reactjs.org/docs/react-api.html#createelement">React.createElement()</a></code> method</dt>
+		</dl>
+		<pre><code rel="helloWorld.js" class="js">
+			const h1 = React.createElement("h1", {className: 'green'}, "Hello, world!");
+			ReactDOM.render(
+			h1, document.getElementById('root')
+			);
+		</code></pre>
+		<dl class="fa">
+			<dt>JSX syntax (the preferred way)</dt>
+		</dl>
+		<pre><code rel="helloWorld.jsx" class="jsx">
+			const h1 = <h1 className="green">Hello, world!</h1>
+			ReactDOM.render(
+			h1, document.getElementById('root')
+			);
+		</code></pre>
+	</section>
+	<section><h3>React Element object</h3>
+		<dl class="fa">
+			<dt>React Elements, created by React.createElement() or JSX, creates an object like:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			Object
+			type: 'h1',
+			key: null,
+
+			props: {
+				className: 'green',
+				children: 'Hello, world!'
+			}
+
+		</code></pre>
+	</section>
+	<section><h3>Rendering an Element into the DOM</h3>
+		<dl class="fa">
+			<!-- <dt>Applications built with React usually have <span class="note">a single root DOM node</span>.</dt> -->
+			<dt>To render a React element into the DOM, we use the  <code><a href="https://reactjs.org/docs/react-dom.html#render">ReactDOM.render()</a></code> method</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			ReactDOM.render(
+			h1, document.getElementById('root')
+			);
+		</code></pre>
+	</section>
 </section>
 
 <section data-min="5"><h1>What is a React Component?</h1></section>
 <section><h2>What is a React Component?</h2>
   <section>
-    <dl class="fa">
-      <dt>Components are the building blocks of any React app.</dt>
-      <dt>Thinking in components allows us to split the UI into independent, reusable pieces, and work with each piece in isolation.</dt>
-      <dt><span class="note">A React Component is a JavaScript class or function that optionally accepts inputs i.e. properties(props) and returns a React Element</span> describing what should appear on the screen.</dt>
-      <dt>React lets you define components as classes or functions.</dt>
-    </dl>
+	<dl class="fa">
+	  <dt>Components are the building blocks of any React app.</dt>
+	  <dt>Thinking in components allows us to split the UI into independent, reusable pieces, and work with each piece in isolation.</dt>
+	  <dt><span class="note">A React Component is a JavaScript class or function that optionally accepts inputs i.e. properties(props) and returns a React Element</span> describing what should appear on the screen.</dt>
+	  <dt>React lets you define components as classes or functions.</dt>
+	</dl>
   </section>
 </section>
 
 <section data-min="5"><h1>Function Component</h1></section>
 <section><h2>Function Component</h2>
   <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>The simplest way to define a component is to write <span class="note">a JavaScript function, which takes a single object</span> (by convention called “props” - from properties) and <span class="note">returns a React element</span></dt>
-      <dt>It's just as simple as: <code>const MyComponent = (props)=>JSX</code></dt>
-      <dt>Note, that the function name <span class="note">must start with capital letter!</span> </dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      //the simplest component, without using "props":
-      function TodoWithNoProps() {
-        return <div>Todo 1 (hardcoded)</div>
-      }
+	<dl class="fa">
+	  <dt>The simplest way to define a component is to write <span class="note">a JavaScript function, which takes a single object</span> (by convention called “props” - from properties) and <span class="note">returns a React element</span></dt>
+	  <dt>It's just as simple as: <code>const MyComponent = (props)=>JSX</code></dt>
+	  <dt>Note, that the function name <span class="note">must start with capital letter!</span> </dt>
+	</dl>
+	<pre><code rel="JS" class="js">
+	  //the simplest component, without using "props":
+	  function TodoWithNoProps() {
+		return <div>Todo 1 (hardcoded)</div>
+	  }
 
-      // or written as Arrow Function:
-      const TodoWithNoProps = () => <div>Todo 1 (hardcoded)</div>
-    </code></pre>
+	  // or written as Arrow Function:
+	  const TodoWithNoProps = () => <div>Todo 1 (hardcoded)</div>
+	</code></pre>
   </section>
   <section><h3>Example</h3>
-    <pre><code rel="JS" class="js">
-      function TodoWithProps(props) {
-        return (
-          &lt;div className=&quot;Todo&quot;&gt;
-            {props.title}
-          &lt;/div&gt;
-        );
-      }
+	<pre><code rel="JS" class="js">
+	  function TodoWithProps(props) {
+		return (
+		  &lt;div className=&quot;Todo&quot;&gt;
+			{props.title}
+		  &lt;/div&gt;
+		);
+	  }
 
-      // note, that return is implied
-      const TodoWithPropsArrow = (props)=>
-        &lt;div className=&quot;Todo&quot;&gt;
-          {props.title}
-        &lt;/div&gt;
-    </code></pre>
+	  // note, that return is implied
+	  const TodoWithPropsArrow = (props)=>
+		&lt;div className=&quot;Todo&quot;&gt;
+		  {props.title}
+		&lt;/div&gt;
+	</code></pre>
   </section>
 </section>
 <section data-min="5"><h1>Class Component</h1></section>
 <section><h2>Class Component</h2>
   <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>From ES6, we can use class syntax to define a component:</dt>
-      <dd>Before that, you could've use the React's <code>createClass</code> method</dd>
-      <dt>The only method you <span class="note">must define</span> in a React Component subclass is the <code class="note">render()</code> method</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      //class component, without using "props":
-      class HelloWorld extends React.Component {
-        render() {
-          return <h1>Hello World!</h1>;
-        }
-      }
-    </code></pre>
+	<dl class="fa">
+	  <dt>From ES6, we can use class syntax to define a component:</dt>
+	  <dt>The only method you <span class="note">must define</span> in a React Component subclass is the <code class="note">render()</code> method</dt>
+	</dl>
+	<pre><code rel="JS" class="js">
+	  //class component, without using "props":
+	  class HelloWorld extends React.Component {
+		render() {
+		  return <h1>Hello World!</h1>;
+		}
+	  }
+	</code></pre>
   </section>
   <section><h3>Accessing props in Class Component</h3>
-    <dl class="fa">
-      <dt>the "props" object is available to any Class Component as property to the class. I.e. with <code>this.props</code></dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      class ClassComponentWithProps extends React.Component{
-          render(){
-              return <div>{this.props.title}</div>
-          }
-      }
-    </code></pre>
+	<dl class="fa">
+	  <dt>the "props" object is available to any Class Component as property to the class. I.e. with <code>this.props</code></dt>
+	</dl>
+	<pre><code rel="JS" class="js">
+	  class ClassComponentWithProps extends React.Component{
+		  render(){
+			  return <div>{this.props.title}</div>
+		  }
+	  }
+	</code></pre>
   </section>
   <section><h3>Component inheritance?</h3>
-    <dl class="fa">
-      <dt>All the internal React Component logic comes from the React Component class</dt>
-      <dt>However, it isn’t recommended to use the concept of inheritance for your custom class components more than that.</dt>
-      <dt>In React code reuse is primarily achieved through <a href="https://reactjs.org/docs/composition-vs-inheritance.html">composition rather than inheritance</a></dt>
-    </dl>
+	<dl class="fa">
+	  <dt>All the internal React Component logic comes from the React Component class</dt>
+	  <dt>However, it isn’t recommended to use the concept of inheritance for your custom class components more than that.</dt>
+	  <dt>In React code reuse is primarily achieved through <a href="https://reactjs.org/docs/composition-vs-inheritance.html">composition rather than inheritance</a></dt>
+	</dl>
   </section>
 </section>
 
 <section data-min="5"><h1>Rendering a Component</h1></section>
 <section><h2>Rendering a Component</h2>
   <section>
-    <dl class="fa">
-      <dt>React elements can represent DOM elements or user-defined components</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      // React element, representing a DOM element:
-      const element = &lt;div /&gt;;
+	<dl class="fa">
+	  <dt>React elements can represent DOM elements or user-defined components</dt>
+	</dl>
+	<pre><code rel="JS" class="js">
+	  // React element, representing a DOM element:
+	  const element = &lt;div /&gt;;
 
-      // React element, representing a user-defined component:
-      const element = &lt;HelloWorld /&gt;;
-    </code></pre>
+	  // React element, representing a user-defined component:
+	  const element = &lt;HelloWorld /&gt;;
+	</code></pre>
   </section>
   <section><h3>Naming conventions</h3>
-    <dl class="fa">
-      <dt class="note">User-Defined Components Must Be Capitalized</dt>
-      <dt>React treats components starting with lowercase letters (like '&lt;div /&gt;') as DOM elements.</dt>
-      <dt>And components starting with capital letter as user-defined, which have to be declared in the scope</dt>
-      <dt>Reference: <a href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">React treats components starting with lowercase letters as DOM tags</a></dt>
-    </dl>
+	<dl class="fa">
+	  <dt class="note">User-Defined Components Must Be Capitalized</dt>
+	  <dt>React treats components starting with lowercase letters (like '&lt;div /&gt;') as DOM elements.</dt>
+	  <dt>And components starting with capital letter as user-defined, which have to be declared in the scope</dt>
+	  <dt>Reference: <a href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">React treats components starting with lowercase letters as DOM tags</a></dt>
+	</dl>
   </section>
 </section>
 
@@ -257,16 +282,16 @@
 <section data-min="5"><h1>References</h1></section>
 <section><h2>References</h2>
   <section><h3>Docs</h3>
-    <dl class="fa">
-      <dt><a href="https://reactjs.org/docs/rendering-elements.html">Rendering Elements</a></dt>
-    </dl>
+	<dl class="fa">
+	  <dt><a href="https://reactjs.org/docs/rendering-elements.html">Rendering Elements</a></dt>
+	</dl>
   </section>
-  <section><h3>Video</h3>
-    <dl class="fa">
-      <dt><a href="https://www.youtube.com/watch?v=l2Tu0NqH0qU&t=399s">Let's Build a Virtual DOM from Scratch</a></dt>
-    </dl>
-    <iframe width="1076" height="605" src="https://www.youtube.com/embed/l2Tu0NqH0qU"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </section>
+  <!-- <section><h3>Video</h3>
+	<dl class="fa">
+	  <dt><a href="https://www.youtube.com/watch?v=l2Tu0NqH0qU&t=399s">Let's Build a Virtual DOM from Scratch</a></dt>
+	</dl>
+	<iframe width="1076" height="605" src="https://www.youtube.com/embed/l2Tu0NqH0qU"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section> -->
 </section>
 
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
