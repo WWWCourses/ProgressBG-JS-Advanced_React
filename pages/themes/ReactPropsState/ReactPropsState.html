@@ -1,47 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ReactComponentsPropsState</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <!-- css & themes include -->
-  <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
-  <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="lib/js/html5shiv.js"></script>
-  <![endif]-->
-  <!-- custom -->
-  <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-  <base target="_blank">
+	<meta charset="utf-8">
+	<title>ReactComponentsPropsState</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
 </head>
 <body>
-  <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-    <div class="top_links">
-      <a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
-      <span class="help_link"><i class="fa fa-question"></i></span>
-      <div class="help_text">
-        <div><span>N/Space</span><span>Next Slide</span></div>
-        <div><span>P</span><span>Previous Slide</span></div>
-        <div><span>O</span><span>Slides Overview</span></div>
-        <div><span>ctrl+left click</span><span>Zoom Element</span></div>
-      </div>
-    </div>
-    <div class="footer theme_switch">
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-    </div>
-    <div class="slides">
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div><span>N/Space</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -49,269 +49,296 @@
 -->
 <section><h1>React Props and State</h1></section>
 <section data-transition="zoom">
-  <section>
-    <div class="copyright">
-      <div class="note">
-        <p>Created for</p>
-      </div>
-      <div class="company">
-        <a href="https://progressbg.net/javascript-advanced-with-reactjs/">
-        <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-    <div class="note">
-      <p>Created by</p>
-    </div>
-    <div class="company">
-       <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
-    </div>
-    <!-- <div class="author">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-    </div> -->
-  </section>
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+			 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
 </section>
 
 
 <section data-min="5"><h1>Props</h1></section>
 <section><h2>Props</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”.</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      // Welcome component returns a React element as the result:
-      const Welcome = (props) =&gt; &lt;h1&gt;Hello {props.name}!&lt;/h1&gt;;
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>When React sees a user-defined component, it passes all JSX attributes, and element's children, to this component as a single object (by convention we name it "props").</dt>
+			<dt>Props are way of passing data from parent to child component</dt>
+		</dl>
+	</section>
+	<section><h3>Accessing "props" from function component</h3>
+		<dl class="fa">
+			<dt>"props" are passed as object from parent component (PropsDemo) to child component</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			// props in function component
+			function GreetUser(props) {
+				console.dir(props);
+				return &lt;div&gt; Hello, {props.userName}&lt;/div&gt;
+			}
 
-      // React calls the Welcome component with {name: &#39;Maria&#39;} as the props.
-      const element = &lt;Welcome name=&quot;Maria&quot; /&gt;
+			function PropsDemo() {
+				return &lt;GreetUser userName=&quot;Ada&quot; id=&quot;test&quot;/&gt;
+			}
 
-      ReactDOM.render(
-        element,
-        document.getElementById('root')
-      );
-    </code></pre>
-  </section>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>Props are way of passing data from parent to child component</dt>
-      <dt>React follows the rule that properties have to flow down from a parent component to <span class="note">an immediate child</span> component.</dt>
-      <dt class="note">React implements only one-way data binding!</dt>
-    </dl>
-  </section>
-  <section><h3>Props propagation</h3>
-    <a href="images/propsPropagation.png"><img src="images/propsPropagation.png"></a>
-    <p style="font-size:.8em;">If we want to send props from component 1 to  component 6, <span class="note">every child component</span> in this path has to receive the property from its parent and then resend that property to its child</p>
-  </section>
-  <section><h3>Props immutability</h3>
-    <dl class="fa">
-      <dt>Props are <span class="note">immutable</span> objects, since they are passed from parent to child!</dt>
-    </dl>
-  </section>
+			export {PropsDemo}
+		</code></pre>
+	</section>
+	<section><h3>Accessing "props" from class component</h3>
+		<pre><code rel="JS" class="js">
+			import React from &quot;react&quot;;
+
+			// props in class component
+			class GreetUser extends React.Component{
+				render(){
+					console.dir(this.props);
+					return &lt;div&gt; Hello, {this.props.userName}&lt;/div&gt;
+				}
+			}
+
+
+			function PropsDemo() {
+				return &lt;GreetUser userName=&quot;Ada&quot; id=&quot;test&quot;/&gt;
+			}
+
+			export {PropsDemo}
+		</code></pre>
+	</section>
+	<section><h3>One-way data binding</h3>
+		<dl class="fa">
+			<dt>React follows the rule that properties have to flow down from a parent component to <span class="note">an immediate child</span> component.</dt>
+			<dt class="note">React implements only one-way data binding!</dt>
+		</dl>
+	</section>
+	<section><h3>Props propagation</h3>
+		<a href="images/propsPropagation.png"><img src="images/propsPropagation.png"></a>
+		<p style="font-size:.8em;">If we want to send props from component 1 to  component 6, <span class="note">every child component</span> in this path has to receive the property from its parent and then resend that property to its child</p>
+	</section>
+	<section><h3>Props immutability</h3>
+		<dl class="fa">
+			<dt>Props should be <span class="note">immutable</span> object, since they are passed from parent to child! I.e. the children <span class="note">must not</span> chnage the props object!</dt>
+		</dl>
+	</section>
 </section>
 
 <section data-min="5"><h1>Components State</h1></section>
 <section><h2>Components State</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>So far we see, that Components can receive props from their parents and can only  render them, without changing the data.</dt>
-      <dd>Such Components are called <span class="note">Stateless Components</span>, and usually we implement them with Funciton Component.</dd>
-      <dt>But in order to implement a business logic in our App, a Componnent will need to store data which can change over time.</dt>
-      <dd>I.e. we need a <span class="note">Stateful Components</span></dd>
-      <dt>Stateful components can store data in an object, called <span class="note">state</span> and the change of that data (the state) will determines how the component will behave and render.</dt>
-    </dl>
-  </section>
-  <section><h3>Stateful components</h3>
-    <p>A stateful component can be created by:</p>
-    <dl class="fa">
-      <dt>Class component, where the <span class="note">state</span> is an instance property, accessible by <code>this.state</code></dt>
-      <dt>Function component (from React v16, using the <code>useState</code> hook)</dt>
-    </dl>
-  </section>
-  <section><h3>Stateful Class Component Demo</h3>
-    <pre><code rel="JS" class="js">
-      class TodoList extends React.Component{
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>So far we see, that Components can receive props from their parents and can only  render them, without changing the data.</dt>
+			<dd>Such Components are called <span class="note">Stateless Components</span>, and usually we implement them with Funciton Component.</dd>
+			<dt>But in order to implement a business logic in our App, a Componnent will need to store data which can change over time.</dt>
+			<dd>I.e. we need a <span class="note">Stateful Components</span></dd>
+			<dt>Stateful components can store data in an object, called <span class="note">state</span> and the change of that data (the state) will determines how the component will behave and render.</dt>
+		</dl>
+	</section>
+	<section><h3>Stateful components</h3>
+		<p>A stateful component can be created by:</p>
+		<dl class="fa">
+			<dt>Class component, where the <span class="note">state</span> is an instance property, accessible by <code>this.state</code></dt>
+			<dt>Function component (from React v16, using the <code>useState</code> hook)</dt>
+		</dl>
+	</section>
+	<section><h3>Stateful Class Component Demo</h3>
+		<pre><code rel="JS" class="js">
+			class TodoList extends React.Component{
 
-        constructor(props){
-          super(props);
+				constructor(props){
+					super(props);
 
-          this.state = {
-            'todos' :  [
-              {'title': 'Todo 1', 'completed': false},
-              {'title': 'Todo 2', 'completed': true},
-            ]
-          };
-        }
-        render(){
-          return  (
-            &lt;ul&gt;
-              {this.state.todos.map( todo =&gt;
-                &lt;Todo title={todo.title} completed={todo.completed}/&gt;
-             )}
-            &lt;/ul&gt;
-          )
-        }
-      }
-    </code></pre>
-  </section>
-  <section><h3>Stateful component diagram</h3>
-    <a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
-  </section>
-   <section><h3>Changing state</h3>
-    <dl class="fa">
-      <dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
-      <dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
-      <dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
-      <dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
-    </dl>
-  </section>
-  <section><h3>Changing state demo</h3>
-    <pre><code rel="Counter.js" class="jsx">
-      export class Counter extends React.Component{
-        constructor(props){
-          super(props);
+					this.state = {
+						'todos' :  [
+							{'title': 'Todo 1', 'completed': false},
+							{'title': 'Todo 2', 'completed': true},
+						]
+					};
+				}
+				render(){
+					return  (
+						&lt;ul&gt;
+							{this.state.todos.map( todo =&gt;
+								&lt;Todo title={todo.title} completed={todo.completed}/&gt;
+						 )}
+						&lt;/ul&gt;
+					)
+				}
+			}
+		</code></pre>
+	</section>
+	<section><h3>Stateful component diagram</h3>
+		<a href="images/StatefullComponent.jpg"><img src="images/StatefullComponent.jpg"></a>
+	</section>
+	 <section><h3>Changing state</h3>
+		<dl class="fa">
+			<dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
+			<dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
+			<dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
+			<dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
+			<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#setstate">setState() @react docs</a></dt>
+		</dl>
+	</section>
+	<section><h3>Changing state demo</h3>
+		<pre><code rel="Counter.js" class="jsx">
+			export class Counter extends React.Component{
+				constructor(props){
+					super(props);
 
-          this.state = {
-            'count': 0
-          }
+					this.state = {
+						'count': 0
+					}
 
-          this.increment = ()=&gt;{this.setState({
-            'count': this.state.count+1
-          })}
+					this.increment = ()=&gt;{this.setState({
+						'count': this.state.count+1
+					})}
 
-          this.decrement = ()=&gt;{this.setState({
-            'count': this.state.count-1
-          })}
-        }
+					this.decrement = ()=&gt;{this.setState({
+						'count': this.state.count-1
+					})}
+				}
 
-        render(){
-          return (
-          &lt;div className=&quot;counterDemo&quot;&gt;
-            &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
-            &lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
-            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
-          &lt;/div&gt;
-          )
-        }
-      }
+				render(){
+					return (
+					&lt;div className=&quot;counterDemo&quot;&gt;
+						&lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+						&lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
+						&lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+					&lt;/div&gt;
+					)
+				}
+			}
 
 
 
-    </code></pre>
-  </section>
-  <section><h3>State vs Props</h3>
-    <dl class="fa">
-      <dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
-      <dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
-      <dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
-      <dt>State can be changed inside a component</dt>
-      <dt>Often, state data are passed to child components through the props.</dt>
-    </dl>
-  </section>
-  <section><h3>State vs Props</h3>
-    <table>
-      <tr>
-        <th>Conditions</th>
-        <th>State</th>
-        <th>Props</th>
-      </tr>
-      <tr>
-        <td>Parent component can change values</td>
-        <td>No</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>Component itself can change values</td>
-        <td>Yes</td>
-        <td>No</td>
-      </tr>
-    </table>
-  </section>
+		</code></pre>
+	</section>
+	<section><h3>State vs Props</h3>
+		<dl class="fa">
+			<dt>props and state are both plain JavaScript objects, but their usage is conceptually different</dt>
+			<dt>state is component data managed from within a component, props are component data that are managed from above and passed in.</dt>
+			<dt>Props should not be changed in the component - only the parent who passed them can change them</dt>
+			<dt>State can be changed inside a component</dt>
+			<dt>Often, state data are passed to child components through the props.</dt>
+		</dl>
+	</section>
+	<section><h3>State vs Props</h3>
+		<table>
+			<tr>
+				<th>Conditions</th>
+				<th>State</th>
+				<th>Props</th>
+			</tr>
+			<tr>
+				<td>Parent component can change values</td>
+				<td>No</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>Component itself can change values</td>
+				<td>Yes</td>
+				<td>No</td>
+			</tr>
+		</table>
+	</section>
 </section>
 
 <section data-min="5"><h1>Lifting State Up</h1></section>
 <section><h2>Lifting State Up</h2>
-  <section>
-    <dl class="fa">
-      <dt>Reading: <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a> @reaact docs</dt>
-    </dl>
-  </section>
+	<section>
+		<dl class="fa">
+			<dt>Reading: <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a> @react docs</dt>
+		</dl>
+	</section>
 </section>
 
 
 <section data-min="5"><h1>References</h1></section>
 <section><h2>References</h2>
-  <section><h3>Docs</h3>
-    <dl class="fa">
-      <dt><a href="https://reactjs.org/docs/components-and-props.html">Components and Props Overview</a></dt>
-      <dt><a href="https://reactjs.org/docs/react-component.html">React.Component class definition</a></dt>
-    </dl>
-  </section>
+	<section><h3>Docs</h3>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/components-and-props.html">Components and Props Overview</a></dt>
+			<dt><a href="https://reactjs.org/docs/react-component.html">React.Component class definition</a></dt>
+		</dl>
+	</section>
 </section>
 
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
-    <dl class="fa">
-      <dt></dt>
-    </dl>
-  </section>
+	<section><h3>__task_description__</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
 </section> -->
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-   <p>These slides are based on</p>
-   <p>customised version of </p>
-   <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-   <p>framework</p>
+	 <p>These slides are based on</p>
+	 <p>customised version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-    </div>
-  </div>
-  <!-- Custom processing -->
-  <script src="../../../outfit/js/slides.js"></script>
-  <!-- external scripts -->
-  <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
-  <script src="../../../lib/reveal.js/js/reveal.js"></script>
-  <!-- init reveal -->
-  <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    var highlightjsTabSize = '  ';
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      slideNumber: 'c/t',
-      keyboard: true,
-      history: true,
-      center: true,
-      width: '100%',
-      height: '100%',
-      // slide transition
-      transition: 'concave', // none/fade/slide/convex/concave/zoom
-      // Factor of the display size that should remain empty around the content
-      margin: 0.1,
-      // shift+maous click to zoom in/out element
-      zoomKey: 'ctrl',
-      // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      // transition: Reveal.getQueryHash().transition || 'default'
-      // Optional reveal.js plugins
-      dependencies: [
-        { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-        { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-        { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
-      ]
-    });
-  </script>
-  <!-- linkedin badge -->
-  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="../../../lib/reveal.js/js/reveal.js"></script>
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: '100%',
+			height: '100%',
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
 </html>

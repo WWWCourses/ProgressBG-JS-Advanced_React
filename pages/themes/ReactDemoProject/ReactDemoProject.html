@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>ReactVirtualDOM</title>
+	<title>ReactDemoProject</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,7 +27,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 		<div class="top_links">
-			<a class="home_link" href="../../../index.html#ReactVirtualDOM" target="_top"><i class="fa fa-home"></i></a>
+			<a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
 			<span class="help_link"><i class="fa fa-question"></i></span>
 			<div class="help_text">
 				<div><span>N/Space</span><span>Next Slide</span></div>
@@ -47,7 +47,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React Virtual DOM</h1></section>
+<section><h1>React DemoProject</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -74,74 +74,30 @@
 	</section>
 </section>
 
+<section data-min="50"><h1>TodoApp</h1></section>
+<section><h2>TodoApp</h2>
+	<section><h3>Component Structure - image</h3>
+		<a href="images/TodoAppComponentsStructure.png" title="click for bigger image"><img src="images/TodoAppComponentsStructure.png" alt="TodoAppComponentsStructure.png"></a>
+	</section>
+	<section><h3>Component Structure - files</h3>
+		<pre><code rel="Terminal" class="bash">
+			src/components/
+			├── AddTodo.js
+			├── Header.js
+			├── TodoItem.js
+			├── TodoList.js
+			└── TodosCount.js
+		</code></pre>
+	</section>
+</section>
 
-<section data-min="5"><h1>Virtual DOM</h1></section>
-<section><h2>Virtual DOM</h2>
-	<section><h3>The problem with (real) DOM</h3>
+<!-- <section data-min="5"><h1>Exercises</h1></section>
+<section><h2>Exercises</h2>
+	<section><h3>List todo items and count</h3>
 		<dl class="fa">
-			<dt class="note">DOM manipulations are expensive</dt>
-			<dt>DOM API are not equally supported and understood the same in different user agents</dt>
-			<dt>Keeping track of previous DOM state is difficult</dt>
+			<dt>Using the data</dt>
 		</dl>
 	</section>
-  <section><h3>Overview</h3>
-  	<dl class="fa">
-  		<dt>Virtual DOM is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM</dt>
-  		<dt>Virtual DOM provides a <span class="note">declarative</span> way of representing the DOM</dt>
-  		<dd>It abstracts out the attribute manipulation, event handling, and manual DOM updating that you would otherwise have to use to build your app.</dd>
-  		<dd>Virtual DOM is lightweight and detached from browser-specific implementation details</dd>
-  	</dl>
-  </section>
-  <section><h3>VDOM => DOM</h3>
-  	<a href="images/react_virtual_dom.png"><img src="images/react_virtual_dom.png"></a>
-  </section>
-  <section><h3>Updating DOM</h3>
-  	<dl class="fa">
-  		<dt>When we change the state of a Component React marks that Component as <span class="note">dirty</span></dt>
-  		<dt>React updates the Virtual DOM relative to the components marked as dirty</dt>
-  		<dt>After, it runs the diffing algorithm to reconcile the changes</dt>
-  		<dt>Updates the real DOM</dt>
-  	</dl>
-  </section>
-  <section><h3>The Diffing Algorithm</h3>
-  	<dl class="fa">
-  		<dt><a href="https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm">React Diffing Algorithm</a></dt>
-  	</dl>
-  </section>
-  <section>
-  	<a href="images/virtualDOMdiffing.png"><img src="images/virtualDOMdiffing.png"></a>
-  </section>
-  <section><h3>Batching</h3>
-  	<dl class="fa">
-  		<dt>A key moment is that React <span class="note">batches</span> much of the changes and performs a unique update to the real DOM, by changing all the elements that need to be changed at the same time, so the repaint and reflow the browser must perform to render the changes are executed just once.</dt>
-  	</dl>
-  </section>
-</section>
-
-<section data-min="5"><h1>References</h1></section>
-<section><h2>References</h2>
-  <section><h3>Docs</h3>
-  	<dl class="fa">
-  		<dl class="fa">
-  			<dt><a href="https://reactjs.org/docs/faq-internals.html">Virtual DOM and Internals</a></dt>
-  		</dl>
-  	</dl>
-  </section>
-  <section><h3>Articles</h3>
-  	<dl class="fa">
-  		<dt><a href="https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060">How to write your own Virtual DOM</a></dt>
-  	</dl>
-  </section>
-</section>
-
-
-<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
-  	<dl class="fa">
-  		<dt></dt>
-  	</dl>
-  </section>
 </section> -->
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">

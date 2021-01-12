@@ -75,8 +75,8 @@
 </section>
 
 
-<section data-min="5"><h1>DOM Events</h1></section>
-<section><h2>DOM Events</h2>
+<section data-min="5"><h1>DOM Events Overview</h1></section>
+<section><h2>DOM Events Overview</h2>
   <section><h3>Overview</h3>
   	<dl class="fa">
   		<dt>Two ways to handle DOM event :</dt>
@@ -300,6 +300,59 @@
   		<dd>I.e. <code>onClick={}</code> => onClickCapture={}</dd>
   	</dl>
   </section>
+</section>
+
+<section data-min="5"><h1>Get input value on event</h1></section>
+<section><h2>Get input value on event</h2>
+	<section><h3>With Stateful Componenet</h3>
+		<pre><code rel="JS" class="js">
+			class InputStatefull extends React.Component{
+				constructor(props){
+					super(props)
+
+					this.state = {
+						"inputValue": ""
+					}
+
+					this.keyPressHandler = this.keyPressHandler.bind(this);
+				}
+
+				keyPressHandler(e){
+					this.setState({
+						"inputValue": e.target.value
+					})
+				}
+
+				render(){
+					return <div>
+						<h1>InputStatefull</h1>
+						<label>user Name: <input onKeyPress={this.keyPressHandler} type="text" /></label>
+						<div className="output">{this.state.inputValue}</div>
+					</div>
+				}
+			}
+		</code></pre>
+	</section>
+	<section><h3>With Stateless Component</h3>
+		<pre><code rel="JS" class="js">
+			function InputStateless(props) {
+				let textInput = React.createRef();
+
+				function onClikHandler() {
+					console.dir(textInput.current.value)
+				}
+
+				return <div>
+					<h1>InputStateless</h1>
+					<label>user Name: <input ref={textInput} type="text" /></label>
+					<button onClick={onClikHandler}>Show</button>
+				</div>
+			}
+		</code></pre>
+		<dl class="fa">
+			<dt>Reference: <a href="https://reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a></dt>
+		</dl>
+	</section>
 </section>
 
 
