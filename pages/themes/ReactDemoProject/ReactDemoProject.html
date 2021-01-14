@@ -91,14 +91,72 @@
 	</section>
 </section>
 
-<!-- <section data-min="5"><h1>Exercises</h1></section>
-<section><h2>Exercises</h2>
-	<section><h3>List todo items and count</h3>
-		<dl class="fa">
-			<dt>Using the data</dt>
-		</dl>
-	</section>
+<!-- <section data-min="5"><h1>Components Code</h1></section>
+<section><h2>Components Code</h2>
+
 </section> -->
+
+
+
+<section data-min="5" id="hw"><h1>Exercises</h1></section>
+<section><h2>Exercises</h2>
+	<section id="listTodoItemsAndCount"><h3>List todo items and count</h3>
+		<dl class="fa">
+			<dt>Using the code for <code>App.js</code>(given on next slide) finish the other components, so that you will have the same output as given bellow</dt>
+		</dl>
+		<a href="./images/TodoApp_ListTodosAndTotal.png" title="click for bigger image"><img src="./images/TodoApp_ListTodosAndTotal.png" alt=""></a>
+	</section>
+	<section><h3>App.js</h3>
+		<pre><code rel="App.js" class="jsx">
+			import React from &#39;react&#39;;
+			import &#39;./App.css&#39;;
+			import Header  from &quot;./components/Header&quot;;
+			import TodoList from &quot;./components/TodoList&quot;;
+			import AddTodo from &quot;./components/AddTodo&quot;;
+			import TodosCount from &quot;./components/TodosCount&quot;;
+
+			class App extends React.Component {
+				constructor(){
+					super()
+
+					this.appName = &#39;Simple Todo App &#39;;
+
+					this.state = {
+						&quot;todos&quot; :[
+						{
+							&quot;userId&quot;: 1,
+							&quot;id&quot;: 1,
+							&quot;title&quot;: &quot;delectus aut autem&quot;,
+							&quot;completed&quot;: true
+						},
+						{
+							&quot;userId&quot;: 1,
+							&quot;id&quot;: 2,
+							&quot;title&quot;: &quot;quis ut nam facilis et officia qui&quot;,
+							&quot;completed&quot;: false
+						}
+						]
+					}
+				}
+
+				render(){
+					return (
+					&lt;div className=&quot;page&quot;&gt;
+						&lt;Header appName={this.appName}/&gt;
+						&lt;main class=&quot;todoApp&quot;&gt;
+							&lt;AddTodo /&gt;
+							&lt;TodoList todos={this.state.todos} /&gt;
+							&lt;TodosCount count={this.state.todos.length}/&gt;
+						&lt;/main&gt;
+					&lt;/div&gt;
+					)
+				}
+			}
+
+			export default App;
+		</code></pre>
+	</section>
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>
