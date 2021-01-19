@@ -101,12 +101,55 @@
 			export {PropsDemo}
 		</code></pre>
 	</section>
+	<section><h3>Accessing some "props" from function component - object destructuring</h3>
+		<dl class="fa">
+			<dt>If we don't need all of the props, but just some of them, we can use ES6 <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/15/3">Object Destructuring syntax</a></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			function GreetUser({userName}) {
+				return &lt;div&gt; Hello, {userName}&lt;/div&gt;
+			}
+
+			function PropsDemo() {
+				return &lt;GreetUser userName=&quot;Ada&quot; id=&quot;test&quot;/&gt;
+			}
+
+			export {PropsDemo}
+		</code></pre>
+	</section>
 	<section><h3>Accessing "props" from class component</h3>
 		<pre><code rel="JS" class="js">
 			import React from &quot;react&quot;;
 
 			// props in class component
 			class GreetUser extends React.Component{
+				render(){
+					console.dir(this.props);
+					return &lt;div&gt; Hello, {this.props.userName}&lt;/div&gt;
+				}
+			}
+
+
+			function PropsDemo() {
+				return &lt;GreetUser userName=&quot;Ada&quot; id=&quot;test&quot;/&gt;
+			}
+
+			export {PropsDemo}
+		</code></pre>
+	</section>
+	<section><h3>Accessing "props" from class component</h3>
+		<dl class="fa">
+			<dt>If you will use a constructor in your class, you should call super(props) before any other statement</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			import React from &quot;react&quot;;
+
+			// props in class component
+			class GreetUser extends React.Component{
+				constructor(props){
+					super(props)
+					//...
+				}
 				render(){
 					console.dir(this.props);
 					return &lt;div&gt; Hello, {this.props.userName}&lt;/div&gt;
