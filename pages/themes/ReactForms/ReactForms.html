@@ -66,7 +66,7 @@
 			<p>Created by</p>
 		</div>
 		<div class="company">
-		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+			 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
 		</div>
 		<!-- <div class="author">
 			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
@@ -75,36 +75,57 @@
 </section>
 
 
-<!-- <section data-min="5"><h1>Overview</h1></section>
-<section><h2>Overview</h2>
-  <section><h3></h3>
-  	<pre><code rel="HTML" class="html">
-  		<form action="login.php">
-  			<label>User name: <input type="text" name="userName"></label>
-  			<label>Password: <input type="password" name="password"></label>
-  		</form>
-  	</code></pre>
-  	<dl class="fa">
-  		<dt>Forms elements are different in other </dt>
-  	</dl>
-  </section>
-</section> -->
+<section data-min="5"><h1>How React handle Forms?</h1></section>
+<section><h2>How React handle Forms?</h2>
+	<section>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/forms.html">Forms in React</a></dt>
+			<dt><a href="Controlled Components">Controlled Components</a></dt>
+			<dt><a href="https://reactjs.org/docs/forms.html#handling-multiple-inputs">Handling Multiple Inputs</a></dt>
+			<dt><a href="https://reactjs.org/docs/uncontrolled-components.html">Uncontrolled Components</a></dt>
+		</dl>
+	</section>
+	<section><h3>Controlled Component</h3>
+		<dl class="fa">
+			<dt>When React state is the "single source of truth" for a form element.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			class Forms extends React.Component{
+				constructor(props){
+					super(props)
 
-<!-- <section data-min="5"><h1>Reference</h1></section> -->
-<section><h2>Reference</h2>
-  <section>
-  	<a href="https://reactjs.org/docs/forms.html">Forms in React</a>
-  </section>
+					this.state = {
+						&quot;email&quot;:&quot;&quot;
+					}
+				}
+
+				changeEmailHandler = (event)=&gt;{
+					this.setState({email:event.target.value})
+				}
+
+				render(){
+					return &lt;div&gt;
+						&lt;input type=&quot;text&quot; value={this.state.email} onChange={this.changeEmailHandler}/&gt;
+					&lt;/div&gt;;
+				}
+			}
+		</code></pre>
+	</section>
+	<section><h3>Controlled Component Flow</h3>
+		<a href="images/ControlledComonentsFlow.png"><img src="images/ControlledComonentsFlow.png" alt="ControlledComonentsFlow.png"></a>
+	</section>
 </section>
 
-<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
-  	<dl class="fa">
-  		<dt></dt>
-  	</dl>
-  </section>
-</section> -->
+<section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Get input value on each button click</h2>
+	<section><h3>Get input value on each button click</h3>
+		<dl class="fa">
+			<dt>Look carefully at the code given here: <a href="https://github.com/WWWCourses/ProgressBG-JS-Advanced-React-Labs/blob/4_JS_Advanced_WD/demoProject/test-app/src/components/forms.js">demoProject/test-app/src/components/forms.js</a></dt>
+			<dt>Implement handleClick method, which will be fired on each button click, with functionality as shown:</dt>
+		</dl>
+		<a href="images/reactFormsHW.gif"><img src="images/reactFormsHW.gif" alt="reactFormsHW.gif" title="click for bigger image"></a>
+	</section>
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>
