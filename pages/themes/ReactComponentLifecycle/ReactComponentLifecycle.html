@@ -1,47 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ReactComponentLifecycle</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <!-- css & themes include -->
-  <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
-  <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="lib/js/html5shiv.js"></script>
-  <![endif]-->
-  <!-- custom -->
-  <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-  <base target="_blank">
+	<meta charset="utf-8">
+	<title>ReactComponentLifecycle</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
 </head>
 <body>
-  <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-    <div class="top_links">
-      <a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
-      <span class="help_link"><i class="fa fa-question"></i></span>
-      <div class="help_text">
-        <div><span>N/Space</span><span>Next Slide</span></div>
-        <div><span>P</span><span>Previous Slide</span></div>
-        <div><span>O</span><span>Slides Overview</span></div>
-        <div><span>ctrl+left click</span><span>Zoom Element</span></div>
-      </div>
-    </div>
-    <div class="footer theme_switch">
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-      <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-    </div>
-    <div class="slides">
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div><span>N/Space</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -49,254 +49,265 @@
 -->
 <section><h1>Lifecycle in a React component</h1></section>
 <section data-transition="zoom">
-  <section>
-    <div class="copyright">
-      <div class="note">
-        <p>Created for</p>
-      </div>
-      <div class="company">
-        <a href="https://progressbg.net/javascript-advanced-with-reactjs/">
-        <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-    <div class="note">
-      <p>Created by</p>
-    </div>
-    <div class="company">
-       <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
-    </div>
-    <!-- <div class="author">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-    </div> -->
-  </section>
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+			 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
 </section>
 
 
 <section data-min="5"><h1>Component Lifecycle</h1></section>
 <section><h2>Component Lifecycle</h2>
-  <section><h3>Overview</h3>
-    <dl class="fa">
-      <dt>React provides various methods which notify when a certain stage in the lifecycle of a component occurs.</dt>
-      <dt>These methods are called the lifecycle methods.</dt>
-    </dl>
-  </section>
-  <section><h3>Diagram</h3>
-    <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Interactive React lifecycle methods diagram</a> by <a href="https://github.com/wojtekmaj">Wojciech Maj</a>
-  </section>
-  <section><h3>Mounting phase</h3>
-    <dl class="fa">
-      <dt>The phase where it attaches itself to the DOM is known as mounting.</dt>
-      <dt>The mounting phase has the <code>constructor</code>, <code>render</code>, and <code>componentDidMount</code> methods</dt>
-    </dl>
-  </section>
-  <section><h3>Updating phase</h3>
-    <dl class="fa">
-      <dt>The phase where the component updates because of new props or state changes is the updating phase. </dt>
-      <dt>The updating phase has just the <code>render</code> and <code>componentDidUpdate</code> methods.</dt>
-    </dl>
-  </section>
-  <section><h3>Unmounting Phase</h3>
-  	<dl class="fa">
-  		<dt>Unmounting occurs when a component is wiped out of the DOM and no longer available.</dt>
-  		<dt>This phase has the <code>componentWillUnmount()</code> method</dt>
-  	</dl>
-  </section>
-  <section><h3>Error Handling Phase</h3>
-  	<dl class="fa">
-  		<dt>We can use the <code>getDerivedStateFromError()</code> and <code>componentDidCatch()</code> methods</dt>
-  	</dl>
-  </section>
-  <section><h3>AutoCounter Demo</h3>
-    <pre><code rel="JS" class="js">
-      import React from 'react';
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Each React component has a lifecycle which you can monitor and manipulate during its three main phases (Mounting, Updating, and Unmounting)</dt>
+			<dt>React provides various methods (lifecycle methods) which are called when a certain stage in the lifecycle of a component occurs.</dt>
+		</dl>
+	</section>
+	<section><h3>Diagram</h3>
+		<a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Interactive React lifecycle methods diagram</a> by <a href="https://github.com/wojtekmaj">Wojciech Maj</a>
+	</section>
+	<section><h3>Mounting phase</h3>
+		<dl class="fa">
+			<dt>The phase when an instance of a component <span class="note">is being created and inserted into the DOM</span></dt>
+			<dt>Next methods are called in the following order:</dt>
+			<dd><a href="https://reactjs.org/docs/react-component.html#constructor"><code>constructor()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops"><code>static getDerivedStateFromProps()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#render"><code>render()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#componentdidmount"><code>componentDidMount()</code></a></dd>
+		</dl>
+	</section>
+	<section><h3>Updating phase</h3>
+		<dl class="fa">
+			<dt>The component is updated (and re-rendered) when props or state changes.</dt>
+			<dt>Next methods are called in the following order:</dt>
+			<dd><a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops"><code>static getDerivedStateFromProps()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate"><code>shouldComponentUpdate()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#render"><code>render()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate"><code>getSnapshotBeforeUpdate()</code></a></dd>
+			<dd><a href="https://reactjs.org/docs/react-component.html#componentdidupdate"><code>componentDidUpdate()</code></a></dd>
+		</dl>
+	</section>
+	<section><h3>Unmounting Phase</h3>
+		<dl class="fa">
+			<dt>Unmounting occurs when a component is wiped out of the DOM and is no longer available.</dt>
+			<dt>There is only one method, executed in this phase:</dt>
+			<dd><a href="https://reactjs.org/docs/react-component.html#componentwillunmount"><code>componentWillUnmount()
+			</code></a></dd>
+		</dl>
+	</section>
+	<section><h3>Error Handling Phase</h3>
+		<dl class="fa">
+			<dt>We can use the <code>getDerivedStateFromError()</code> and <code>componentDidCatch()</code> methods</dt>
+		</dl>
+	</section>
+	<section><h3>AutoCounter Demo</h3>
+		<pre><code rel="JS" class="js">
+			import React from 'react';
 
-      export class AutoCounter extends React.Component{
-        constructor(props){
-          super(props);
+			export class AutoCounter extends React.Component{
+				constructor(props){
+					super(props);
 
-          this.state = {'count': 0}
+					this.state = {'count': 0}
 
-          this.autoIncrement = ()=&gt;{
-              this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
-          }
-        }
+					this.autoIncrement = ()=&gt;{
+							this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
+					}
+				}
 
-        componentDidMount() {
-          this.timer = setInterval(this.autoIncrement, 1000);
-        }
+				componentDidMount() {
+					this.timer = setInterval(this.autoIncrement, 1000);
+				}
 
-        render(){
-          return (
-          &lt;div className=&quot;counterDemo&quot;&gt;
-            &lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
-          &lt;/div&gt;
-          )
-        }
-      }
-    </code></pre>
-  </section>
-  <section><h3>constructor()</h3>
-    <dl class="fa">
-      <dt>The constructor method is called once, when the class instance is created. I.e. before the component to be mounted</dt>
-      <dt>Use constructor to initialize state and/or bind methods.</dt>
-      <dt>Constructor is the only place where you should assign this.state directly. In all other methods, you need to use this.setState() instead.</dt>
-      <dt class="note">If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.</dt>
-    </dl>
-  </section>
-  <section><h3>constructor() demo</h3>
-  	<pre><code rel="JS" class="js">
-  	    constructor(props){
-  	      super(props);
+				render(){
+					return (
+					&lt;div className=&quot;counterDemo&quot;&gt;
+						&lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
+					&lt;/div&gt;
+					)
+				}
+			}
+		</code></pre>
+	</section>
+	<section><h3>constructor()</h3>
+		<dl class="fa">
+			<dt>The constructor method is called once, when the class instance is created. I.e. before the component to be mounted</dt>
+			<dt>Use constructor to initialize state and/or bind methods.</dt>
+			<dt>Constructor is the only place where you should assign this.state directly. In all other methods, you need to use this.setState() instead.</dt>
+			<dt class="note">If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.</dt>
+		</dl>
+	</section>
+	<section><h3>constructor() demo</h3>
+		<pre><code rel="JS" class="js">
+				constructor(props){
+					super(props);
 
-  	      // the constructor is the place to init the state
-  	      this.state = {'count': 0}
+					// the constructor is the place to init the state
+					this.state = {'count': 0}
 
-  	      // lexically bindig this
-  	      this.autoIncrement = ()=&gt;{
-  	          this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
-  	      }
-  	    }
-  	</code></pre>
-  </section>
-  <section><h3>render()</h3>
-  	<dl class="fa">
-  		<dt>The <code>render()</code> method is responsible for returning some data (like JSX!) to whatever parent component is responsible for instantiating the current component.</dt>
-  		<dt>It is called whenever the component did update</dt>
-  		<dt class="note">render() will not be invoked if <code>shouldComponentUpdate()</code> returns false.</dt>
-  		<dt>The render() function should be pure!</dt>
-  		<dd>If we need to interact with the browser, is better to use <code>componentDidMount()</code> or other proper lifecycle method</dd>
-  	</dl>
-  </section>
-  <section><h3>componentDidMount()</h3>
-  	<dl class="fa">
-  		<dt>componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).</dt>
-  		<dt>Initialization required by DOM nodes should go here.</dt>
-  		<dt>It's the perfect place, as well, to load data from a remote endpoint.</dt>
-  	</dl>
-  </section>
-  <section><h3>componentDidUpdate()</h3>
-  	<dl class="fa">
-  		<dt>componentDidUpdate() is invoked immediately after updating occurs.</dt>
-  		<dt>This method is not called for the initial render.</dt>
-  		<dt>Use it to perform additional tasks revolving around whether the component's props or state <span class="note">were actually updated.</span></dt>
-  		<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#componentdidupdate">componentDidUpdate()</a></dt>
-  	</dl>
-  </section>
-  <section><h3>componentDidUpdate() demo</h3>
-  	<pre><code rel="JSX" class="jsx">
-  		componentDidUpdate(prevProps, prevState) {
-  		   console.log('====================================');
-  		   console.log(`componentDidUpdate() fired`);
-  		   console.log(`prevProps: ${JSON.stringify(prevProps)}`);
-  		   console.log(`prevState: ${JSON.stringify(prevState)}`);
-  		   console.log('====================================');
+					// lexically bindig this
+					this.autoIncrement = ()=&gt;{
+							this.setState( (prevState) =&gt; {return {'count': prevState.count + 1}})
+					}
+				}
+		</code></pre>
+	</section>
+	<section><h3>render()</h3>
+		<dl class="fa">
+			<dt>The <code>render()</code> method is responsible for returning some data (like JSX!) to whatever parent component is responsible for instantiating the current component.</dt>
+			<dt>It is called whenever the component did update</dt>
+			<dt class="note">render() will not be invoked if <code>shouldComponentUpdate()</code> returns false.</dt>
+			<dt>The render() function should be pure!</dt>
+			<dd>If we need to interact with the browser, is better to use <code>componentDidMount()</code> or other proper lifecycle method</dd>
+		</dl>
+	</section>
+	<section><h3>componentDidMount()</h3>
+		<dl class="fa">
+			<dt>componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).</dt>
+			<dt>Initialization required by DOM nodes should go here.</dt>
+			<dt>It's the perfect place, as well, to load data from a remote endpoint.</dt>
+		</dl>
+	</section>
+	<section><h3>componentDidUpdate()</h3>
+		<dl class="fa">
+			<dt>componentDidUpdate() is invoked immediately after updating occurs.</dt>
+			<dt>This method is not called for the initial render.</dt>
+			<dt>Use it to perform additional tasks revolving around whether the component's props or state <span class="note">were actually updated.</span></dt>
+			<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#componentdidupdate">componentDidUpdate()</a></dt>
+		</dl>
+	</section>
+	<section><h3>componentDidUpdate() demo</h3>
+		<pre><code rel="JSX" class="jsx">
+			componentDidUpdate(prevProps, prevState) {
+				 console.log('====================================');
+				 console.log(`componentDidUpdate() fired`);
+				 console.log(`prevProps: ${JSON.stringify(prevProps)}`);
+				 console.log(`prevState: ${JSON.stringify(prevState)}`);
+				 console.log('====================================');
 
-  		   if(prevState.count !== this.state.count){
-  		     // do something
-  		   }
-  		 }
-  	</code></pre>
-  </section>
-  <section><h3>componentWillUnmount()</h3>
-  	<dl class="fa">
-  		<dt>componentWillUnmount() is invoked immediately before a component is unmounted and destroyed</dt>
-  		<dt>This is the place to perform any necessary cleanup (usually initialisations created in componentDidMount())</dt>
-  	</dl>
-  </section>
-  <section><h3>componentWillUnmount()</h3>
-  	<pre><code rel="JS" class="js">
-  		componentWillUnmount() {
-		    console.log('====================================');
-		    console.log(`componentWillUnmount() fired`);
-		    console.log('====================================');
+				 if(prevState.count !== this.state.count){
+					 // do something
+				 }
+			 }
+		</code></pre>
+	</section>
+	<section><h3>componentWillUnmount()</h3>
+		<dl class="fa">
+			<dt>componentWillUnmount() is invoked immediately before a component is unmounted and destroyed</dt>
+			<dt>This is the place to perform any necessary cleanup (usually initialisations created in componentDidMount())</dt>
+		</dl>
+	</section>
+	<section><h3>componentWillUnmount()</h3>
+		<pre><code rel="JS" class="js">
+			componentWillUnmount() {
+				console.log('====================================');
+				console.log(`componentWillUnmount() fired`);
+				console.log('====================================');
 
-		    clearInterval(this.timer)
-		  }
-  	</code></pre>
-  </section>
+				clearInterval(this.timer)
+			}
+		</code></pre>
+	</section>
 </section>
 
 
 
 <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Task1: TodoApp Components</h2>
-  <section id="appInterface"><h3>App Interface</h3>
-    <p>Create the components of a TodoApp with next UI (for now, we do not care about the Styles)</p>
-    <a href="images/Selection_063.png"><img src="images/Selection_063.png"></a>
-  </section>
-  <section><h3>Functionality</h3>
-    <dl class="fa">
-      <dt>Input form for entering new Todo item</dt>
-      <dd>Write event handler, which will at least print the Todo text in  the console</dd>
-      <dt>A list of no more than 10 Todo Items to be shown.</dt>
-      <dt>Each Todo Item row should contain:</dt>
-      <dd>Todo Title, Edit and Delete buttons</dd>
-      <dt>A Delete All button, which will delete all of the Todos </dt>
-    </dl>
-  </section>
-  <section><h3>The Data</h3>
-    <dl class="fa">
-      <dt>Todos data to be fetched from <a href="https://jsonplaceholder.typicode.com/todos">jsonplaceholder.typicode.com/todos</a> endpoint</dt>
-      <dd>Write a function, which will fetch the data using the <a href="http://127.0.0.1:2222/ProgressBG-JS-Advanced_React/pages/themes/AJAX/AJAX.html#/4">Fetch API</a></dd>
-    </dl>
-  </section>
+	<section id="appInterface"><h3>App Interface</h3>
+		<p>Create the components of a TodoApp with next UI (for now, we do not care about the Styles)</p>
+		<a href="images/Selection_063.png"><img src="images/Selection_063.png"></a>
+	</section>
+	<section><h3>Functionality</h3>
+		<dl class="fa">
+			<dt>Input form for entering new Todo item</dt>
+			<dd>Write event handler, which will at least print the Todo text in  the console</dd>
+			<dt>A list of no more than 10 Todo Items to be shown.</dt>
+			<dt>Each Todo Item row should contain:</dt>
+			<dd>Todo Title, Edit and Delete buttons</dd>
+			<dt>A Delete All button, which will delete all of the Todos </dt>
+		</dl>
+	</section>
+	<section><h3>The Data</h3>
+		<dl class="fa">
+			<dt>Todos data to be fetched from <a href="https://jsonplaceholder.typicode.com/todos">jsonplaceholder.typicode.com/todos</a> endpoint</dt>
+			<dd>Write a function, which will fetch the data using the <a href="http://127.0.0.1:2222/ProgressBG-JS-Advanced_React/pages/themes/AJAX/AJAX.html#/4">Fetch API</a></dd>
+		</dl>
+	</section>
 </section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-   <p>These slides are based on</p>
-   <p>customised version of </p>
-   <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-   <p>framework</p>
+	 <p>These slides are based on</p>
+	 <p>customised version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-    </div>
-  </div>
-  <!-- Custom processing -->
-  <script src="../../../outfit/js/slides.js"></script>
-  <!-- external scripts -->
-  <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
-  <script src="../../../lib/reveal.js/js/reveal.js"></script>
-  <!-- init reveal -->
-  <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    var highlightjsTabSize = '  ';
-      Reveal.initialize({
-      controls: true,
-      progress: true,
-      slideNumber: 'c/t',
-      keyboard: true,
-      history: true,
-      center: true,
-      width: '100%',
-      height: '100%',
-      // slide transition
-      transition: 'concave', // none/fade/slide/convex/concave/zoom
-      // Factor of the display size that should remain empty around the content
-      margin: 0.1,
-      // shift+maous click to zoom in/out element
-      zoomKey: 'ctrl',
-      // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      // transition: Reveal.getQueryHash().transition || 'default'
-      // Optional reveal.js plugins
-      dependencies: [
-        { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-        { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-        { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
-      ]
-    });
-  </script>
-  <!-- linkedin badge -->
-  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="../../../lib/reveal.js/js/reveal.js"></script>
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+			Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: '100%',
+			height: '100%',
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
 </html>

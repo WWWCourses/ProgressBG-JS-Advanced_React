@@ -125,18 +125,20 @@
 		<dt><span class="note">A Hook is a special function that lets you “hook into” React features</span></dt>
 	</dl>
   </section>
-  <section><h3>Why using Hooks?></h3>
+  <section><h3>Why using Hooks?</h3>
   	<dl class="fa">
   		<dt>If you write a function component and realize you need to add some state to it, previously you had to convert it to a class.</dt>
   		<dt><span class="note">With React Hooks you can use a Hook inside the existing function component.</span></dt>
   	</dl>
   </section>
   <section><h3>Why using Hooks?</h3>
-	<p>An exelent explanation be the Dan Abramov</p>
+	<p>An excellent explanation be the Dan Abramov</p>
 	<iframe width="697" height="393" src="https://www.youtube.com/embed/dpw9EHDh2bM"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
   <section><h3>The useState() hook - basic syntax</h3>
   	<pre><code rel="Syntax" class="js">
+		import { useState } from 'react';
+
   		# In next syntax, the JS "Array Destructuring" syntax is used:
   		const [stateVal, setStateVal] = useState(initialState);
   	</code></pre>
@@ -155,15 +157,17 @@
   		<dd>The function will receive the previous value, and return an updated value.</dd>
   	</dl>
   	<pre><code rel="JS" class="js">
+		import { useState } from 'react';
+
   		function Counter({initialCount}) {
   		  const [count, setCount] = useState(initialCount);
   		  return (
-  		    <div>
+  		    &lt;div&gt;
   		      Count: {count}
-  		      <button onClick={() => setCount(initialCount)}>Reset</button>
-  		      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
-  		      <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
-  		    </div>
+  		      &lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
+  		      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
+  		      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
+  		    &lt;/div&gt;
   		  );
   		}
   	</code></pre>
