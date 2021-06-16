@@ -208,6 +208,13 @@ a.home_link{
   /*opacity: 1;*/
   /*z-index: 102;*/
 }
+
+.help_link:hover{
+  cursor: progress;
+}
+.help_link:hover+.help_text{
+  display: inline-block;
+}
 .reveal .help_text{
   display: none;
   position: absolute;
@@ -215,9 +222,16 @@ a.home_link{
   min-width: 10em;
   padding: 1em;
   font-size: .7em;
-  background: #CCC;
+  /* background: #CCC; */
+  background: rgb(248, 244, 219);
   color: #333;
-  border-radius: 30%;
+  border-radius: 10%;
+}
+.help_text div{
+  line-height: 1.3em;
+}
+.help_text div.print-howto{
+  font-size: .8em;
 }
 .help_text span:nth-child(1){
     font-weight: bold;
@@ -229,12 +243,6 @@ a.home_link{
 .help_text span:nth-child(2){
   margin-left: .5em;
   font-style: italic;
-}
-.help_link:hover{
-  cursor: progress;
-}
-.help_link:hover+.help_text{
-  display: inline-block;
 }
 .theme_switch a{
     opacity: 0.4;
