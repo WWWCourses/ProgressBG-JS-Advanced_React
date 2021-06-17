@@ -92,13 +92,14 @@
 		<dl class="fa">
 			<dt>Install <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
 			<dd>To prevent polluting your global environment, it's recommended to install NPM packages locally, i.e. without the <code>-g</code> option.</dd>
+			<dd>Also, if we need the package just for dev purpose , then it's recommended to install it as <span class="note">dev dependency</span></dd>
 		</dl>
 		<pre><code rel="Terminal" class="bash">
 			# navigate to your project root folder
 			$ cd /path/to/TodoApp
 
-			# install json-server package
-			npm install json-server
+			# install locally json-server package as dev dependency:
+			npm install json-server --save-dev
 		</code></pre>
 	</section>
 	<section><h3>Create the DB file</h3>
