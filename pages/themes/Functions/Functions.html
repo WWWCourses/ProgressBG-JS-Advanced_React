@@ -74,6 +74,7 @@
     </section>
 </section>
 
+<section><h1>Defining Functions</h1></section>
 <section><h2>Defining Functions</h2>
     <section><h3>Function declaration</h3>
         <pre><code rel="JS">
@@ -191,6 +192,7 @@
     </section>
 </section>
 
+<section><h1>Immediately-invoked function expressions (IIFE)</h1></section>
 <section><h2>Immediately-invoked function expressions (IIFE)</h2>
     <section>
         <h3><abbr>IIFE</abbr><dfn id="IIFE"><span>Immediately</span><span>Invoked</span><span>Function</span><span>Expression</span></dfn></h3>
@@ -221,6 +223,7 @@
     </section>
 </section>
 
+<section><h1>Functions as first-class citizens</h1></section>
 <section><h2>Functions as first-class citizens</h2>
     <section>
         <p>From its creation back in 1995, JavaScript supports function as <span class="note">first-class</span> citizens (objects)</p>
@@ -283,6 +286,7 @@
 </section>
 
 
+<section><h1>Scope</h1></section>
 <section><h2>Scope</h2>
     <section>
         <dl class="fa">
@@ -304,6 +308,8 @@
     </section>
 </section>
 
+
+<section><h1>Closures</h1></section>
 <section><h2>Closures</h2>
     <section><h3>What is?</h3>
         <dl class="fa">
@@ -466,13 +472,22 @@
     </section>
 </section>
 
+
+<section><h1>Recursion</h1></section>
 <section><h2>Recursion</h2>
     <section>
-        <dl class="fa">
+        <dl class="fa" style="font-size: 0.8em;">
             <dt>A recursive function is a function which <span class="note">calls itself</span> (directly or indirectly)</dt>
             <dt>Each call creates a separate function stack (space in memory)!</dt>
             <dt>Recursion can be endless if we do not take care when it has to stop!</dt>
         </dl>
+    </section>
+    <section><h3 class="advanced">Function Call Stack</h3>
+        <dl class="fa">
+            <dt>Function call stack (or just "the call stack" or "the stack") is a place in RAM which is created for maintaining the local variables and parameters during function execution</dt>
+            <dt>After the function finish its job, i.e. returns to the calling function, the stack is removed.</dt>
+        </dl>
+        <a href="./images/Function_Call_stack_layout.svg.png"><img src="./images/Function_Call_stack_layout.svg.png" alt=""></a>
     </section>
     <section><h3>Calculate Factorial - definition</h3>
         <dl class="fa">
