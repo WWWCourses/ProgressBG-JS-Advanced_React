@@ -270,15 +270,26 @@
 		</code></pre>
 	</section>
 	<section><h3>TASK: The Factory as mechanism to enforce encapsulation</h3>
-		<p>Implement the <code>developer</code> factory function, such that the given output will be as the one given below:</p>
+		<p>Implement the <code>devFactory</code> factory function, which creates objects:</p>
+		<pre><code rel="devFactory Object Type" class="js">
+			// properties
+			name: string,
+			salary: number,
+
+			// methods
+			getSalary()
+				returns salary
+			increaseSalary(incrValue, pass)
+				 increments salary with incrValue, if pass == 'abracadabra'
+		</code></pre>
 		<pre><code rel="JS" class="js">
 			"use strict";
-			let developer = function(name, salary){
+			let devFactory = function(name, salary){
 				// YOUR CODE HERE
 			}
 
-			let dev1 = developer('Peter', 1000);
-			let dev2 = developer('Maria', 1200);
+			let dev1 = devFactory('Peter', 1000);
+			let dev2 = devFactory('Maria', 1200);
 
 			console.log(`${dev1.name} salary is ${dev1.getSalary()}`);
 			console.log(`${dev2.name} salary is ${dev2.getSalary()}`);
@@ -402,7 +413,7 @@
 	<section><h3>Property names</h3>
 		<dl class="fa">
 			<dt>Property names must be strings</dt>
-			<dt>If they are not, JavaScript try to typecast them</dt>
+			<dt>If they are not, JavaScript try to <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type_Conversion">typecast</a> them</dt>
 		</dl>
 	</section>
 	<section><h3>Accessing properties - the dot notation</h3>
@@ -411,7 +422,7 @@
 			object.property = set;
 		</code></pre>
 		<dl class="fa">
-			<dt><code>property</code> must be a valid identifier!</dt>
+			<dt><code>property</code> name must be a valid <a href="https://developer.mozilla.org/en-US/docs/Glossary/Identifier">identifier</a>!</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
 			var obj = {};
@@ -505,11 +516,13 @@
 	</section>
 </section>
 
-<section style="font-size: .8em"><h2>Exercises</h2>
-	<section><h3>The Factory Pattern - exercise (smartLogger)</h3>
+
+<section style="font-size: .8em"><h1>Exercises</h1></section>
+<section style="font-size: .8em"><h2>The Factory Pattern - exercise (smartLogger)</h2>
+	<section><h3>The Task</h3>
 		<dl class="fa">
-			<dt>TASK: implement a <code>logger</code> object, whose methods <code>log()</code> and <code>dir()</code> works on top of the standard <code>console</code> methods, but log a message if the script is running under developers/test environment, and outputs nothing, if the script is started on production environment.
-			<dt>Tips: you can simulate a development or production environment by using the simple  <a href="https://www.npmjs.com/package/live-server">live-server</a>. Start it with two instances on different posts and test your logger on them.</dt>
+			<dt>Implement a <code>logger</code> object, whose methods <code>log()</code> and <code>dir()</code> works on top of the standard <code>console</code> methods, but log a message only if the script is running on a development environment, and outputs nothing, if the script is started on production environment.</dt>
+			<dt>Tips: you can simulate a development or production environment by using the simple  <a href="https://www.npmjs.com/package/live-server">live-server</a>. Start it with two instances on different posts and test your smartLogger on them.</dt>
 			<dt>You can get the port from JavaScript with <a href="https://www.w3schools.com/jsref/prop_loc_port.asp"><code>location.port</code></a> property.</dt>
 		</dl>
 	</section>
