@@ -522,8 +522,11 @@
 	<section><h3>The Task</h3>
 		<dl class="fa">
 			<dt>Implement a <code>logger</code> object, whose methods <code>log()</code> and <code>dir()</code> works on top of the standard <code>console</code> methods, but log a message only if the script is running on a development environment, and outputs nothing, if the script is started on production environment.</dt>
-			<dt>Tips: you can simulate a development or production environment by using the simple  <a href="https://www.npmjs.com/package/live-server">live-server</a>. Start it with two instances on different posts and test your smartLogger on them.</dt>
-			<dt>You can get the port from JavaScript with <a href="https://www.w3schools.com/jsref/prop_loc_port.asp"><code>location.port</code></a> property.</dt>
+			<dt>Tips: you can simulate a development or production environment by using a variable, like:</dt>
+			<dd><code>const devEnv = 1</code> => for development env.</dd>
+			<dd><code>const devEnv = 0</code> => for production env.</dd>
+			<!-- <dt>Tips: you can simulate a development or production environment by using the simple  <a href="https://www.npmjs.com/package/live-server">live-server</a>. Start it with two instances on different posts and test your smartLogger on them.</dt>
+			<dt>You can get the port from JavaScript with <a href="https://www.w3schools.com/jsref/prop_loc_port.asp"><code>location.port</code></a> property.</dt> -->
 		</dl>
 	</section>
 </section>
