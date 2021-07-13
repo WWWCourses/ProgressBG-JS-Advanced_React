@@ -151,9 +151,36 @@
 			console.log(`new_array=${arr2}`);
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
+		'tmp':function(){
+		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+			// class User {
+			// 	constructor(userName) {
+			// 		this.userName = userName;
+			// 	}
+
+			// 	greet() {
+			// 		console.log(`Hi, I'm ${this.userName}`);
+			// 	}
+			// }
+			function User(userName) {
+				this.userName = userName
+			}
+			User.prototype.greet = function () {
+				console.log(`Hi, I'm ${this.userName}`);
+			}
+
+			const pesho = new User('Peter');
+
+			// Calling greet method immediately: works ok
+			// pesho.greet();
+
+			// Calling greet method after 3sec: bug!
+			setTimeout(pesho.greet,3);
+		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+		}
 	}
 
-	examples.filterEven();
+	examples.tmp();
 </script>
 </body>
 </html>

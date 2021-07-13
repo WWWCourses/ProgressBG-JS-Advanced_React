@@ -331,84 +331,87 @@
 
 <section data-min="5"><h1>Exercises</h1></section>
 <section><h2>Exercises</h2>
-  <section style="font-size:.6em;" id="DeveloperManagerPersonTaskDescription"><h3>Developer_Manager_Person - task description</h3>
-  	<dl class="fa">
-  		<dt>Create a <span class="note">Person Constructor</span> with following fields:</dt>
-  		<dd><code class="note">name</code>: string</dd>
-  		<dd><code class="note">age</code>: numbers</dd>
-  		<dd><code class="note">greet</code>: function, which prints out 'Hi, I'm ${this.name} and I'm ${this.age} years old'</dd>
-  		<dt>Create a <span class="note">Developer Constructor</span> with following fields:</dt>
-  		<dd><code class="note">name</code>: string</dd>
-  		<dd><code class="note">age</code>: numbers</dd>
-  		<dd><code class="note">skillset</code>: array of a developer skillsets</dd>
-  		<dt>Create a <span class="note">Manager Constructor</span> with following fields:</dt>
-  		<dd><code class="note">name</code>: string</dd>
-  		<dd><code class="note">age</code>: numbers</dd>
-  		<dd><code class="note">managees</code>: array of managee developers</dd>
-  		<dt class="note">The Developer and Manager objects should inherit from Person the <code>greet</code> method</dt>
-  	</dl>
-  </section>
-  <section style="font-size:.6em;" id="DeveloperManagerPersonCodeTemplate"><h3>Developer_Managaer_Person - code template</h3>
-  	<p>You can use the next code template to bootstrap your solution:</p>
-  	<pre><code rel="JS" class="js">
-  		// Person constructor
-  		let Person = function(name, age){
-  		  // your code here ...
-  		}
-  		// Person methods
-  		// your code here ...
+	<section style="font-size:.8em;" id="DeveloperManagerPersonTaskDescription"><h3>Developer_Manager_Person - Task Description</h3>
+		<dl class="fa">
+			<dt>Create a <span class="note">Person Constructor</span> with following fields:</dt>
+			<dd><code class="note">name</code>: string</dd>
+			<dd><code class="note">age</code>: numbers</dd>
+			<dd><code class="note">greet</code>: function, which prints out 'Hi, I'm ${this.name} and I'm ${this.age} years old'</dd>
+			<dt>Create a <span class="note">Developer Constructor</span> with following fields:</dt>
+			<dd><code class="note">name</code>: string</dd>
+			<dd><code class="note">age</code>: numbers</dd>
+			<dd><code class="note">skillset</code>: array of a developer skillsets</dd>
+			<dt>Create a <span class="note">Manager Constructor</span> with following fields:</dt>
+			<dd><code class="note">name</code>: string</dd>
+			<dd><code class="note">age</code>: numbers</dd>
+			<dd><code class="note">managed</code>: array of developers being managed</dd>
+			<dt style="font-weight: bold; font-style: italic;">The Developer and Manager objects should reuse the Person Constructor and should inherit from Person the <code>greet</code> method!</dt>
+		</dl>
+	</section>
+	<section style="font-size:.8em;" id="DeveloperManagerPersonCodeTemplate"><h3>Developer_Manager_Person -  Template</h3>
+		<p>You can use the next code template to bootstrap your solution:</p>
+		<pre><code rel="Developer_Manager_Person.js" class="js">
+			/* --------------------------- Person constructor --------------------------- */
+			function Person(name, age){
+				// your code here ...
+			}
+			// Person greet method
+			// your code here ...
 
-  		// Manager constructor
-  		let Manager = function(name, age, managees){
-  		  // your code here ...
-  		}
-  		// Manager objects should inherit all methods from Person:
-  		// your code here ...
 
-  		// Developer constructor
-  		let Developer = function(name, age, skillset){
-  		  // your code here ...
-  		}
-  		// Developer objects should inherit all methods from Person:
-  		// your code here ...
+			/* --------------------------- Manager constructor -------------------------- */
+			function Manager(name, age, managed){
+				// reuse Person constructor
+				// your code here ...
+			}
+			// Manager objects should inherit all methods from Person:
 
-  		// Developer instance
-  		let maria = new Developer('Maria Popova', 23, ['Python', 'Machine Learning']);
-  		let pesho = new Developer('Petar Petrov', 19, ['JavaScript', 'Angular', 'React', 'Vue']);
 
-  		// Manager instance
-  		let gates = new Manager('Bill Gates', 43, [maria, pesho]);
+			/* -------------------------- Developer constructor ------------------------- */
+			function Developer(name, age, skillset){
+				// reuse Person constructor
+				// your code here ...
+			}
+			// Developer objects should inherit all methods from Person:
 
-  		// use the objects:
-  		maria.greet();
-  		pesho.greet();
-  		gates.greet();
-  	</code></pre>
-  </section>
-  <section style="font-size:.6em;" id="DeveloperManagerPersonExpectedResults"><h3>Developer_Managaer_Person - expected results</h3>
-  	<pre><code rel="JS" class="js">
-  		Hi, I'm Maria Popova and I'm 23 years old
+			/* ----------------------------- Create Objects ----------------------------- */
+			// Developer instances
+			let maria = new Developer('Maria Popova', 23, ['Python', 'Machine Learning']);
+			let pesho = new Developer('Petar Petrov', 19, ['JavaScript', 'Angular', 'React', 'Vue']);
 
-  		Hi, I'm Petar Petrov and I'm 19 years old
+			// Manager instances
+			let gates = new Manager('Bill Gates', 43, [maria, pesho]);
 
-  		Hi, I'm Bill Gates and I'm 43 years old
-  	</code></pre>
-  </section>
-  <section style="font-size:.6em;" id="DeveloperManagerPersonAdvancedTaskDescription"><h3>Developer_Manager_Person - advanced task description</h3>
-  	<dl class="fa">
-  		<dt>Overwrite the <code>greet()</code> method for Developer and Manager objects, such that the same code execution as given in the <a href="#DeveloperManagerPersonCodeTemplate">previous template</a> will produce next output:</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-  		Hi, I'm Maria Popova and I'm 23 years old
-  		  I know Python,Machine Learning
+			/* ----------------------------- Use the objects ---------------------------- */
+			maria.greet();
+			pesho.greet();
+			gates.greet();
+		</code></pre>
+	</section>
+	<section style="font-size:.8em;" id="DeveloperManagerPersonExpectedResults"><h3>Developer_Manager_Person - Expected Results</h3>
+		<pre><code rel="Terminal" class="bash">
+			Hi, I'm Maria Popova and I'm 23 years old
 
-  		Hi, I'm Petar Petrov and I'm 19 years old
-  		  I know JavaScript,Angular,React,Vue
+			Hi, I'm Petar Petrov and I'm 19 years old
 
-  		Hi, I'm Bill Gates and I'm 43 years old
-  		    I manage Maria Popova,Petar Petrov,
-  	</code></pre>
-  </section>
+			Hi, I'm Bill Gates and I'm 43 years old
+		</code></pre>
+	</section>
+	<section style="font-size:.8em;" id="DeveloperManagerPersonAdvancedTaskDescription"><h3>Developer_Manager_Person_Advanced - Task Description</h3>
+		<dl class="fa">
+			<dt>Overwrite the <code>greet()</code> method for Developer and Manager objects, such that the same code execution as given in the previous task template will produce next output:</dt>
+		</dl>
+		<pre><code rel="Terminal" class="js">
+			Hi, I'm Maria Popova and I'm 23 years old
+			I know Python,Machine Learning
+
+			Hi, I'm Petar Petrov and I'm 19 years old
+			I know JavaScript,Angular,React,Vue
+
+			Hi, I'm Bill Gates and I'm 43 years old
+			I manage Maria Popova,Petar Petrov,
+		</code></pre>
+	</section>
 </section>
 
 <!-- <section data-notes="20min"><h2>SectionTitle</h2>

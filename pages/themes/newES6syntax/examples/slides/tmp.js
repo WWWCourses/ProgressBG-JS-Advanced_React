@@ -1,9 +1,14 @@
-let p1 = {
-  name: 'Pesho',
-  greet(){
-    console.log(`Hi, I'm ${this.name}`);
-  }
+function User(userName) {
+  this.userName = userName
+}
+User.prototype.greet = function () {
+  console.log(`Hi, I'm ${this.userName}`);
 }
 
+const pesho = new User('Peter');
 
-p1.greet();
+// Calling greet method immediately: works ok
+pesho.greet();
+
+// Calling greet method after 2sec: bug!
+setTimeout(pesho.greet,2000);

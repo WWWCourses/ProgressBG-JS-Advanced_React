@@ -17,8 +17,21 @@
 
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
-		'examp1':function(){
+		'arguments':function(){
 		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+			function add() {
+				console.dir(arguments);
+				let sum = 0;
+				for (let i = 0; i < arguments.length; i++) {
+					sum+=arguments[i]
+				}
+				return sum;
+			}
+
+			console.log(`add(1,2):${add(1,2)}`);
+			console.log(`add(1,2,3):${add(1,2,3)}`);
+			console.log(`add(1,2,3,4):${add(1,2,3,4)}`);
+
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
 		'examp1':function(){
@@ -27,7 +40,7 @@
 		},
 	}
 
-	examples.methodApply();
+	examples.arguments();
 </script>
 </body>
 </html>

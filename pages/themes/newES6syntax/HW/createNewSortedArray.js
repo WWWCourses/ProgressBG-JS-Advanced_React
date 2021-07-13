@@ -1,5 +1,5 @@
 // Given is an array of users: users = ["Maria", "Ada", "Ivan"];
-// Task: write the code which will create a NEW ARRAY (i.e. do not change the users array), with alphabetically sorted (in ascendant order) elements of users array
+// Task: write the code which will create a NEW ARRAY (i.e. do not change the users array), with alphabetically sorted (in ascending order) elements of users array
 
 // <--- YOUR CODE HERE --->
 
@@ -9,7 +9,7 @@ console.log(`usersSortedAlphabetically:\n\t${usersSortedAlphabetically}`);
 
 // OUTPUT:
 // users:
-//		Maria,Ada,Ivan
+//  Maria,Ada,Ivan
 //
 // usersSortedAlphabetically:
-//		Ada,Ivan,Maria
+//  Ada,Ivan,Maria

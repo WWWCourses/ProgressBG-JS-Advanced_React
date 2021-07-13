@@ -100,11 +100,17 @@
             // function properties:
             console.log(`foo.name: ${foo.name}`);// name of the function
             console.log(`foo.length: ${foo.length}`); // arguments count
-
+        </code></pre>
+    </section>
+    <section><h3></h3>
+        <pre><code rel="Function Call" class="js">
+            function foo(x,y) {
+                console.log(`x:${x}, y: ${y}`);
+                console.log(`this: ${this}`);
+            }
             // normal function call (note the 'this' value):
             console.log(`Normal foo()call:`);
             foo(2,3);
-
 
             // function methods (note the 'this' value):
             console.log(`Calling foo() with apply():`);
@@ -118,9 +124,55 @@
             new_foo(8,9);
         </code></pre>
     </section>
+    <section><h3>arguments object</h3>
+        <dl class="fa">
+            <dt>Reference:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments">arguments object</a></dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            function add() {
+				console.dir(arguments);
+				let sum = 0;
+				for (let i = 0; i < arguments.length; i++) {
+					sum+=arguments[i]
+				}
+				return sum;
+			}
+
+			console.log(`add(1,2):${add(1,2)}`);
+			console.log(`add(1,2,3):${add(1,2,3)}`);
+			console.log(`add(1,2,3,4):${add(1,2,3,4)}`);
+        </code></pre>
+    </section>
 </section>
 
+<section data-min="0"><h1>Exercises</h1></section>
+<section><h2>Exercises</h2>
+    <section id="HW_fixTheBug"><h3>Task: fix the bug</h3>
+        <dl class="fa">
+            <dt>In next example, a User constructor is defined.</dt>
+            <dt>The greet() methods works as expected, when called immediately, but when we pass it to setTimeout(), we don't have the expected output.</dt>
+            <dt>You're task is to fix the bug.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            function User(userName) {
+                this.userName = userName
+              }
+              User.prototype.greet = function () {
+                console.log(`Hi, I'm ${this.userName}`);
+              }
 
+              const pesho = new User('Peter');
+
+              // Calling greet method immediately: works ok
+              pesho.greet();
+              // Hi, I'm Peter
+
+              // Calling greet method after 2sec: bug!
+              setTimeout(pesho.greet,2000);
+              // Hi, I'm undefined
+        </code></pre>
+    </section>
+</section>
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
      <p>These slides are based on</p>
      <p>customised version of </p>

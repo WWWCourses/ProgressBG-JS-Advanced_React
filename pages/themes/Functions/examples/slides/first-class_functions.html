@@ -66,9 +66,26 @@
 			(function(x,y){
 				console.log( x+y );
 			})(2,3);
+		},
+		'callback': function() {
+			function caller(f) {
+				// f is a "callback function"
+				f()
+			}
+
+			function foo(){
+				console.log(`Foo`);
+			}
+
+			caller(foo);
+		},
+		'addEventListener':function(){
+			window.addEventListener('load', function(event){
+				console.log('The page is fully loaded');
+			});
 		}
 	}
-	examples.IIFE();
+	examples.addEventListener();
 
 
 	// var add;
